@@ -47,10 +47,11 @@
   /* ---------- sections ---------- */
   const R = {};
 
+  /* Above the banner: two rows of oversized type moving in opposite directions (hero.marquee: rows of [text, style],
+     style b = solid caps, o = outlined caps, i = serif italic). */
   R.hero = (S) => {
-    const names = allPrograms(S).concat(["Mutual Major", "Coach Says Live", "Mutual Grounds Market"]);
-    const items = names.map((n) => `<span>${esc(n)}</span><i></i>`).join("");
-    return `<div class="ticker" aria-hidden="true"><div class="ticker-track">${items}${items}</div></div>
+    const row = (r) => { const one = r.map(([t, k]) => k === "i" ? `<i>${esc(t)}</i>` : `<b${k === "o" ? ' class="o"' : ""}>${esc(t)}</b>`).join(""); return one + one + one + one; };
+    return `<div class="bigmq" aria-hidden="true">${(S.hero.marquee || []).map((r, k) => `<div class="bigmq-row${k % 2 ? " rev" : ""}">${row(r)}</div>`).join("")}</div>
       <div class="hero-media">
         <video autoplay muted loop playsinline preload="metadata" poster="${esc(S.hero.poster)}">${S.hero.video_mobile ? `<source src="${esc(S.hero.video_mobile)}" type="video/mp4" media="(max-width:760px)">` : ""}<source src="${esc(S.hero.video)}" type="video/mp4"></video>
       </div>

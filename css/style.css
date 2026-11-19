@@ -417,3 +417,13 @@ button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
 }
 .ab-pil.flip .wrap{grid-template-columns:1.15fr .85fr}
 @media (max-width:760px){.ab-pil.flip .wrap{grid-template-columns:1fr}}
+
+/* Homepage: big headline marquee above the banner (replaces the programme-name ticker) */
+.bigmq{background:var(--bg);overflow:hidden;padding:18px 0 12px;border-bottom:1px solid var(--line)}
+.bigmq-row{display:flex;width:max-content;gap:44px;align-items:baseline;white-space:nowrap;animation:tick 46s linear infinite;padding-right:44px}
+.bigmq-row.rev{animation-direction:reverse;animation-duration:58s;margin-top:-6px}
+.bigmq b{font-family:var(--f-head);font-weight:800;font-stretch:118%;text-transform:uppercase;font-size:84px;line-height:1;letter-spacing:-.02em;color:var(--green)}
+.bigmq i{font-family:var(--f-serif);font-style:italic;font-size:92px;line-height:1;color:var(--green)}
+.bigmq .o{color:transparent;-webkit-text-stroke:1.5px var(--green)}
+@media (max-width:760px){.bigmq{padding:12px 0 8px}.bigmq b{font-size:44px}.bigmq i{font-size:50px}.bigmq-row{gap:24px;padding-right:24px}.bigmq .o{-webkit-text-stroke-width:1px}}
+@media (prefers-reduced-motion:reduce){.bigmq-row{animation:none}}

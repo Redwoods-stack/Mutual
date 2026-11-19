@@ -30,7 +30,45 @@
   "poster": "assets/video/showreel-poster.jpg",
   "kicker": "Mutual Golf · Media, products & experiences",
   "line": "Tournaments, shows and community nights — the stories, people and places that make golf a lifestyle.",
-  "video_mobile": "assets/video/showreel-720.mp4"
+  "video_mobile": "assets/video/showreel-720.mp4",
+  "marquee": [
+   [
+    [
+     "The new culture",
+     "b"
+    ],
+    [
+     "of golf",
+     "i"
+    ],
+    [
+     "The new culture",
+     "o"
+    ],
+    [
+     "of golf",
+     "i"
+    ]
+   ],
+   [
+    [
+     "On every screen",
+     "i"
+    ],
+    [
+     "and off it",
+     "o"
+    ],
+    [
+     "On every screen",
+     "i"
+    ],
+    [
+     "and off it",
+     "b"
+    ]
+   ]
+  ]
  },
  "stats": [
   {

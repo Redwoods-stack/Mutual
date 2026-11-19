@@ -124,3 +124,9 @@ colours and type are Mutual's own.
 - Local testing: `node scripts/serve.js <port>` (python's http.server cannot serve the clean addresses).
 
 - `googlee8a6faaf4ec20a18.html` at the root is the Google Search Console ownership file — keep it, never delete or rename.
+
+## Homepage top strip (Nov 2026)
+- Owner chose "B · Big headline": the programme-name ticker is replaced by `.bigmq`, two rows of oversized type moving in opposite
+  directions (`hero.marquee` in site.json: rows of [text, style]; b = solid caps, o = outlined caps, i = serif italic).
+  Other options shown and not chosen: logo strip, "Now showing" bar, thumbnail filmstrip.
+- When piping `scripts/prerender.js` output, never cut it with `head` — that kills it mid-run and leaves pages without content.
