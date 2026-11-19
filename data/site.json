@@ -24,10 +24,11 @@
   "group": "Part of Redwoods Digital Growth Group"
  },
  "hero": {
-  "video": "assets/video/showreel.mp4",
+  "video": "assets/video/showreel-1080.mp4",
   "poster": "assets/video/showreel-poster.jpg",
   "kicker": "Mutual Golf · Media, products & experiences",
-  "line": "Tournaments, shows and community nights — the stories, people and places that make golf a lifestyle."
+  "line": "Tournaments, shows and community nights — the stories, people and places that make golf a lifestyle.",
+  "video_mobile": "assets/video/showreel-720.mp4"
  },
  "stats": [
   {
@@ -77,8 +78,10 @@
    ],
    "names": [
     "Golf 60",
+    "Off Course",
     "Hot Takes",
-    "One Hole With"
+    "One Hole With",
+    "re:store"
    ]
   },
   {
@@ -153,7 +156,7 @@
    {
     "name": "Golf Tour",
     "short": "Golf beyond the fairway",
-    "text": "Explores golf spaces — courses, driving ranges, golf cafés and communities — and the places, people and culture that shape modern golf.",
+    "text": "Explores golf spaces — courses, driving ranges, golf cafés and communities — and the places, people and culture that shape modern golf. Hosted by Jonathan Rian and Edward Halim.",
     "img": "assets/img/yt-tour.jpg"
    },
    {
@@ -171,6 +174,12 @@
     "img": "assets/img/v-golf60.jpg"
    },
    {
+    "name": "Off Course",
+    "short": "The story behind the swing",
+    "text": "Goes beyond the scorecard to uncover the real stories behind every swing — why golfers started, what keeps them hooked and what makes golf unlike any other sport.",
+    "img": "assets/img/v-offcourse.jpg"
+   },
+   {
     "name": "Hot Takes",
     "short": "Rapid-fire this-or-that",
     "text": "Golfers on the spot with quick this-or-that choices — favourite courses, gear, routines, playlists and traditions.",
@@ -181,6 +190,12 @@
     "short": "One hole, one story",
     "text": "A community-driven Reel series where golfers share one hole, one moment and one story from their round.",
     "img": "assets/img/v-onehole.jpg"
+   },
+   {
+    "name": "re:store",
+    "short": "Second thoughts on new releases",
+    "text": "Revisits new releases with second thoughts and fresh perspectives — how golf equipment, fashion and accessories change in meaning over time.",
+    "img": "assets/img/v-restore.jpg"
    }
   ],
   "editorial": [
@@ -219,16 +234,16 @@
    "img": "assets/img/ev-charity.jpg",
    "stats": [
     [
-     "350.6K+",
+     "291.6K+",
      "media views"
     ],
     [
-     "150+",
-     "visitors"
+     "123+",
+     "participants"
     ],
     [
      "52",
-     "sponsors & supporters"
+     "sponsors"
     ]
    ],
    "tag": "Flagship"
@@ -251,6 +266,10 @@
     [
      "150M+",
      "media views"
+    ],
+    [
+     "1M+",
+     "combined influencer reach"
     ]
    ],
    "tag": "Tournament"
@@ -277,8 +296,8 @@
    "img": "assets/img/ev-major1.jpg",
    "stats": [
     [
-     "30",
-     "players"
+     "50+",
+     "audience"
     ],
     [
      "17",
@@ -287,6 +306,10 @@
     [
      "146M+",
      "media views"
+    ],
+    [
+     "288K",
+     "combined influencer reach"
     ]
    ],
    "tag": "Tournament"
@@ -307,6 +330,10 @@
      "tenants"
     ],
     [
+     "14",
+     "collaborators"
+    ],
+    [
      "204K",
      "media views"
     ]
@@ -317,12 +344,16 @@
    "name": "Coach Says Live",
    "date": "20 Sep 2026",
    "place": "The Range at Damai Indah Golf PIK",
-   "text": "An intimate offline edition of our YouTube series: hands-on coaching on the range, club demos, one-on-one sessions and a friendly place to learn golf.",
+   "text": "An intimate offline edition of our YouTube series: hands-on coaching on the range, club demos, one-on-one sessions and a friendly place to learn golf. A second, invitation-only edition was held with Kiara Society.",
    "img": "assets/img/ev-coach-live.jpg",
    "stats": [
     [
      "41.5K+",
      "media views"
+    ],
+    [
+     "10+",
+     "participants"
     ]
    ],
    "tag": "Clinic"
@@ -365,8 +396,18 @@
   },
   {
    "name": "The Mutual Card",
-   "text": "A community-driven membership that connects golfers, courses and brands with one purpose: growing the game together. Powered by The Card, owned by APLGI.",
+   "text": "A community-driven membership that connects golfers, courses and brands with one purpose: growing the game together. Powered by The Card, owned by APLGI. Three tiers: Infinite, Silver and Millennial.",
    "img": "assets/img/the-card.jpg"
+  },
+  {
+   "name": "Orangegrounds × The Mutual Golf",
+   "text": "A merchandise collaboration with Orangegrounds Golf & Coffee — golf culture meets coffee lifestyle in an everyday apparel piece.",
+   "img": "assets/img/merch-orangegrounds.jpg"
+  },
+  {
+   "name": "Akross × Mutual",
+   "text": "Golf meets outdoor utility: Mutual’s modern golf lifestyle with Akross’ functional approach to outdoor apparel, made for movement from the course to the city.",
+   "img": "assets/img/merch-akross.jpg"
   },
   {
    "name": "Mutual Club activations",
@@ -383,7 +424,10 @@
    "Indonesia Development Open",
    "Swing50n × Garmin",
    "APPI footballers · Play Off",
-   "Mutual Mingle · JNGR Year End ’25"
+   "Mutual Mingle · JNGR Year End ’25",
+   "Indonesia Women’s Open",
+   "Indonesia Golf Festival",
+   "Indonesia Sports Summit 2026"
   ]
  },
  "work": [

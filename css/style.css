@@ -291,3 +291,10 @@ button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
 .logo-panels .lp{padding:14px}
 .logo-panels img{max-height:none;width:100%;height:auto}
 @media (max-width:760px){.logo-panels{grid-template-columns:1fr}}
+
+/* Media Kit 2026 content: five vertical series */
+.reel-row{grid-template-columns:repeat(5,1fr)}
+.prog-list.five{grid-template-columns:repeat(5,1fr);gap:34px 16px;align-items:start}
+.prog-list.five .prog{justify-content:flex-start}
+@media (max-width:1020px){.prog-list.five{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:760px){.reel-row{grid-template-columns:repeat(3,1fr)}.prog-list.five{grid-template-columns:1fr}}

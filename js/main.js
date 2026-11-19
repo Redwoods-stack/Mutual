@@ -48,7 +48,7 @@
     return `<div class="pattern" aria-hidden="true"></div>
       <div class="ticker" aria-hidden="true"><div class="ticker-track">${items}${items}</div></div>
       <div class="hero-media">
-        <video autoplay muted loop playsinline preload="metadata" poster="${esc(S.hero.poster)}"><source src="${esc(S.hero.video)}" type="video/mp4"></video>
+        <video autoplay muted loop playsinline preload="metadata" poster="${esc(S.hero.poster)}">${S.hero.video_mobile ? `<source src="${esc(S.hero.video_mobile)}" type="video/mp4" media="(max-width:760px)">` : ""}<source src="${esc(S.hero.video)}" type="video/mp4"></video>
       </div>
       <div class="ribbon"><div class="wrap"><img src="assets/logos/mutual-black.png" alt="Mutual"><span class="div"></span><p>${esc(S.hero.line)}</p></div></div>`;
   };
@@ -89,8 +89,8 @@
 
   R.products = (S) => `<section class="sec" style="background:var(--cream)"><div class="wrap">
       <div class="sec-head rv"><div><div class="eyebrow">Mutual products</div><h2 class="h-l">We celebrate golf <span class="serif">beyond the sport</span></h2></div><a class="link-arrow" href="products.html">See products</a></div>
-      ${prodGrid(S)}</div></section>`;
-  const prodGrid = (S) => `<div class="prod-grid">${S.products.map((p) => `<div class="prod rv"><div class="p-img${/card/i.test(p.img) ? " contain" : ""}"><img src="${esc(p.img)}" alt="" loading="lazy"></div><div class="p-body"><h3>${esc(p.name)}</h3><p>${esc(p.text)}</p></div></div>`).join("")}</div>`;
+      ${prodGrid(S, 3)}</div></section>`;
+  const prodGrid = (S, n) => `<div class="prod-grid">${S.products.slice(0, n || 99).map((p) => `<div class="prod rv"><div class="p-img${/card/i.test(p.img) ? " contain" : ""}"><img src="${esc(p.img)}" alt="" loading="lazy"></div><div class="p-body"><h3>${esc(p.name)}</h3><p>${esc(p.text)}</p></div></div>`).join("")}</div>`;
 
   R.collab = (S, opts) => `<section class="sec collab"><div class="wrap">
       <div class="sec-head rv"><div><div class="eyebrow">Collaborations</div><h2 class="h-l">Brands we’ve worked with</h2></div>${opts && opts.full ? "" : '<a class="link-arrow" href="collaborations.html">See case studies</a>'}</div>
@@ -113,7 +113,7 @@
 
   R.programsPage = (S) => pageHero("Programs", "Stories from <span class='serif'>every side</span> of golf", "Video-based programs that show the many sides of golf — diverse, true to the spirit of the game, and open to people outside the golf circle.", [["YouTube shows", "#youtube"], ["Vertical series", "#vertical"], ["Feed & editorial", "#editorial"]]) +
     `<section class="sec" id="youtube"><div class="wrap"><div class="sec-head rv"><div><div class="eyebrow">Long-form</div><h2 class="h-l">YouTube shows</h2></div></div>${progCards(S.programs.youtube)}</div></section>
-     <section class="sec" id="vertical" style="background:var(--cream)"><div class="wrap"><div class="sec-head rv"><div><div class="eyebrow">Short-form</div><h2 class="h-l">Vertical series</h2></div></div>${progCards(S.programs.vertical, "three", true)}</div></section>
+     <section class="sec" id="vertical" style="background:var(--cream)"><div class="wrap"><div class="sec-head rv"><div><div class="eyebrow">Short-form</div><h2 class="h-l">Vertical series</h2></div></div>${progCards(S.programs.vertical, "five", true)}</div></section>
      <section class="sec" id="editorial"><div class="wrap"><div class="sec-head rv"><div><div class="eyebrow">Feed</div><h2 class="h-l">Feed & editorial</h2></div></div>${progCards(S.programs.editorial, "four", true)}</div></section>`;
 
   R.eventsPage = (S) => pageHero("Events", "Off the screen, <span class='serif'>onto the course</span>", "Tournaments, a reality show, markets, clinics and community nights — organised, produced and filmed by Mutual.") +
