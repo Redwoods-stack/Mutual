@@ -57,3 +57,12 @@ colours and type are Mutual's own.
   Verticals (900w): v-hottakes (Arswandaru), v-restore (Almay "What's in My Golf Bag").
 - Program logos rebuilt from large masters: playoff.png (logo_r 2.17), golf-tour.png, each with a regenerated -ink twin.
 - Still low-res, no better file in Drive: yt-convert, yt-state, fd-groundwave, club-activations, talent, brands-wall.
+
+## Homepage visuals round 2 (Nov 2026)
+- Removed on owner request: the black brand-logo wall (brands-wall.jpg, on home + Collaborations), the homepage "100+ talent" strip,
+  and the "100+ talent & influencers" figure in the brands band. The image files stay in assets/ but are unused.
+- "On every screen" cards: `pillars[].items` = {name, logo, logo_r, logo_note, img, tall}. Each card cross-fades through its items
+  every 3.2 s (cards start 0.8 s apart); the matching ink logo lights up; hover/tap a logo to pick it. Respects reduced motion.
+  Tall (portrait) images show whole on a blurred copy of themselves. Only sharp images are listed
+  (landscape ≥1000 px wide, portrait ≥800 px tall) — State of Par, Can We Even Swing?, Groundwave and Coach Says Live are left out until better images exist.
+- "Off the screen" band: photo grid of `experience_events` (6 events, by name) with colour logos, linking to Events.

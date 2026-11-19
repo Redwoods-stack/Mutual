@@ -113,12 +113,6 @@ button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
 .exp-cols b{display:block;font-family:var(--f-head);font-weight:800;font-stretch:112%;text-transform:uppercase;font-size:16px;line-height:1.15}
 .exp-cols span{font-size:13px;color:rgba(255,255,255,.75)}
 
-/* talent strip */
-.talent{background:var(--cream);padding:54px 0}
-.talent .wrap{display:grid;grid-template-columns:260px 1fr;gap:36px;align-items:center}
-.talent b{font-family:var(--f-head);font-weight:800;font-stretch:112%;font-size:56px;color:var(--green);line-height:1}
-.talent p{color:var(--ink-2);font-size:14px;margin-top:6px}
-.talent img{width:100%;border-radius:4px}
 
 /* video shelf */
 .shelf{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
@@ -157,8 +151,7 @@ button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
 .collab-nums{display:flex;gap:50px;flex-wrap:wrap;margin:6px 0 34px}
 .collab-nums .stat b{color:var(--lime)}
 .collab-nums .stat span{color:rgba(255,255,255,.8)}
-.wall{background:#000;border-radius:6px;overflow:hidden;padding:10px}
-.wall img{width:100%}
+
 .logo-panels{display:grid;grid-template-columns:1.6fr 1fr;gap:14px;margin-top:14px}
 .logo-panels .lp{background:#fff;border-radius:6px;padding:10px;display:flex;align-items:center;justify-content:center}
 .logo-panels .lp.stack{flex-direction:column;gap:8px;padding:8px}
@@ -265,7 +258,7 @@ button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
   .hero-media{aspect-ratio:4/5}
   .ribbon .wrap{flex-direction:column;align-items:flex-start;gap:12px}
   .ribbon .div{display:none}
-  .intro .grid,.cards-2,.work-grid,.reels .wrap,.talent .wrap,.ev{grid-template-columns:1fr}
+  .intro .grid,.cards-2,.work-grid,.reels .wrap,.ev{grid-template-columns:1fr}
   .intro .grid{gap:20px}
   .stats{display:grid;grid-template-columns:1fr 1fr;gap:18px 16px}
   .stat{flex-direction:column;gap:2px}
@@ -279,7 +272,6 @@ button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
   .prod-grid,.cases,.prog-list,.prog-list.three,.prog-list.four{grid-template-columns:1fr}
   .logo-panels{grid-template-columns:1fr}
   .work{padding:30px 24px}
-  .talent b{font-size:44px}
   .facts{grid-template-columns:1fr 1fr}
   .contact-form{grid-template-columns:1fr}
   .ev{gap:22px;padding:34px 0}
@@ -308,3 +300,39 @@ button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
 .exp-cols .nm-dark{min-height:58px;margin-bottom:8px}
 .prog h3:has(.nm-in){margin-bottom:10px}
 .vid h4:has(.nm-in){margin-top:2px}
+
+/* What we make — cycling cards (thumbnail cross-fades, matching logo lights up) */
+.mk-img{position:relative;display:block;aspect-ratio:16/9;overflow:hidden;background:var(--green-ink)}
+.mk-slide{position:absolute;inset:0;opacity:0;transition:opacity .9s ease}
+.mk-slide.on{opacity:1}
+.mk-slide .mk-pic{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(1.02);transition:transform 4s ease}
+.mk-slide.on .mk-pic{transform:scale(1)}
+.mk-slide.tall .mk-pic{object-fit:contain;transform:none;z-index:1}
+.mk-slide .mk-blur{position:absolute;inset:-30px;width:calc(100% + 60px);height:calc(100% + 60px);object-fit:cover;filter:blur(24px) brightness(.55)}
+.mk-top{color:inherit}
+.mk-logos{margin-top:16px;padding-top:16px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;align-items:center;gap:14px 22px}
+.mk-lg{display:block;padding:0;opacity:.32;transition:opacity .35s,transform .35s;line-height:0}
+.mk-lg img{height:auto;max-height:42px;object-fit:contain;max-width:130px}
+.mk-lg.on{opacity:1;transform:translateY(-2px)}
+.mk-lg:hover,.mk-lg:focus-visible{opacity:1;outline:none}
+
+/* Off the screen — event photo grid */
+.exp .wrap{padding-bottom:100px}
+.exp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:44px}
+.exp-card{display:flex;flex-direction:column;gap:14px}
+.exp-ph{aspect-ratio:4/3;overflow:hidden;border-radius:6px;background:#000}
+.exp-ph img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.exp-card:hover .exp-ph img{transform:scale(1.04)}
+.exp-meta{display:flex;flex-direction:column;gap:6px;border-top:1px solid rgba(255,255,255,.25);padding-top:12px}
+.exp-meta .nm-dark{min-height:44px;align-items:center}
+.exp-meta .nm-logo{max-height:52px;width:auto!important;max-width:200px}
+.exp-date{font-size:13px;color:rgba(255,255,255,.75)}
+.exp-all{color:#fff;margin-top:34px}
+@media (max-width:1020px){.exp-grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:760px){
+  .exp-grid{gap:18px 12px}
+  .exp-meta .nm-logo{max-height:38px;max-width:140px}
+  .exp-date{font-size:12px}
+  .mk-logos{gap:12px 18px}
+  .mk-lg img{max-height:34px;max-width:104px}
+}

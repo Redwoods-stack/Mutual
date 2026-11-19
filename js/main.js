@@ -60,12 +60,14 @@
       <div class="stats rv">${stats(S.stats)}</div>
     </div></section><div class="wrap"><hr class="hair"></div>`;
 
+  /* "What we make" cards: each card cycles through its programs. The thumbnail cross-fades and the matching
+     logo lights up; hovering or tapping a logo picks it. Data: pillars[].items {name, logo, logo_r, logo_note, img, tall}. */
   R.make = (S) => `<section class="sec"><div class="wrap">
       <div class="sec-head rv"><div><div class="eyebrow">What we make</div><h2 class="h-l">On every screen, <span class="serif">and off it</span></h2></div><a class="link-arrow" href="programs.html">All programs</a></div>
-      <div class="cards-2">${S.pillars.map((p) => `<a class="mk rv" href="${esc(p.href)}">
-        <div class="mk-img">${p.images.map((i) => `<img src="${esc(i)}" alt="" loading="lazy">`).join("")}</div>
-        <div class="mk-body"><div class="mk-top"><h3>${esc(p.title)}</h3><span class="circle">→</span></div><p>${esc(p.text)}</p>
-        <div class="mk-names">${p.names.map((n) => `<span>${esc(n)}</span>`).join("")}</div></div></a>`).join("")}</div>
+      <div class="cards-2">${S.pillars.map((p) => `<div class="mk rv" data-cycle>
+        <a class="mk-img" href="${esc(p.href)}" aria-label="${esc(p.title)}">${p.items.map((it, i) => `<div class="mk-slide${it.tall ? " tall" : ""}${i === 0 ? " on" : ""}">${it.tall ? `<img class="mk-blur" src="${esc(it.img)}" alt="" loading="lazy">` : ""}<img class="mk-pic" src="${esc(it.img)}" alt="${esc(it.name)}" loading="lazy"></div>`).join("")}</a>
+        <div class="mk-body"><a class="mk-top" href="${esc(p.href)}"><h3>${esc(p.title)}</h3><span class="circle">→</span></a><p>${esc(p.text)}</p>
+        <div class="mk-logos">${p.items.map((it, i) => `<button type="button" class="mk-lg${i === 0 ? " on" : ""}" aria-label="${esc(it.name)}"><img src="${esc(it.logo.replace(".png", "-ink.png"))}" alt="" style="width:${Math.round(34 * Math.sqrt(it.logo_r || 2))}px"></button>`).join("")}</div></div></div>`).join("")}</div>
     </div></section>`;
 
   /* program / event logos in place of names (data: logo, logo_r, logo_note). Ink version (-ink.png) on light
@@ -73,14 +75,17 @@
   const lgImg = (p, base, ink) => `<img class="nm-logo" src="${esc(ink ? p.logo.replace(".png", "-ink.png") : p.logo)}" alt="${esc(p.name)}" style="width:${Math.round(base * Math.sqrt(p.logo_r || 2))}px">${p.logo_note ? `<i class="nm-note">${esc(p.logo_note)}</i>` : ""}`;
   const nmIn = (p, base) => p.logo ? `<span class="nm-txt">${esc(p.name)}</span><span class="nm-in">${lgImg(p, base, true)}</span>` : esc(p.name);
 
-  R.experience = (S) => `<section class="exp"><img class="exp-bg" src="assets/img/exp-bg.jpg" alt="" loading="lazy"><div class="wrap">
+  R.experience = (S) => {
+    const evs = (S.experience_events || []).map((n) => S.events.find((e) => e.name === n)).filter(Boolean);
+    return `<section class="exp"><img class="exp-bg" src="assets/img/exp-bg.jpg" alt="" loading="lazy"><div class="wrap">
       <div class="eyebrow rv">Experience</div>
       <h2 class="h-l rv">Off the screen, <span class="serif">onto the course</span></h2>
       <p class="lead rv">Tournaments, a reality show, markets, clinics and community nights — Mutual brings its programs to real courses with real people.</p>
-      <div class="exp-cols rv">${S.events.filter((e) => /Major Vol. 2|Grounds|Coach Says|Charity/.test(e.name)).map((e) => `<a href="events.html"><b>${e.logo ? `<span class="nm-dark">${lgImg(e, 78)}</span>` : esc(e.name.replace(" Golf Tournament", ""))}</b><span>${esc(e.date)} · ${esc(e.tag)}</span></a>`).join("")}</div>
+      <div class="exp-grid">${evs.map((e) => `<a class="exp-card rv" href="events.html"><div class="exp-ph"><img src="${esc(e.img)}" alt="${esc(e.name)}" loading="lazy"></div><div class="exp-meta"><span class="nm-dark">${e.logo ? lgImg(e, 64) : esc(e.name)}</span><span class="exp-date">${esc(e.date)} · ${esc(e.tag)}</span></div></a>`).join("")}</div>
+      <a class="link-arrow exp-all rv" href="events.html">All events</a>
     </div></section>`;
+  };
 
-  R.talent = (S) => `<section class="talent"><div class="wrap rv"><div><b>${esc(S.collab.talent_count)}</b><p>influencers, athletes and talent who have played, hosted and created with us.</p></div><img src="assets/img/talent.jpg" alt="Talent who have worked with Mutual" loading="lazy"></div></section>`;
 
   R.videos = (S) => `<section class="sec"><div class="wrap">
       <div class="sec-head rv"><div class="eyebrow">Our YouTube shows</div><a class="link-arrow" href="programs.html#youtube">See all</a></div>
@@ -99,8 +104,7 @@
 
   R.collab = (S, opts) => `<section class="sec collab"><div class="wrap">
       <div class="sec-head rv"><div><div class="eyebrow">Collaborations</div><h2 class="h-l">Brands we’ve worked with</h2></div>${opts && opts.full ? "" : '<a class="link-arrow" href="collaborations.html">See case studies</a>'}</div>
-      <div class="collab-nums rv">${stats([{ n: S.collab.brands_count, l: "brands in our community" }, { n: S.collab.courses_count, l: "partner courses" }, { n: S.collab.talent_count, l: "talent & influencers" }])}</div>
-      <div class="wall rv"><img src="assets/img/brands-wall.jpg" alt="Logos of brands that have worked with the Mutual community" loading="lazy"></div>
+      <div class="collab-nums rv">${stats([{ n: S.collab.brands_count, l: "brands in our community" }, { n: S.collab.courses_count, l: "partner courses" }])}</div>
       <div class="logo-panels rv"><div class="lp"><img src="assets/img/logos-courses-wide.jpg" alt="Course collaborators" loading="lazy"></div>
         <div class="lp stack"><img src="assets/img/logos-brand.jpg" alt="Brand collaborators" loading="lazy"></div></div>
       <div class="cases">${S.cases.map((c) => `<div class="case rv"><div class="c-img"><img src="${esc(c.img)}" alt="" loading="lazy"></div><b>${esc(c.name)}</b><span>${esc(c.sub)}</span>${opts && opts.full ? `<p style="font-size:14px;color:rgba(255,255,255,.8);margin-top:8px">${esc(c.text)}</p>` : ""}</div>`).join("")}</div>
@@ -156,7 +160,7 @@
   R.thanksPage = (S) => pageHero("Thank you", "We’ll be <span class='serif'>in touch</span>", "Thanks for reaching out — the Mutual team will reply by email soon.") + `<section class="sec"><div class="wrap"><a class="btn" href="index.html">Back to home</a></div></section>`;
 
   const PAGES = {
-    index: ["hero", "intro", "make", "experience", "talent", "videos", "reels", "products", "collab", "work"],
+    index: ["hero", "intro", "make", "experience", "videos", "reels", "products", "collab", "work"],
     programs: ["programsPage"], thanks: ["thanksPage"], events: ["eventsPage"], products: ["productsPage"], collaborations: ["collabPage"], about: ["aboutPage"]
   };
 
@@ -165,6 +169,20 @@
     if (!("IntersectionObserver" in window)) { els.forEach((e) => e.classList.add("in")); return; }
     const io = new IntersectionObserver((ents) => ents.forEach((en) => { if (en.isIntersecting) { en.target.classList.add("in"); io.unobserve(en.target); } }), { rootMargin: "0px 0px -8% 0px" });
     els.forEach((e) => io.observe(e));
+  }
+
+  function cycleCards() {
+    const still = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+    document.querySelectorAll("[data-cycle]").forEach((card, ci) => {
+      const slides = [...card.querySelectorAll(".mk-slide")], logos = [...card.querySelectorAll(".mk-lg")];
+      if (slides.length < 2) return;
+      let i = 0, timer = null, hover = false;
+      const show = (n) => { i = (n + slides.length) % slides.length; slides.forEach((x, k) => x.classList.toggle("on", k === i)); logos.forEach((x, k) => x.classList.toggle("on", k === i)); };
+      const start = () => { if (still) return; clearInterval(timer); timer = setInterval(() => { if (!hover && !document.hidden) show(i + 1); }, 3200); };
+      logos.forEach((b, k) => { b.addEventListener("mouseenter", () => show(k)); b.addEventListener("focus", () => show(k)); b.addEventListener("click", () => { show(k); start(); }); });
+      card.addEventListener("mouseenter", () => { hover = true; }); card.addEventListener("mouseleave", () => { hover = false; });
+      setTimeout(start, ci * 800);
+    });
   }
 
   function menu() {
@@ -179,7 +197,7 @@
     const main = document.getElementById("main");
     main.innerHTML = (PAGES[here] || PAGES.index).map((k) => R[k](S)).join("");
     document.getElementById("footer").outerHTML = footer(S);
-    menu(); reveal();
+    menu(); reveal(); cycleCards();
     if (location.hash) { const t = document.querySelector(location.hash); if (t) setTimeout(() => t.scrollIntoView(), 50); }
   }).catch((e) => { console.error(e); document.getElementById("main").innerHTML = '<p style="padding:80px 24px">Could not load content.</p>'; });
 })();

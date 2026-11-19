@@ -53,65 +53,156 @@
    "title": "YouTube shows",
    "text": "Long-form series that show the many sides of golf — for golfers and everyone outside the circle.",
    "href": "programs.html#youtube",
-   "images": [
-    "assets/img/yt-convert.jpg"
-   ],
-   "names": [
-    "ASMR",
-    "Fairway Talk",
-    "State of Par",
-    "Can We Even Swing?",
-    "Play Off",
-    "Coach Says",
-    "Golf Tour",
-    "Off Course"
+   "items": [
+    {
+     "name": "ASMR",
+     "logo": "assets/logos/programs/asmr.png",
+     "logo_r": 1.87,
+     "img": "assets/img/yt-asmr.jpg",
+     "tall": false
+    },
+    {
+     "name": "Fairway Talk",
+     "logo": "assets/logos/programs/fairway-talk.png",
+     "logo_r": 3.68,
+     "img": "assets/img/yt-fairway.jpg",
+     "tall": false
+    },
+    {
+     "name": "Play Off",
+     "logo": "assets/logos/programs/playoff.png",
+     "logo_r": 2.17,
+     "img": "assets/img/yt-playoff.jpg",
+     "tall": false
+    },
+    {
+     "name": "Coach Says",
+     "logo": "assets/logos/programs/coach-says.png",
+     "logo_r": 2.01,
+     "img": "assets/img/yt-coach.jpg",
+     "tall": false
+    },
+    {
+     "name": "Golf Tour",
+     "logo": "assets/logos/programs/golf-tour.png",
+     "logo_r": 3.0,
+     "img": "assets/img/yt-tour.jpg",
+     "tall": false
+    },
+    {
+     "name": "Off Course",
+     "logo": "assets/logos/programs/off-course.png",
+     "logo_r": 2.21,
+     "img": "assets/img/yt-offcourse.jpg",
+     "tall": false
+    }
    ]
   },
   {
    "title": "Vertical series",
    "text": "Quick, sharp golf in under a minute, for Instagram and TikTok.",
    "href": "programs.html#vertical",
-   "images": [
-    "assets/img/v-golf60.jpg",
-    "assets/img/v-hottakes.jpg",
-    "assets/img/v-onehole.jpg"
-   ],
-   "names": [
-    "Golf 60",
-    "Off Course",
-    "Hot Takes",
-    "One Hole With",
-    "re:store"
+   "items": [
+    {
+     "name": "Golf 60",
+     "logo": "assets/logos/programs/golf-60.png",
+     "logo_r": 1.91,
+     "img": "assets/img/v-golf60.jpg",
+     "tall": true
+    },
+    {
+     "name": "Off Course",
+     "logo": "assets/logos/programs/off-course.png",
+     "logo_r": 2.21,
+     "img": "assets/img/v-offcourse.jpg",
+     "tall": true
+    },
+    {
+     "name": "Hot Takes",
+     "logo": "assets/logos/programs/hot-takes.png",
+     "logo_r": 3.52,
+     "img": "assets/img/v-hottakes.jpg",
+     "tall": true
+    },
+    {
+     "name": "One Hole With",
+     "logo": "assets/logos/programs/one-hole-with.png",
+     "logo_r": 5.06,
+     "img": "assets/img/v-onehole.jpg",
+     "tall": true
+    },
+    {
+     "name": "re:store",
+     "logo": "assets/logos/programs/restore-vertical.png",
+     "logo_r": 3.52,
+     "img": "assets/img/v-restore.jpg",
+     "tall": true
+    }
    ]
   },
   {
    "title": "Feed & editorial",
    "text": "Stories on traditions, places, gear and the people of the game.",
    "href": "programs.html#editorial",
-   "images": [
-    "assets/img/fd-social.jpg",
-    "assets/img/fd-unwritten.jpg",
-    "assets/img/fd-groundwave.jpg"
-   ],
-   "names": [
-    "Social Round",
-    "Unwritten",
-    "Groundwave",
-    "re:store"
+   "items": [
+    {
+     "name": "Social Round",
+     "logo": "assets/logos/programs/social-round.png",
+     "logo_r": 2.26,
+     "img": "assets/img/fd-social.jpg",
+     "tall": true
+    },
+    {
+     "name": "Unwritten",
+     "logo": "assets/logos/programs/unwritten.png",
+     "logo_r": 4.37,
+     "img": "assets/img/fd-unwritten.jpg",
+     "tall": true
+    },
+    {
+     "name": "re:store",
+     "logo": "assets/logos/programs/restore.png",
+     "logo_r": 5.12,
+     "img": "assets/img/fd-restore.jpg",
+     "tall": true
+    }
    ]
   },
   {
    "title": "Real-life experiences",
    "text": "Tournaments, a reality show, markets, clinics and community nights.",
    "href": "events.html",
-   "images": [
-    "assets/img/ev-major2.jpg"
-   ],
-   "names": [
-    "Mutual Major",
-    "Mutual Grounds Market",
-    "Coach Says Live",
-    "Charity Classic"
+   "items": [
+    {
+     "name": "Mutual Major Vol. 2",
+     "logo": "assets/logos/programs/mutual-major.png",
+     "logo_r": 2.58,
+     "logo_note": "Vol. 2",
+     "img": "assets/img/ev-major2.jpg",
+     "tall": false
+    },
+    {
+     "name": "Mutual Grounds Market",
+     "logo": "assets/logos/programs/mutual-grounds-market.png",
+     "logo_r": 2.38,
+     "img": "assets/img/ev-market.jpg",
+     "tall": false
+    },
+    {
+     "name": "Charity Classic Golf Tournament",
+     "logo": "assets/logos/programs/charity-classic.png",
+     "logo_r": 1.7,
+     "img": "assets/img/ev-charity.jpg",
+     "tall": true
+    },
+    {
+     "name": "Mutual Major Vol. 1",
+     "logo": "assets/logos/programs/mutual-major-vol1.png",
+     "logo_r": 2.25,
+     "logo_note": "Vol. 1",
+     "img": "assets/img/ev-major1.jpg",
+     "tall": false
+    }
    ]
   }
  ],
@@ -799,5 +890,13 @@
     "logo": "assets/logos/group/tahilalats.png"
    }
   ]
- }
+ },
+ "experience_events": [
+  "Mutual Major Vol. 2",
+  "Mutual Major · Reality Show",
+  "Mutual Grounds Market",
+  "Charity Classic Golf Tournament",
+  "Mutual Major Vol. 1",
+  "Mutual Club & Card launch"
+ ]
 }
