@@ -122,3 +122,5 @@ colours and type are Mutual's own.
   JSON-LD (Organization + WebSite on home, BreadcrumbList elsewhere), one h1. `404.html` = not-found page.
 - Contact is WhatsApp only: the Netlify form, its hidden static copy and `thanks.html` were removed on owner request.
 - Local testing: `node scripts/serve.js <port>` (python's http.server cannot serve the clean addresses).
+
+- `googlee8a6faaf4ec20a18.html` at the root is the Google Search Console ownership file — keep it, never delete or rename.
