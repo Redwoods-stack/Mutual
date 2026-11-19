@@ -68,23 +68,28 @@
         <div class="mk-names">${p.names.map((n) => `<span>${esc(n)}</span>`).join("")}</div></div></a>`).join("")}</div>
     </div></section>`;
 
+  /* program / event logos in place of names (data: logo, logo_r, logo_note). Ink version (-ink.png) on light
+     backgrounds, original colours on dark ones. The name stays in the page for screen readers and search. */
+  const lgImg = (p, base, ink) => `<img class="nm-logo" src="${esc(ink ? p.logo.replace(".png", "-ink.png") : p.logo)}" alt="${esc(p.name)}" style="width:${Math.round(base * Math.sqrt(p.logo_r || 2))}px">${p.logo_note ? `<i class="nm-note">${esc(p.logo_note)}</i>` : ""}`;
+  const nmIn = (p, base) => p.logo ? `<span class="nm-txt">${esc(p.name)}</span><span class="nm-in">${lgImg(p, base, true)}</span>` : esc(p.name);
+
   R.experience = (S) => `<section class="exp"><img class="exp-bg" src="assets/img/exp-bg.jpg" alt="" loading="lazy"><div class="wrap">
       <div class="eyebrow rv">Experience</div>
       <h2 class="h-l rv">Off the screen, <span class="serif">onto the course</span></h2>
       <p class="lead rv">Tournaments, a reality show, markets, clinics and community nights — Mutual brings its programs to real courses with real people.</p>
-      <div class="exp-cols rv">${S.events.filter((e) => /Major Vol. 2|Grounds|Coach Says|Charity/.test(e.name)).map((e) => `<a href="events.html"><b>${esc(e.name.replace(" Golf Tournament", ""))}</b><span>${esc(e.date)} · ${esc(e.tag)}</span></a>`).join("")}</div>
+      <div class="exp-cols rv">${S.events.filter((e) => /Major Vol. 2|Grounds|Coach Says|Charity/.test(e.name)).map((e) => `<a href="events.html"><b>${e.logo ? `<span class="nm-dark">${lgImg(e, 78)}</span>` : esc(e.name.replace(" Golf Tournament", ""))}</b><span>${esc(e.date)} · ${esc(e.tag)}</span></a>`).join("")}</div>
     </div></section>`;
 
   R.talent = (S) => `<section class="talent"><div class="wrap rv"><div><b>${esc(S.collab.talent_count)}</b><p>influencers, athletes and talent who have played, hosted and created with us.</p></div><img src="assets/img/talent.jpg" alt="Talent who have worked with Mutual" loading="lazy"></div></section>`;
 
   R.videos = (S) => `<section class="sec"><div class="wrap">
       <div class="sec-head rv"><div class="eyebrow">Our YouTube shows</div><a class="link-arrow" href="programs.html#youtube">See all</a></div>
-      <div class="shelf">${S.programs.youtube.slice(0, 8).map((p) => `<a class="vid rv" href="programs.html#youtube"><div class="thumb"><img src="${esc(p.img)}" alt="" loading="lazy"></div><small>${esc(p.short)}</small><h4>${esc(p.name)}</h4></a>`).join("")}</div>
+      <div class="shelf">${S.programs.youtube.slice(0, 8).map((p) => `<a class="vid rv" href="programs.html#youtube"><div class="thumb"><img src="${esc(p.img)}" alt="" loading="lazy"></div><div class="nm-body"><small>${esc(p.short)}</small><h4>${nmIn(p, 62)}</h4></div></a>`).join("")}</div>
     </div></section><div class="wrap"><hr class="hair"></div>`;
 
   R.reels = (S) => `<section class="sec reels"><div class="wrap">
       <div class="rv"><div class="eyebrow">Vertical series</div><h2 class="h-l">Golf in under <span class="serif">a minute.</span></h2><p>Snackable series for Instagram and TikTok — quick, sharp and made to be shared.</p><a class="link-arrow" href="programs.html#vertical">All vertical series</a></div>
-      <div class="reel-row">${S.programs.vertical.map((p) => `<div class="reel rv"><div class="r-img"><img src="${esc(p.img)}" alt="" loading="lazy"></div><b>${esc(p.name)}</b><span>${esc(p.short)}</span></div>`).join("")}</div>
+      <div class="reel-row">${S.programs.vertical.map((p) => `<div class="reel rv"><div class="r-img"><img src="${esc(p.img)}" alt="" loading="lazy"></div><div class="nm-body"><b>${nmIn(p, 50)}</b><span>${esc(p.short)}</span></div></div>`).join("")}</div>
     </div></section>`;
 
   R.products = (S) => `<section class="sec" style="background:var(--cream)"><div class="wrap">
@@ -109,7 +114,7 @@
 
   /* inner pages */
   const pageHero = (eyebrow, title, text, tabs) => `<section class="page-hero"><div class="wrap"><div class="eyebrow">${eyebrow}</div><h1 class="h-xl">${title}</h1><p>${text}</p>${tabs ? `<div class="tabs">${tabs.map(([t, h]) => `<a href="${h}">${t}</a>`).join("")}</div>` : ""}</div></section>`;
-  const progCards = (list, cls, tall) => `<div class="prog-list ${cls || ""}">${list.map((p) => `<div class="prog rv${tall ? " tall" : ""}"><div class="pg-img"><img src="${esc(p.img)}" alt="" loading="lazy"></div><div><h3>${esc(p.name)}</h3><div class="short">${esc(p.short)}</div><p>${esc(p.text)}</p></div></div>`).join("")}</div>`;
+  const progCards = (list, cls, tall) => `<div class="prog-list ${cls || ""}">${list.map((p) => `<div class="prog rv${tall ? " tall" : ""}"><div class="pg-img"><img src="${esc(p.img)}" alt="" loading="lazy"></div><div class="nm-body"><h3>${nmIn(p, tall ? 78 : 104)}</h3><div class="short">${esc(p.short)}</div><p>${esc(p.text)}</p></div></div>`).join("")}</div>`;
 
   R.programsPage = (S) => pageHero("Programs", "Stories from <span class='serif'>every side</span> of golf", "Video-based programs that show the many sides of golf — diverse, true to the spirit of the game, and open to people outside the golf circle.", [["YouTube shows", "#youtube"], ["Vertical series", "#vertical"], ["Feed & editorial", "#editorial"]]) +
     `<section class="sec" id="youtube"><div class="wrap"><div class="sec-head rv"><div><div class="eyebrow">Long-form</div><h2 class="h-l">YouTube shows</h2></div></div>${progCards(S.programs.youtube)}</div></section>
@@ -117,7 +122,7 @@
      <section class="sec" id="editorial"><div class="wrap"><div class="sec-head rv"><div><div class="eyebrow">Feed</div><h2 class="h-l">Feed & editorial</h2></div></div>${progCards(S.programs.editorial, "four", true)}</div></section>`;
 
   R.eventsPage = (S) => pageHero("Events", "Off the screen, <span class='serif'>onto the course</span>", "Tournaments, a reality show, markets, clinics and community nights — organised, produced and filmed by Mutual.") +
-    `<section class="sec"><div class="wrap">${S.events.map((e) => `<article class="ev rv"><div class="ev-img"><img src="${esc(e.img)}" alt="${esc(e.name)}" loading="lazy"></div><div><span class="tag">${esc(e.tag)}</span><h3>${esc(e.name)}</h3><div class="meta">${esc(e.date)} · ${esc(e.place)}</div><p>${esc(e.text)}</p>${e.stats.length ? `<div class="ev-stats">${e.stats.map((s) => `<div><b>${esc(s[0])}</b><span>${esc(s[1])}</span></div>`).join("")}</div>` : ""}</div></article>`).join("")}</div></section>` + R.work(S);
+    `<section class="sec"><div class="wrap">${S.events.map((e) => `<article class="ev rv"><div class="ev-img"><img src="${esc(e.img)}" alt="${esc(e.name)}" loading="lazy"></div><div class="nm-body"><span class="tag">${esc(e.tag)}</span><h3>${nmIn(e, 150)}</h3><div class="meta">${esc(e.date)} · ${esc(e.place)}</div><p>${esc(e.text)}</p>${e.stats.length ? `<div class="ev-stats">${e.stats.map((s) => `<div><b>${esc(s[0])}</b><span>${esc(s[1])}</span></div>`).join("")}</div>` : ""}</div></article>`).join("")}</div></section>` + R.work(S);
 
   R.productsPage = (S) => pageHero("Products", "We celebrate golf <span class='serif'>beyond the sport</span>", "Merchandise, membership and activations that take the Mutual lifestyle from the course to the city.") +
     `<section class="sec"><div class="wrap">${prodGrid(S)}</div></section>`;

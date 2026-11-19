@@ -40,3 +40,9 @@ colours and type are Mutual's own.
 - Kit YouTube embeds (with the YouTube play button burned in) were deliberately not used as thumbnails.
 - Content synced from the kit: event figures (Charity Classic, Major Vol. 1/2, Market, Coach Says Live), five vertical series, Orangegrounds × Mutual and Akross × Mutual merch, card tiers, Golf Tour hosts, extra partner pills. Homepage shows the first three products only.
 - Not published on purpose: the kit's contact people (names, emails, phone numbers) and the Charity Classic revenue figure — owner to decide. `hello@mutual.golf` is still a placeholder.
+
+## Programme and event logos (Nov 2026)
+- Program and event names are shown as their Media Kit logos. Each item in `data/site.json` has `logo` (colour PNG in `assets/logos/programs/`), `logo_r` (width/height, used to size it) and optional `logo_note` (small label, e.g. "Vol. 2").
+- Every logo also has a `-ink.png` twin in one dark green ink; `nmIn()` in main.js uses the ink one on light pages, `lgImg()` uses the colour one on dark sections (homepage "Off the screen"). The text name stays in the markup, visually hidden.
+- Owner chose "ink on cream" over green caption cards and logo-on-photo. Ticker and the small name lists in the homepage cards stay as text.
+- "Can We Even Swing?" uses the kit's "Convert Tryout" logo. Vol. 2, Reality Show and the Club & Card launch share the Mutual Major script logo with a note.

@@ -298,3 +298,13 @@ button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
 .prog-list.five .prog{justify-content:flex-start}
 @media (max-width:1020px){.prog-list.five{grid-template-columns:repeat(3,1fr)}}
 @media (max-width:760px){.reel-row{grid-template-columns:repeat(3,1fr)}.prog-list.five{grid-template-columns:1fr}}
+
+/* Programme / event logos in place of names */
+.nm-logo{height:auto;max-width:100%;display:block}
+.nm-note{font-style:normal;font-family:var(--f-head);font-weight:700;font-size:11px;letter-spacing:.12em;text-transform:uppercase;white-space:nowrap;color:var(--green)}
+.nm-txt{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.nm-in,.nm-dark{display:flex;align-items:flex-end;gap:10px;flex-wrap:wrap}
+.nm-dark .nm-note{color:#fff}
+.exp-cols .nm-dark{min-height:58px;margin-bottom:8px}
+.prog h3:has(.nm-in){margin-bottom:10px}
+.vid h4:has(.nm-in){margin-top:2px}

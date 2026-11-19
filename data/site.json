@@ -121,49 +121,65 @@
     "name": "ASMR",
     "short": "The pure sound of the game",
     "text": "A sensory-driven series that shows the beauty of golf through pure, immersive sound — club strikes and natural course ambience, with pro athletes and public figures.",
-    "img": "assets/img/yt-asmr.jpg"
+    "img": "assets/img/yt-asmr.jpg",
+    "logo": "assets/logos/programs/asmr.png",
+    "logo_r": 1.87
    },
    {
     "name": "Fairway Talk",
     "short": "Honest talks between shots",
     "text": "Relaxed conversations on the course with athletes, public figures and golfers — between shots, with nothing scripted.",
-    "img": "assets/img/yt-fairway.jpg"
+    "img": "assets/img/yt-fairway.jpg",
+    "logo": "assets/logos/programs/fairway-talk.png",
+    "logo_r": 3.68
    },
    {
     "name": "State of Par",
     "short": "Video podcast · sport & culture",
     "text": "A casual video podcast where conversations flow, perspectives collide and the game never stops — guests from sports, culture and creative scenes.",
-    "img": "assets/img/yt-state.jpg"
+    "img": "assets/img/yt-state.jpg",
+    "logo": "assets/logos/programs/state-of-par.png",
+    "logo_r": 2.09
    },
    {
     "name": "Can We Even Swing?",
     "short": "Yes or No to Golf?",
     "text": "We invite non-golfers to try golf and see what happens. First swings, first reactions, first impressions — and a verdict at the end: Yes or No to Golf?",
-    "img": "assets/img/yt-convert.jpg"
+    "img": "assets/img/yt-convert.jpg",
+    "logo": "assets/logos/programs/convert-tryout.png",
+    "logo_r": 2.12
    },
    {
     "name": "Play Off",
     "short": "Crossover golf challenge",
     "text": "A crossover golf challenge where competition meets entertainment: four players in a spirited match, building hype for upcoming tournaments.",
-    "img": "assets/img/yt-playoff.jpg"
+    "img": "assets/img/yt-playoff.jpg",
+    "logo": "assets/logos/programs/playoff.png",
+    "logo_r": 2.11
    },
    {
     "name": "Coach Says",
     "short": "Fixes from real coaches",
     "text": "Breaks down the most common golf problems and delivers practical, easy-to-apply solutions directly from real coaches.",
-    "img": "assets/img/yt-coach.jpg"
+    "img": "assets/img/yt-coach.jpg",
+    "logo": "assets/logos/programs/coach-says.png",
+    "logo_r": 2.01
    },
    {
     "name": "Golf Tour",
     "short": "Golf beyond the fairway",
     "text": "Explores golf spaces — courses, driving ranges, golf cafés and communities — and the places, people and culture that shape modern golf. Hosted by Jonathan Rian and Edward Halim.",
-    "img": "assets/img/yt-tour.jpg"
+    "img": "assets/img/yt-tour.jpg",
+    "logo": "assets/logos/programs/golf-tour.png",
+    "logo_r": 3.0
    },
    {
     "name": "Off Course",
     "short": "The people shaping golf",
     "text": "Stories, perspectives and cultural influences around the game, spotlighting the people and ideas shaping golf outside the course.",
-    "img": "assets/img/yt-offcourse.jpg"
+    "img": "assets/img/yt-offcourse.jpg",
+    "logo": "assets/logos/programs/off-course.png",
+    "logo_r": 2.21
    }
   ],
   "vertical": [
@@ -171,31 +187,41 @@
     "name": "Golf 60",
     "short": "Golf in under a minute",
     "text": "A short-form series packed with golf knowledge, fun facts and surprising stories — delivered in under a minute, one clip at a time.",
-    "img": "assets/img/v-golf60.jpg"
+    "img": "assets/img/v-golf60.jpg",
+    "logo": "assets/logos/programs/golf-60.png",
+    "logo_r": 1.91
    },
    {
     "name": "Off Course",
     "short": "The story behind the swing",
     "text": "Goes beyond the scorecard to uncover the real stories behind every swing — why golfers started, what keeps them hooked and what makes golf unlike any other sport.",
-    "img": "assets/img/v-offcourse.jpg"
+    "img": "assets/img/v-offcourse.jpg",
+    "logo": "assets/logos/programs/off-course.png",
+    "logo_r": 2.21
    },
    {
     "name": "Hot Takes",
     "short": "Rapid-fire this-or-that",
     "text": "Golfers on the spot with quick this-or-that choices — favourite courses, gear, routines, playlists and traditions.",
-    "img": "assets/img/v-hottakes.jpg"
+    "img": "assets/img/v-hottakes.jpg",
+    "logo": "assets/logos/programs/hot-takes.png",
+    "logo_r": 3.52
    },
    {
     "name": "One Hole With",
     "short": "One hole, one story",
     "text": "A community-driven Reel series where golfers share one hole, one moment and one story from their round.",
-    "img": "assets/img/v-onehole.jpg"
+    "img": "assets/img/v-onehole.jpg",
+    "logo": "assets/logos/programs/one-hole-with.png",
+    "logo_r": 5.06
    },
    {
     "name": "re:store",
     "short": "Second thoughts on new releases",
     "text": "Revisits new releases with second thoughts and fresh perspectives — how golf equipment, fashion and accessories change in meaning over time.",
-    "img": "assets/img/v-restore.jpg"
+    "img": "assets/img/v-restore.jpg",
+    "logo": "assets/logos/programs/restore-vertical.png",
+    "logo_r": 3.52
    }
   ],
   "editorial": [
@@ -203,25 +229,33 @@
     "name": "Social Round",
     "short": "Golf that connects people",
     "text": "Where golf connects people, sparks friendships and builds community — the stories and faces that make the sport inclusive.",
-    "img": "assets/img/fd-social.jpg"
+    "img": "assets/img/fd-social.jpg",
+    "logo": "assets/logos/programs/social-round.png",
+    "logo_r": 2.26
    },
    {
     "name": "Unwritten",
     "short": "Traditions & lore",
     "text": "Traditions, legends, unspoken rules and the lore of the game.",
-    "img": "assets/img/fd-unwritten.jpg"
+    "img": "assets/img/fd-unwritten.jpg",
+    "logo": "assets/logos/programs/unwritten.png",
+    "logo_r": 4.37
    },
    {
     "name": "Groundwave",
     "short": "Golfscape & grub",
     "text": "Serene and picturesque golf destinations — scenic golfscapes mixed with food and lifestyle.",
-    "img": "assets/img/fd-groundwave.jpg"
+    "img": "assets/img/fd-groundwave.jpg",
+    "logo": "assets/logos/programs/groundwave.png",
+    "logo_r": 5.72
    },
    {
     "name": "re:store",
     "short": "Second thoughts on new releases",
     "text": "Revisits releases with fresh perspectives — how golf equipment, fashion and accessories change in meaning over time.",
-    "img": "assets/img/fd-restore.jpg"
+    "img": "assets/img/fd-restore.jpg",
+    "logo": "assets/logos/programs/restore.png",
+    "logo_r": 5.12
    }
   ]
  },
@@ -246,7 +280,9 @@
      "sponsors"
     ]
    ],
-   "tag": "Flagship"
+   "tag": "Flagship",
+   "logo": "assets/logos/programs/charity-classic.png",
+   "logo_r": 1.7
   },
   {
    "name": "Mutual Major Vol. 2",
@@ -272,7 +308,10 @@
      "combined influencer reach"
     ]
    ],
-   "tag": "Tournament"
+   "tag": "Tournament",
+   "logo": "assets/logos/programs/mutual-major.png",
+   "logo_r": 2.58,
+   "logo_note": "Vol. 2"
   },
   {
    "name": "Mutual Major · Reality Show",
@@ -286,7 +325,10 @@
      "combined influencer reach"
     ]
    ],
-   "tag": "Reality show"
+   "tag": "Reality show",
+   "logo": "assets/logos/programs/mutual-major.png",
+   "logo_r": 2.58,
+   "logo_note": "Reality show"
   },
   {
    "name": "Mutual Major Vol. 1",
@@ -312,7 +354,10 @@
      "combined influencer reach"
     ]
    ],
-   "tag": "Tournament"
+   "tag": "Tournament",
+   "logo": "assets/logos/programs/mutual-major-vol1.png",
+   "logo_r": 2.25,
+   "logo_note": "Vol. 1"
   },
   {
    "name": "Mutual Grounds Market",
@@ -338,7 +383,9 @@
      "media views"
     ]
    ],
-   "tag": "Market"
+   "tag": "Market",
+   "logo": "assets/logos/programs/mutual-grounds-market.png",
+   "logo_r": 2.38
   },
   {
    "name": "Coach Says Live",
@@ -356,7 +403,9 @@
      "participants"
     ]
    ],
-   "tag": "Clinic"
+   "tag": "Clinic",
+   "logo": "assets/logos/programs/coach-says-live.png",
+   "logo_r": 1.73
   },
   {
    "name": "Mutual Club & Card launch",
@@ -365,7 +414,10 @@
    "text": "A pre-event for Mutual Major Vol. 2 — a party for the golf community with mingling, fun games and the soft launch of the Mutual Club × Club of Five line.",
    "img": "assets/img/ev-pre.jpg",
    "stats": [],
-   "tag": "Community night"
+   "tag": "Community night",
+   "logo": "assets/logos/programs/mutual-major.png",
+   "logo_r": 2.58,
+   "logo_note": "Pre-event"
   }
  ],
  "cases": [
