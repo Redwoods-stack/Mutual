@@ -150,3 +150,6 @@ colours and type are Mutual's own.
 - All dark rules are in one block at the end of style.css under `html[data-theme="dark"]`: token overrides (bg, ink, line, cream),
   lime buttons with dark text, logos turned white with a filter (header logo, ribbon logo, ink program logos), white logo panels kept.
 - New sections must be checked in dark: anything using `var(--green)` as a TEXT colour or `var(--ink)` as a BACKGROUND needs a dark rule.
+- Dark-mode accent is **Mutual orange** `--orange #ee3b2c` (sampled from the orange logo; `--orange-t #ff5a45` for text): buttons,
+  italic accent words (`.serif`, marquee italics), event tags, nav underline, link arrows, small notes. Owner asked for it so dark
+  is "not too dull". Lime stays only for numbers on the green Collaborations band. Light mode is unchanged (no orange).

@@ -458,27 +458,36 @@ body.yt-open{overflow:hidden}
 html[data-theme="dark"] .theme-tg .sun{display:block}
 html[data-theme="dark"] .theme-tg .moon{display:none}
 @media (max-width:1020px){.theme-tg{margin-left:auto}.theme-tg + .burger{margin-left:0}}
-html[data-theme="dark"]{--bg:#0b130f;--ink:#f1efe8;--ink-2:#b7bcb2;--ink-3:#7d857b;--line:#24322a;--cream:#13201a;--cream-2:#1a2a22;color-scheme:dark}
+html[data-theme="dark"]{--bg:#0b130f;--ink:#f1efe8;--ink-2:#b7bcb2;--ink-3:#7d857b;--line:#24322a;--cream:#13201a;--cream-2:#1a2a22;--orange:#ee3b2c;--orange-t:#ff5a45;color-scheme:dark}
 html[data-theme="dark"] .site-header{background:rgba(11,19,15,.9)}
 html[data-theme="dark"] .logo-anim img,html[data-theme="dark"] .ribbon img{filter:brightness(0) invert(.95)}
 html[data-theme="dark"] .nm-in .nm-logo,html[data-theme="dark"] .mk-lg img{filter:brightness(0) invert(.95)}
-html[data-theme="dark"] .btn{background:var(--lime);color:#121412}
-html[data-theme="dark"] .btn:hover{background:#e6fb6a}
+html[data-theme="dark"] .btn{background:var(--orange);color:#fff}
+html[data-theme="dark"] .btn:hover{background:#ff5340}
 html[data-theme="dark"] .btn.light{background:#fff;color:#121412}
-html[data-theme="dark"] .btn.light:hover{background:var(--lime)}
-html[data-theme="dark"] .nav a::after{background:var(--lime)}
-html[data-theme="dark"] .tabs a:hover{border-color:var(--lime)}
+html[data-theme="dark"] .btn.light:hover{background:var(--orange);color:#fff}
+html[data-theme="dark"] .nav a::after{background:var(--orange)}
+html[data-theme="dark"] .tabs a:hover{border-color:var(--orange)}
 html[data-theme="dark"] .stat b,html[data-theme="dark"] .ev .ev-stats b,html[data-theme="dark"] .bigmq b,html[data-theme="dark"] .bigmq i{color:#e9efe0}
 html[data-theme="dark"] .bigmq .o{color:transparent;-webkit-text-stroke-color:#e9efe0}
 html[data-theme="dark"] .collab-nums .stat b,html[data-theme="dark"] .eco-stats .stat b{color:var(--lime)}
-html[data-theme="dark"] .prog .short,html[data-theme="dark"] .ab-n,html[data-theme="dark"] .nm-note,html[data-theme="dark"] .mk-lg i{color:#a9d6a0}
+html[data-theme="dark"] .prog .short,html[data-theme="dark"] .ab-n,html[data-theme="dark"] .nm-note,html[data-theme="dark"] .mk-lg i{color:var(--orange-t)}
 html[data-theme="dark"] .nm-dark .nm-note{color:#fff}
 html[data-theme="dark"] .mk:hover .circle{background:var(--ink);color:#121412}
 html[data-theme="dark"] .prod{background:var(--cream)}
 html[data-theme="dark"] .work{background:var(--cream-2);color:#fff}
-html[data-theme="dark"] .ev .tag{color:#121412}
+html[data-theme="dark"] .ev .tag{background:var(--orange);color:#fff}
 html[data-theme="dark"] .collab,html[data-theme="dark"] .ticker{background:#0f3324}
 html[data-theme="dark"] .site-footer{background:#070d0a;border-top:1px solid var(--line)}
 html[data-theme="dark"] .vid.yt .play{background:rgba(0,0,0,.7)}
 html[data-theme="dark"] .ab-mos div,html[data-theme="dark"] .vid .thumb{background:var(--cream-2)}
 @media (max-width:760px){.eps-row .vid .vv{display:none}}
+/* Dark mode accent: Mutual orange (#ee3b2c from the logo) on buttons, italic accent words, tags and small highlights */
+html[data-theme="dark"] .serif,html[data-theme="dark"] .bigmq i,html[data-theme="dark"] .feat-sub{color:var(--orange-t)}
+html[data-theme="dark"] .exp .serif{color:var(--orange-t)}
+html[data-theme="dark"] .link-arrow::after{color:var(--orange-t)}
+html[data-theme="dark"] .vid.yt:hover .play{background:var(--orange)}
+html[data-theme="dark"] .theme-tg:hover{color:var(--orange-t)}
+html[data-theme="dark"] .mk:hover .circle{background:var(--orange);border-color:var(--orange);color:#fff}
+html[data-theme="dark"] .foot-grid a:hover{color:var(--orange-t)}
+html[data-theme="dark"] .nm-dark .nm-note{color:#fff}
