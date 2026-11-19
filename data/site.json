@@ -83,13 +83,6 @@
      "tall": false
     },
     {
-     "name": "Golf Tour",
-     "logo": "assets/logos/programs/golf-tour.png",
-     "logo_r": 3.0,
-     "img": "assets/img/yt-tour.jpg",
-     "tall": false
-    },
-    {
      "name": "Off Course",
      "logo": "assets/logos/programs/off-course.png",
      "logo_r": 2.21,
@@ -138,7 +131,8 @@
      "img": "assets/img/v-restore.jpg",
      "tall": true
     }
-   ]
+   ],
+   "layout": "strip"
   },
   {
    "title": "Feed & editorial",
@@ -166,7 +160,8 @@
      "img": "assets/img/fd-restore.jpg",
      "tall": true
     }
-   ]
+   ],
+   "layout": "strip"
   },
   {
    "title": "Real-life experiences",
@@ -174,11 +169,11 @@
    "href": "events.html",
    "items": [
     {
-     "name": "Mutual Major Vol. 2",
+     "name": "Mutual Major · Reality Show",
      "logo": "assets/logos/programs/mutual-major.png",
      "logo_r": 2.58,
-     "logo_note": "Vol. 2",
-     "img": "assets/img/ev-major2.jpg",
+     "logo_note": "Reality show",
+     "img": "assets/img/ev-major-reality.jpg",
      "tall": false
     },
     {
@@ -189,18 +184,11 @@
      "tall": false
     },
     {
-     "name": "Charity Classic Golf Tournament",
-     "logo": "assets/logos/programs/charity-classic.png",
-     "logo_r": 1.7,
-     "img": "assets/img/ev-charity.jpg",
-     "tall": true
-    },
-    {
-     "name": "Mutual Major Vol. 1",
-     "logo": "assets/logos/programs/mutual-major-vol1.png",
-     "logo_r": 2.25,
-     "logo_note": "Vol. 1",
-     "img": "assets/img/ev-major1.jpg",
+     "name": "Mutual Club & Card launch",
+     "logo": "assets/logos/programs/mutual-major.png",
+     "logo_r": 2.58,
+     "logo_note": "Pre-event",
+     "img": "assets/img/ev-pre.jpg",
      "tall": false
     }
    ]

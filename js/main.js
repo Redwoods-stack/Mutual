@@ -60,14 +60,18 @@
       <div class="stats rv">${stats(S.stats)}</div>
     </div></section><div class="wrap"><hr class="hair"></div>`;
 
-  /* "What we make" cards: each card cycles through its programs. The thumbnail cross-fades and the matching
-     logo lights up; hovering or tapping a logo picks it. Data: pillars[].items {name, logo, logo_r, logo_note, img, tall}. */
+  /* "What we make" cards: each card cycles through its programs and the matching logo lights up; hovering or
+     tapping a logo picks it. Landscape cards cross-fade one picture; layout "strip" cards (vertical, editorial)
+     show three tall pictures side by side, the current one bright, sliding along as it cycles.
+     Data: pillars[].items {name, logo, logo_r, logo_note, img}, pillars[].layout. */
   R.make = (S) => `<section class="sec"><div class="wrap">
       <div class="sec-head rv"><div><div class="eyebrow">What we make</div><h2 class="h-l">On every screen, <span class="serif">and off it</span></h2></div><a class="link-arrow" href="programs.html">All programs</a></div>
       <div class="cards-2">${S.pillars.map((p) => `<div class="mk rv" data-cycle>
-        <a class="mk-img" href="${esc(p.href)}" aria-label="${esc(p.title)}">${p.items.map((it, i) => `<div class="mk-slide${it.tall ? " tall" : ""}${i === 0 ? " on" : ""}">${it.tall ? `<img class="mk-blur" src="${esc(it.img)}" alt="" loading="lazy">` : ""}<img class="mk-pic" src="${esc(it.img)}" alt="${esc(it.name)}" loading="lazy"></div>`).join("")}</a>
+        <a class="mk-img${p.layout === "strip" ? " strip" : ""}" href="${esc(p.href)}" aria-label="${esc(p.title)}">${p.layout === "strip"
+          ? `<div class="mk-track">${p.items.map((it, i) => `<div class="mk-slide${i === 0 ? " on" : ""}"><img class="mk-pic" src="${esc(it.img)}" alt="${esc(it.name)}" loading="lazy"></div>`).join("")}</div>`
+          : p.items.map((it, i) => `<div class="mk-slide${i === 0 ? " on" : ""}"><img class="mk-pic" src="${esc(it.img)}" alt="${esc(it.name)}" loading="lazy"></div>`).join("")}</a>
         <div class="mk-body"><a class="mk-top" href="${esc(p.href)}"><h3>${esc(p.title)}</h3><span class="circle">→</span></a><p>${esc(p.text)}</p>
-        <div class="mk-logos">${p.items.map((it, i) => `<button type="button" class="mk-lg${i === 0 ? " on" : ""}" aria-label="${esc(it.name)}"><img src="${esc(it.logo.replace(".png", "-ink.png"))}" alt="" style="width:${Math.round(34 * Math.sqrt(it.logo_r || 2))}px"></button>`).join("")}</div></div></div>`).join("")}</div>
+        <div class="mk-logos">${p.items.map((it, i) => `<button type="button" class="mk-lg${i === 0 ? " on" : ""}" aria-label="${esc(it.name)}"><img src="${esc(it.logo.replace(".png", "-ink.png"))}" alt="" style="width:${Math.round(34 * Math.sqrt(it.logo_r || 2))}px">${it.logo_note ? `<i>${esc(it.logo_note)}</i>` : ""}</button>`).join("")}</div></div></div>`).join("")}</div>
     </div></section>`;
 
   /* program / event logos in place of names (data: logo, logo_r, logo_note). Ink version (-ink.png) on light
@@ -177,7 +181,12 @@
       const slides = [...card.querySelectorAll(".mk-slide")], logos = [...card.querySelectorAll(".mk-lg")];
       if (slides.length < 2) return;
       let i = 0, timer = null, hover = false;
-      const show = (n) => { i = (n + slides.length) % slides.length; slides.forEach((x, k) => x.classList.toggle("on", k === i)); logos.forEach((x, k) => x.classList.toggle("on", k === i)); };
+      const track = card.querySelector(".mk-track");
+      const show = (n) => {
+        i = (n + slides.length) % slides.length;
+        slides.forEach((x, k) => x.classList.toggle("on", k === i)); logos.forEach((x, k) => x.classList.toggle("on", k === i));
+        if (track) { const first = Math.max(0, Math.min(i - 1, slides.length - 3)); track.style.transform = `translateX(${-first * 100 / 3}%)`; }
+      };
       const start = () => { if (still) return; clearInterval(timer); timer = setInterval(() => { if (!hover && !document.hidden) show(i + 1); }, 3200); };
       logos.forEach((b, k) => { b.addEventListener("mouseenter", () => show(k)); b.addEventListener("focus", () => show(k)); b.addEventListener("click", () => { show(k); start(); }); });
       card.addEventListener("mouseenter", () => { hover = true; }); card.addEventListener("mouseleave", () => { hover = false; });

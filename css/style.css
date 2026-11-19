@@ -307,8 +307,6 @@ button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
 .mk-slide.on{opacity:1}
 .mk-slide .mk-pic{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(1.02);transition:transform 4s ease}
 .mk-slide.on .mk-pic{transform:scale(1)}
-.mk-slide.tall .mk-pic{object-fit:contain;transform:none;z-index:1}
-.mk-slide .mk-blur{position:absolute;inset:-30px;width:calc(100% + 60px);height:calc(100% + 60px);object-fit:cover;filter:blur(24px) brightness(.55)}
 .mk-top{color:inherit}
 .mk-logos{margin-top:16px;padding-top:16px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;align-items:center;gap:14px 22px}
 .mk-lg{display:block;padding:0;opacity:.32;transition:opacity .35s,transform .35s;line-height:0}
@@ -336,3 +334,15 @@ button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
   .mk-logos{gap:12px 18px}
   .mk-lg img{max-height:34px;max-width:104px}
 }
+
+/* What we make — filmstrip cards (three tall pictures fill the card; current one bright) */
+.mk-img.strip{background:var(--green-ink)}
+.mk-track{position:absolute;inset:0;display:flex;gap:3px;transition:transform .8s cubic-bezier(.6,0,.2,1)}
+.mk-img.strip .mk-slide{position:relative;inset:auto;flex:0 0 calc((100% - 6px) / 3);opacity:1;overflow:hidden}
+.mk-img.strip .mk-pic{transform:none;filter:brightness(.42) saturate(.7);transition:filter .7s ease}
+.mk-img.strip .mk-slide.on .mk-pic{filter:none}
+.mk-lg{display:flex;align-items:center;gap:6px}
+.mk-lg i{font-style:normal;font-family:var(--f-head);font-weight:700;font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--green);white-space:nowrap}
+
+/* product tile with a white-background picture (the Mutual Card) */
+.prod .p-img.contain{background:#fff}

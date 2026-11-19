@@ -66,3 +66,11 @@ colours and type are Mutual's own.
   Tall (portrait) images show whole on a blurred copy of themselves. Only sharp images are listed
   (landscape ≥1000 px wide, portrait ≥800 px tall) — State of Par, Can We Even Swing?, Groundwave and Coach Says Live are left out until better images exist.
 - "Off the screen" band: photo grid of `experience_events` (6 events, by name) with colour logos, linking to Events.
+
+## Round 3 (Nov 2026)
+- "On every screen": pillars[1] and [2] (vertical, editorial) use `layout: "strip"` — three tall pictures side by side fill the
+  card, current one bright, the strip slides as it cycles (no blurred sides any more). YouTube and experiences cross-fade.
+- Soft images taken out of the cards: Golf Tour (yt-tour), Mutual Major Vol. 1 and 2 (ev-major1/2), Charity Classic poster.
+  Experiences card = Reality Show, Grounds Market, Club & Card launch. Logo buttons show `logo_note` next to the logo.
+- The Mutual Card product image is back to the original three-card photo (Infinite / Silver / Millennial, white background,
+  tile background white). The green/red/black Mutual-branded card designs from the kit were reverted on owner request.
