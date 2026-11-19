@@ -1,0 +1,707 @@
+{
+ "brand": {
+  "name": "Mutual",
+  "tagline": "The new culture of golf",
+  "intro_title": "Golf as a lifestyle people want in on.",
+  "intro": "Mutual is a modern golf media platform founded in 2025. We dive into the culture, stories and lifestyle behind the game — turning golf from a sport people watch into a lifestyle people want to be part of.",
+  "email": "hello@mutual.golf",
+  "email_placeholder": true,
+  "address": "Jakarta, Indonesia",
+  "socials": [
+   {
+    "k": "youtube",
+    "url": "https://www.youtube.com/"
+   },
+   {
+    "k": "instagram",
+    "url": "https://www.instagram.com/"
+   },
+   {
+    "k": "tiktok",
+    "url": "https://www.tiktok.com/"
+   }
+  ],
+  "group": "Part of Redwoods Digital Growth Group"
+ },
+ "hero": {
+  "video": "assets/video/showreel.mp4",
+  "poster": "assets/video/showreel-poster.jpg",
+  "kicker": "Mutual Golf · Media, products & experiences",
+  "line": "Tournaments, shows and community nights — the stories, people and places that make golf a lifestyle."
+ },
+ "stats": [
+  {
+   "n": "2.4M",
+   "l": "people reached"
+  },
+  {
+   "n": "300M+",
+   "l": "media views"
+  },
+  {
+   "n": "3.38M",
+   "l": "hours watched"
+  },
+  {
+   "n": "10K+",
+   "l": "in our community"
+  }
+ ],
+ "pillars": [
+  {
+   "title": "YouTube shows",
+   "text": "Long-form series that show the many sides of golf — for golfers and everyone outside the circle.",
+   "href": "programs.html#youtube",
+   "images": [
+    "assets/img/yt-convert.jpg"
+   ],
+   "names": [
+    "ASMR",
+    "Fairway Talk",
+    "State of Par",
+    "Can We Even Swing?",
+    "Play Off",
+    "Coach Says",
+    "Golf Tour",
+    "Off Course"
+   ]
+  },
+  {
+   "title": "Vertical series",
+   "text": "Quick, sharp golf in under a minute, for Instagram and TikTok.",
+   "href": "programs.html#vertical",
+   "images": [
+    "assets/img/v-golf60.jpg",
+    "assets/img/v-hottakes.jpg",
+    "assets/img/v-onehole.jpg"
+   ],
+   "names": [
+    "Golf 60",
+    "Hot Takes",
+    "One Hole With"
+   ]
+  },
+  {
+   "title": "Feed & editorial",
+   "text": "Stories on traditions, places, gear and the people of the game.",
+   "href": "programs.html#editorial",
+   "images": [
+    "assets/img/fd-social.jpg",
+    "assets/img/fd-unwritten.jpg",
+    "assets/img/fd-groundwave.jpg"
+   ],
+   "names": [
+    "Social Round",
+    "Unwritten",
+    "Groundwave",
+    "re:store"
+   ]
+  },
+  {
+   "title": "Real-life experiences",
+   "text": "Tournaments, a reality show, markets, clinics and community nights.",
+   "href": "events.html",
+   "images": [
+    "assets/img/ev-major2.jpg"
+   ],
+   "names": [
+    "Mutual Major",
+    "Mutual Grounds Market",
+    "Coach Says Live",
+    "Charity Classic"
+   ]
+  }
+ ],
+ "programs": {
+  "youtube": [
+   {
+    "name": "ASMR",
+    "short": "The pure sound of the game",
+    "text": "A sensory-driven series that shows the beauty of golf through pure, immersive sound — club strikes and natural course ambience, with pro athletes and public figures.",
+    "img": "assets/img/yt-asmr.jpg"
+   },
+   {
+    "name": "Fairway Talk",
+    "short": "Honest talks between shots",
+    "text": "Relaxed conversations on the course with athletes, public figures and golfers — between shots, with nothing scripted.",
+    "img": "assets/img/yt-fairway.jpg"
+   },
+   {
+    "name": "State of Par",
+    "short": "Video podcast · sport & culture",
+    "text": "A casual video podcast where conversations flow, perspectives collide and the game never stops — guests from sports, culture and creative scenes.",
+    "img": "assets/img/yt-state.jpg"
+   },
+   {
+    "name": "Can We Even Swing?",
+    "short": "Yes or No to Golf?",
+    "text": "We invite non-golfers to try golf and see what happens. First swings, first reactions, first impressions — and a verdict at the end: Yes or No to Golf?",
+    "img": "assets/img/yt-convert.jpg"
+   },
+   {
+    "name": "Play Off",
+    "short": "Crossover golf challenge",
+    "text": "A crossover golf challenge where competition meets entertainment: four players in a spirited match, building hype for upcoming tournaments.",
+    "img": "assets/img/yt-playoff.jpg"
+   },
+   {
+    "name": "Coach Says",
+    "short": "Fixes from real coaches",
+    "text": "Breaks down the most common golf problems and delivers practical, easy-to-apply solutions directly from real coaches.",
+    "img": "assets/img/yt-coach.jpg"
+   },
+   {
+    "name": "Golf Tour",
+    "short": "Golf beyond the fairway",
+    "text": "Explores golf spaces — courses, driving ranges, golf cafés and communities — and the places, people and culture that shape modern golf.",
+    "img": "assets/img/yt-tour.jpg"
+   },
+   {
+    "name": "Off Course",
+    "short": "The people shaping golf",
+    "text": "Stories, perspectives and cultural influences around the game, spotlighting the people and ideas shaping golf outside the course.",
+    "img": "assets/img/yt-offcourse.jpg"
+   }
+  ],
+  "vertical": [
+   {
+    "name": "Golf 60",
+    "short": "Golf in under a minute",
+    "text": "A short-form series packed with golf knowledge, fun facts and surprising stories — delivered in under a minute, one clip at a time.",
+    "img": "assets/img/v-golf60.jpg"
+   },
+   {
+    "name": "Hot Takes",
+    "short": "Rapid-fire this-or-that",
+    "text": "Golfers on the spot with quick this-or-that choices — favourite courses, gear, routines, playlists and traditions.",
+    "img": "assets/img/v-hottakes.jpg"
+   },
+   {
+    "name": "One Hole With",
+    "short": "One hole, one story",
+    "text": "A community-driven Reel series where golfers share one hole, one moment and one story from their round.",
+    "img": "assets/img/v-onehole.jpg"
+   }
+  ],
+  "editorial": [
+   {
+    "name": "Social Round",
+    "short": "Golf that connects people",
+    "text": "Where golf connects people, sparks friendships and builds community — the stories and faces that make the sport inclusive.",
+    "img": "assets/img/fd-social.jpg"
+   },
+   {
+    "name": "Unwritten",
+    "short": "Traditions & lore",
+    "text": "Traditions, legends, unspoken rules and the lore of the game.",
+    "img": "assets/img/fd-unwritten.jpg"
+   },
+   {
+    "name": "Groundwave",
+    "short": "Golfscape & grub",
+    "text": "Serene and picturesque golf destinations — scenic golfscapes mixed with food and lifestyle.",
+    "img": "assets/img/fd-groundwave.jpg"
+   },
+   {
+    "name": "re:store",
+    "short": "Second thoughts on new releases",
+    "text": "Revisits releases with fresh perspectives — how golf equipment, fashion and accessories change in meaning over time.",
+    "img": "assets/img/fd-restore.jpg"
+   }
+  ]
+ },
+ "events": [
+  {
+   "name": "Charity Classic Golf Tournament",
+   "date": "2026",
+   "place": "Organised for Marriott Worldwide Business Councils Indonesia",
+   "text": "An annual charity golf tournament raising funds for a clean-water project in Sumba. Mutual was the organising partner: tournament planning, event organising, promotion and marketing, and hosting the auction.",
+   "img": "assets/img/ev-charity.jpg",
+   "stats": [
+    [
+     "350.6K+",
+     "media views"
+    ],
+    [
+     "150+",
+     "visitors"
+    ],
+    [
+     "52",
+     "sponsors & supporters"
+    ]
+   ],
+   "tag": "Flagship"
+  },
+  {
+   "name": "Mutual Major Vol. 2",
+   "date": "Nov 2025",
+   "place": "Jababeka Golf & Country Club",
+   "text": "Mutual’s flagship open tournament, bringing together top players, influential voices and brand partners from many industries.",
+   "img": "assets/img/ev-major2.jpg",
+   "stats": [
+    [
+     "120+",
+     "players"
+    ],
+    [
+     "38+",
+     "sponsors"
+    ],
+    [
+     "150M+",
+     "media views"
+    ]
+   ],
+   "tag": "Tournament"
+  },
+  {
+   "name": "Mutual Major · Reality Show",
+   "date": "2025",
+   "place": "“The most chaotic golf show ever”",
+   "text": "An unorthodox, festival-style golf tournament that blends competitive sport with lifestyle entertainment and community culture — filmed as a reality show.",
+   "img": "assets/img/ev-major-reality.jpg",
+   "stats": [
+    [
+     "1M+",
+     "combined influencer reach"
+    ]
+   ],
+   "tag": "Reality show"
+  },
+  {
+   "name": "Mutual Major Vol. 1",
+   "date": "May 2025",
+   "place": "Jatinangor National Golf & Resort",
+   "text": "A 6-hole tournament full of twists and fun challenges, with curated players in teams. Golf here isn’t just technique — it’s team strategy and play.",
+   "img": "assets/img/ev-major1.jpg",
+   "stats": [
+    [
+     "30",
+     "players"
+    ],
+    [
+     "17",
+     "sponsors"
+    ],
+    [
+     "146M+",
+     "media views"
+    ]
+   ],
+   "tag": "Tournament"
+  },
+  {
+   "name": "Mutual Grounds Market",
+   "date": "21–26 Apr 2026",
+   "place": "Orangegrounds Golf & Coffee",
+   "text": "A pop-up market and community space that combines shopping with interactive golf: a virtual tournament by Swing50n, demo clubs and Beat the Pro by TaylorMade.",
+   "img": "assets/img/ev-market.jpg",
+   "stats": [
+    [
+     "260+",
+     "visitors"
+    ],
+    [
+     "10",
+     "tenants"
+    ],
+    [
+     "204K",
+     "media views"
+    ]
+   ],
+   "tag": "Market"
+  },
+  {
+   "name": "Coach Says Live",
+   "date": "20 Sep 2026",
+   "place": "The Range at Damai Indah Golf PIK",
+   "text": "An intimate offline edition of our YouTube series: hands-on coaching on the range, club demos, one-on-one sessions and a friendly place to learn golf.",
+   "img": "assets/img/ev-coach-live.jpg",
+   "stats": [
+    [
+     "41.5K+",
+     "media views"
+    ]
+   ],
+   "tag": "Clinic"
+  },
+  {
+   "name": "Mutual Club & Card launch",
+   "date": "Nov 2025",
+   "place": "Upper West BSD",
+   "text": "A pre-event for Mutual Major Vol. 2 — a party for the golf community with mingling, fun games and the soft launch of the Mutual Club × Club of Five line.",
+   "img": "assets/img/ev-pre.jpg",
+   "stats": [],
+   "tag": "Community night"
+  }
+ ],
+ "cases": [
+  {
+   "name": "Jakarta International Championship",
+   "sub": "Content partner · LIV Golf",
+   "text": "A multi-programme campaign before the championship — Play Off, Fairway Talk and Off Course — with Indonesia’s top players, public figures and the venue.",
+   "img": "assets/img/case-jic.jpg"
+  },
+  {
+   "name": "Indonesia Development Open",
+   "sub": "Tournament documentary",
+   "text": "A full-cycle documentary following the people behind the event, from rookies to pros — competition, conversations and highlights.",
+   "img": "assets/img/ido-documentary.jpg"
+  },
+  {
+   "name": "APPI footballers × Play Off",
+   "sub": "Crossover campaign",
+   "text": "Maingolfyuk versus APPI footballers in Play Off and Fairway Talk — a crossover that brought football fans to golf.",
+   "img": "assets/img/yt-playoff.jpg"
+  }
+ ],
+ "products": [
+  {
+   "name": "Mutual Club × Club of Five",
+   "text": "A merchandise collaboration bringing together golf, local brands and lifestyle culture — sport-inspired design with contemporary style.",
+   "img": "assets/img/merch-clubof5.jpg"
+  },
+  {
+   "name": "The Mutual Card",
+   "text": "A community-driven membership that connects golfers, courses and brands with one purpose: growing the game together. Powered by The Card, owned by APLGI.",
+   "img": "assets/img/the-card.jpg"
+  },
+  {
+   "name": "Mutual Club activations",
+   "text": "Retail pop-ups and club days that bring the Mutual lifestyle onto the course and into the city.",
+   "img": "assets/img/club-activations.jpg"
+  }
+ ],
+ "collab": {
+  "brands_count": "130+",
+  "courses_count": "14",
+  "talent_count": "100+",
+  "partners": [
+   "Jakarta International Championship · LIV Golf",
+   "Indonesia Development Open",
+   "Swing50n × Garmin",
+   "APPI footballers · Play Off",
+   "Mutual Mingle · JNGR Year End ’25"
+  ]
+ },
+ "work": [
+  {
+   "title": "Brand partnership",
+   "text": "Put your brand inside our shows, verticals and events — from product placement to a full programme built around you."
+  },
+  {
+   "title": "Events & activations",
+   "text": "Tournaments, clinics, markets and community nights, planned, produced and filmed by Mutual."
+  }
+ ],
+ "about": {
+  "group_title": "Part of Redwoods Digital Growth Group",
+  "group_text": "Redwoods Digital Growth Group is a creative holding group that builds and invests in IP and ventures across media, programmes & events, place-making and IP characters. Mutual was brought to life by merging several of its portfolios — consulting, media and community.",
+  "group_stats": [
+   {
+    "n": "55",
+    "l": "portfolios"
+   },
+   {
+    "n": "250M+",
+    "l": "community across the ecosystem"
+   },
+   {
+    "n": "10B+",
+    "l": "annual reach"
+   }
+  ],
+  "audience": [
+   {
+    "k": "Audience",
+    "v": "Millennials 28–44"
+   },
+   {
+    "k": "SES",
+    "v": "A–B"
+   },
+   {
+    "k": "Top regions",
+    "v": "Jakarta, Bandung, Yogyakarta, Bogor"
+   },
+   {
+    "k": "Gender",
+    "v": "78% male · 22% female"
+   }
+  ],
+  "group": [
+   {
+    "name": "Maple",
+    "cat": "media",
+    "logo": "assets/logos/group/maple.png"
+   },
+   {
+    "name": "mutual",
+    "cat": "media",
+    "logo": "assets/logos/group/mutual.png"
+   },
+   {
+    "name": "Goodmark",
+    "cat": "media",
+    "logo": "assets/logos/group/goodmark.png"
+   },
+   {
+    "name": "Maple Films",
+    "cat": "media",
+    "logo": "assets/logos/group/maple-films.png"
+   },
+   {
+    "name": "Crush",
+    "cat": "media",
+    "logo": "assets/logos/group/crush.png"
+   },
+   {
+    "name": "Dagelan",
+    "cat": "media",
+    "logo": "assets/logos/group/dagelan.png"
+   },
+   {
+    "name": "Infipop",
+    "cat": "media",
+    "logo": "assets/logos/group/infipop.png"
+   },
+   {
+    "name": "Melodi Alam",
+    "cat": "media",
+    "logo": "assets/logos/group/melodi-alam.png"
+   },
+   {
+    "name": "JSD",
+    "cat": "media",
+    "logo": "assets/logos/group/jsd.png"
+   },
+   {
+    "name": "Yolix",
+    "cat": "media",
+    "logo": "assets/logos/group/yolix.png"
+   },
+   {
+    "name": "P Club",
+    "cat": "media",
+    "logo": "assets/logos/group/p-club.png"
+   },
+   {
+    "name": "VBIZ",
+    "cat": "media",
+    "logo": "assets/logos/group/vbiz.png"
+   },
+   {
+    "name": "Notzza",
+    "cat": "media",
+    "logo": "assets/logos/group/notzza.png"
+   },
+   {
+    "name": "Lesnois",
+    "cat": "media",
+    "logo": "assets/logos/group/lesnois.png"
+   },
+   {
+    "name": "Navvaros",
+    "cat": "prog",
+    "logo": "assets/logos/group/navvaros.png"
+   },
+   {
+    "name": "Bilur",
+    "cat": "prog",
+    "logo": "assets/logos/group/bilur.png"
+   },
+   {
+    "name": "Pagi Membunuh Bulan",
+    "cat": "prog",
+    "logo": "assets/logos/group/pagi-membunuh-bulan.png"
+   },
+   {
+    "name": "Raya",
+    "cat": "prog",
+    "logo": "assets/logos/group/raya.png"
+   },
+   {
+    "name": "Sesi Dengar Live",
+    "cat": "prog",
+    "logo": "assets/logos/group/sesi-dengar-live.png"
+   },
+   {
+    "name": "Mutual Major",
+    "cat": "prog",
+    "logo": "assets/logos/group/mutual-major.png"
+   },
+   {
+    "name": "Hidden Beat",
+    "cat": "prog",
+    "logo": "assets/logos/group/hidden-beat.png"
+   },
+   {
+    "name": "Coach Always",
+    "cat": "prog",
+    "logo": "assets/logos/group/coach-always.png"
+   },
+   {
+    "name": "Mark the Moment",
+    "cat": "prog",
+    "logo": "assets/logos/group/mark-the-moment.png"
+   },
+   {
+    "name": "Risocycle",
+    "cat": "prog",
+    "logo": "assets/logos/group/risocycle.png"
+   },
+   {
+    "name": "PD",
+    "cat": "prog",
+    "logo": "assets/logos/group/pd.png"
+   },
+   {
+    "name": "Rewind",
+    "cat": "prog",
+    "logo": "assets/logos/group/rewind.png"
+   },
+   {
+    "name": "Wander",
+    "cat": "prog",
+    "logo": "assets/logos/group/wander.png"
+   },
+   {
+    "name": "Stance",
+    "cat": "prog",
+    "logo": "assets/logos/group/stance.png"
+   },
+   {
+    "name": "DXI",
+    "cat": "prog",
+    "logo": "assets/logos/group/dxi.png"
+   },
+   {
+    "name": "Matters",
+    "cat": "prog",
+    "logo": "assets/logos/group/matters.png"
+   },
+   {
+    "name": "Unscene",
+    "cat": "prog",
+    "logo": "assets/logos/group/unscene.png"
+   },
+   {
+    "name": "Always Trick Room",
+    "cat": "prog",
+    "logo": "assets/logos/group/always-trick-room.png"
+   },
+   {
+    "name": "Maple Kids",
+    "cat": "prog",
+    "logo": "assets/logos/group/maple-kids.png"
+   },
+   {
+    "name": "Plus62",
+    "cat": "prog",
+    "logo": "assets/logos/group/plus62.png"
+   },
+   {
+    "name": "Seek Outside Feel Inside",
+    "cat": "prog",
+    "logo": "assets/logos/group/seek-outside-feel-inside.png"
+   },
+   {
+    "name": "Acasa",
+    "cat": "place",
+    "logo": "assets/logos/group/acasa.png"
+   },
+   {
+    "name": "Bruu",
+    "cat": "place",
+    "logo": "assets/logos/group/bruu.png"
+   },
+   {
+    "name": "Arcafe",
+    "cat": "place",
+    "logo": "assets/logos/group/arcafe.png"
+   },
+   {
+    "name": "Knots",
+    "cat": "place",
+    "logo": "assets/logos/group/knots.png"
+   },
+   {
+    "name": "Meltingpop",
+    "cat": "place",
+    "logo": "assets/logos/group/meltingpop.png"
+   },
+   {
+    "name": "MRT Merch Market",
+    "cat": "place",
+    "logo": "assets/logos/group/mrt-merch-market.png"
+   },
+   {
+    "name": "One Piece",
+    "cat": "place",
+    "logo": "assets/logos/group/one-piece.png"
+   },
+   {
+    "name": "Samsara",
+    "cat": "place",
+    "logo": "assets/logos/group/samsara.png"
+   },
+   {
+    "name": "Svarga",
+    "cat": "place",
+    "logo": "assets/logos/group/svarga.png"
+   },
+   {
+    "name": "Tahilalats Station",
+    "cat": "place",
+    "logo": "assets/logos/group/tahilalats-station.png"
+   },
+   {
+    "name": "Tahilalats Izakaya",
+    "cat": "place",
+    "logo": "assets/logos/group/tahilalats-izakaya.png"
+   },
+   {
+    "name": "Tikum Dagelan",
+    "cat": "place",
+    "logo": "assets/logos/group/tikum-dagelan.png"
+   },
+   {
+    "name": "Toko Tahilalats",
+    "cat": "place",
+    "logo": "assets/logos/group/toko-tahilalats.png"
+   },
+   {
+    "name": "Jumbo Dagelan",
+    "cat": "place",
+    "logo": "assets/logos/group/jumbo-dagelan.png"
+   },
+   {
+    "name": "Hai Dudu",
+    "cat": "ip",
+    "logo": "assets/logos/group/hai-dudu.png"
+   },
+   {
+    "name": "McBunny",
+    "cat": "ip",
+    "logo": "assets/logos/group/mcbunny.png"
+   },
+   {
+    "name": "Meow Love",
+    "cat": "ip",
+    "logo": "assets/logos/group/meow-love.png"
+   },
+   {
+    "name": "Vernalia",
+    "cat": "ip",
+    "logo": "assets/logos/group/vernalia.png"
+   },
+   {
+    "name": "Tahilalats",
+    "cat": "ip",
+    "logo": "assets/logos/group/tahilalats.png"
+   }
+  ]
+ }
+}
