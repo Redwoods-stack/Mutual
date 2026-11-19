@@ -74,3 +74,10 @@ colours and type are Mutual's own.
   Experiences card = Reality Show, Grounds Market, Club & Card launch. Logo buttons show `logo_note` next to the logo.
 - The Mutual Card product image is back to the original three-card photo (Infinite / Silver / Millennial, white background,
   tile background white). The green/red/black Mutual-branded card designs from the kit were reverted on owner request.
+
+## Drive re-check (Nov 2026)
+- New files found in Drive `data-source/`. Replaced: yt-tour (Golf Tour Royale thumbnail, 1920 → 1600w), v-golf60 (GI60 "Dari Pasir ke
+  Tee Box" 4K → 900w), fd-groundwave (Hesketh Golf Club cover 543×720, was 330), ev-coach-live (official Coach Says Live poster,
+  20 Sept 2026 The Range, 1081×1440, was a 615px photo). Golf Tour and Groundwave are back in the homepage cards.
+- Still low-res with no better file in Drive: yt-convert (Can We Even Swing?), yt-state (State of Par), v-offcourse, v-onehole,
+  club-activations, ev-charity (830px), ev-pre (1024px).

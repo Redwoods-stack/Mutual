@@ -83,6 +83,13 @@
      "tall": false
     },
     {
+     "name": "Golf Tour",
+     "logo": "assets/logos/programs/golf-tour.png",
+     "logo_r": 3.0,
+     "img": "assets/img/yt-tour.jpg",
+     "tall": false
+    },
+    {
      "name": "Off Course",
      "logo": "assets/logos/programs/off-course.png",
      "logo_r": 2.21,
@@ -151,6 +158,13 @@
      "logo": "assets/logos/programs/unwritten.png",
      "logo_r": 4.37,
      "img": "assets/img/fd-unwritten.jpg",
+     "tall": true
+    },
+    {
+     "name": "Groundwave",
+     "logo": "assets/logos/programs/groundwave.png",
+     "logo_r": 5.72,
+     "img": "assets/img/fd-groundwave.jpg",
      "tall": true
     },
     {
