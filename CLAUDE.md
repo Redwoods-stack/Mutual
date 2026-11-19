@@ -81,3 +81,12 @@ colours and type are Mutual's own.
   20 Sept 2026 The Range, 1081×1440, was a 615px photo). Golf Tour and Groundwave are back in the homepage cards.
 - Still low-res with no better file in Drive: yt-convert (Can We Even Swing?), yt-state (State of Par), v-offcourse, v-onehole,
   club-activations, ev-charity (830px), ev-pre (1024px).
+
+## Working agreement (Nov 2026)
+- Owner: "whenever I say push, push it live" → on "push", fast-forward `main` (production, serves https://mutual.golf).
+  Without "push", work on a preview branch and ask.
+- Products can be hidden with `"hidden": true` (The Mutual Card is hidden). About: `about.show_audience` and
+  `about.show_ecosystem` (both false = audience facts and the Redwoods ecosystem section are hidden; data kept).
+- Netlify team "Redwoods" (free plan) hit "usage exceeded" on 19 Nov 2026 → every page of mutualweb returned 503.
+  Each production deploy and each deploy preview uses plan credits, and the homepage showreel is several MB per visit.
+  Batch changes into fewer pushes; avoid opening preview PRs for small changes.

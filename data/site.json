@@ -542,7 +542,8 @@
   {
    "name": "The Mutual Card",
    "text": "A community-driven membership that connects golfers, courses and brands with one purpose: growing the game together. Powered by The Card, owned by APLGI. Three tiers: Infinite, Silver and Millennial.",
-   "img": "assets/img/the-card.jpg"
+   "img": "assets/img/the-card.jpg",
+   "hidden": true
   },
   {
    "name": "Orangegrounds × The Mutual Golf",
@@ -891,7 +892,9 @@
     "cat": "ip",
     "logo": "assets/logos/group/tahilalats.png"
    }
-  ]
+  ],
+  "show_audience": false,
+  "show_ecosystem": false
  },
  "experience_events": [
   "Mutual Major Vol. 2",

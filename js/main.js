@@ -104,7 +104,7 @@
   R.products = (S) => `<section class="sec" style="background:var(--cream)"><div class="wrap">
       <div class="sec-head rv"><div><div class="eyebrow">Mutual products</div><h2 class="h-l">We celebrate golf <span class="serif">beyond the sport</span></h2></div><a class="link-arrow" href="products.html">See products</a></div>
       ${prodGrid(S, 3)}</div></section>`;
-  const prodGrid = (S, n) => `<div class="prod-grid">${S.products.slice(0, n || 99).map((p) => `<div class="prod rv"><div class="p-img${/card/i.test(p.img) ? " contain" : ""}"><img src="${esc(p.img)}" alt="" loading="lazy"></div><div class="p-body"><h3>${esc(p.name)}</h3><p>${esc(p.text)}</p></div></div>`).join("")}</div>`;
+  const prodGrid = (S, n) => `<div class="prod-grid">${S.products.filter((p) => !p.hidden).slice(0, n || 99).map((p) => `<div class="prod rv"><div class="p-img${/card/i.test(p.img) ? " contain" : ""}"><img src="${esc(p.img)}" alt="" loading="lazy"></div><div class="p-body"><h3>${esc(p.name)}</h3><p>${esc(p.text)}</p></div></div>`).join("")}</div>`;
 
   R.collab = (S, opts) => `<section class="sec collab"><div class="wrap">
       <div class="sec-head rv"><div><div class="eyebrow">Collaborations</div><h2 class="h-l">Brands we’ve worked with</h2></div>${opts && opts.full ? "" : '<a class="link-arrow" href="collaborations.html">See case studies</a>'}</div>
@@ -132,7 +132,7 @@
   R.eventsPage = (S) => pageHero("Events", "Off the screen, <span class='serif'>onto the course</span>", "Tournaments, a reality show, markets, clinics and community nights — organised, produced and filmed by Mutual.") +
     `<section class="sec"><div class="wrap">${S.events.map((e) => `<article class="ev rv"><div class="ev-img"><img src="${esc(e.img)}" alt="${esc(e.name)}" loading="lazy"></div><div class="nm-body"><span class="tag">${esc(e.tag)}</span><h3>${nmIn(e, 150)}</h3><div class="meta">${esc(e.date)} · ${esc(e.place)}</div><p>${esc(e.text)}</p>${e.stats.length ? `<div class="ev-stats">${e.stats.map((s) => `<div><b>${esc(s[0])}</b><span>${esc(s[1])}</span></div>`).join("")}</div>` : ""}</div></article>`).join("")}</div></section>` + R.work(S);
 
-  R.productsPage = (S) => pageHero("Products", "We celebrate golf <span class='serif'>beyond the sport</span>", "Merchandise, membership and activations that take the Mutual lifestyle from the course to the city.") +
+  R.productsPage = (S) => pageHero("Products", "We celebrate golf <span class='serif'>beyond the sport</span>", "Merchandise and activations that take the Mutual lifestyle from the course to the city.") +
     `<section class="sec"><div class="wrap">${prodGrid(S)}</div></section>`;
 
   R.collabPage = (S) => pageHero("Collaborations", "Brands already <span class='serif'>trust our community</span>", "130+ brands have worked with our community — banks, telco, FMCG, retail, F&B, fashion, media and tech. Here is what we make together.") +
@@ -143,7 +143,7 @@
         <label>Name<input name="name" required autocomplete="name"></label>
         <label>Company<input name="company" autocomplete="organization"></label>
         <label>Email<input type="email" name="email" required autocomplete="email"></label>
-        <label>Interested in<select name="interest"><option>Brand partnership</option><option>Events & activations</option><option>Programs & content</option><option>The Mutual Card</option><option>Something else</option></select></label>
+        <label>Interested in<select name="interest"><option>Brand partnership</option><option>Events & activations</option><option>Programs & content</option><option>Something else</option></select></label>
         <label class="full">Tell us about it<textarea name="message" required></textarea></label>
         <div class="full"><button class="btn" type="submit">Send</button></div>
       </form></div></section>`;
@@ -152,13 +152,13 @@
     const A = S.about, cats = { media: "Media", prog: "Programmes & events", place: "Place-making", ip: "IP characters" };
     return pageHero("About", "The new <span class='serif'>culture of golf</span>", esc(S.brand.intro)) +
       `<section class="sec"><div class="wrap"><div class="eyebrow rv">Channel insights</div><div class="stats rv" style="margin:14px 0 40px">${stats(S.stats)}</div>
-        <div class="facts rv">${A.audience.map((f) => `<div><small>${esc(f.k)}</small><b>${esc(f.v)}</b></div>`).join("")}</div></div></section>
+        ${A.show_audience ? `<div class="facts rv">${A.audience.map((f) => `<div><small>${esc(f.k)}</small><b>${esc(f.v)}</b></div>`).join("")}</div>` : ""}</div></section>
       <section class="sec" style="background:var(--cream)"><div class="wrap"><div class="sec-head rv"><div><div class="eyebrow">What we do</div><h2 class="h-l">Three ways <span class="serif">into golf</span></h2></div></div>
-        <div class="prog-list three">${[["Media & community", "YouTube, verticals and feed — 2.4M reached and a community of 10K+ around golf culture.", "pl-media.jpg"], ["Brand products", "Mutual Club × Club of Five merchandise, and the Mutual Card — powered by The Card, owned by APLGI.", "pl-brand.jpg"], ["Real-life experience", "Tournaments, a reality show, markets, clinics and community nights — golf off the screen.", "pl-irl.jpg"]].map(([t, x, i]) => `<div class="prog tall rv"><div class="pg-img"><img src="assets/img/${i}" alt="" loading="lazy"></div><div><h3>${t}</h3><p style="margin-top:6px">${x}</p></div></div>`).join("")}</div></div></section>
-      <section class="sec eco"><div class="wrap"><div class="eyebrow rv">Our ecosystem</div><h2 class="h-l rv" style="margin-top:10px">${esc(A.group_title)}</h2><p class="lead rv">${esc(A.group_text)}</p>
+        <div class="prog-list three">${[["Media & community", "YouTube, verticals and feed — 2.4M reached and a community of 10K+ around golf culture.", "pl-media.jpg"], ["Brand products", "Golf lifestyle merchandise with Club of Five, Orangegrounds and Akross — from the course to the city.", "pl-brand.jpg"], ["Real-life experience", "Tournaments, a reality show, markets, clinics and community nights — golf off the screen.", "pl-irl.jpg"]].map(([t, x, i]) => `<div class="prog tall rv"><div class="pg-img"><img src="assets/img/${i}" alt="" loading="lazy"></div><div><h3>${t}</h3><p style="margin-top:6px">${x}</p></div></div>`).join("")}</div></div></section>
+      ${A.show_ecosystem ? `<section class="sec eco"><div class="wrap"><div class="eyebrow rv">Our ecosystem</div><h2 class="h-l rv" style="margin-top:10px">${esc(A.group_title)}</h2><p class="lead rv">${esc(A.group_text)}</p>
         <div class="eco-stats rv">${stats(A.group_stats)}</div>
         ${Object.keys(cats).map((k) => `<div class="eco-cat rv"><h4>${cats[k]} · ${A.group.filter((g) => g.cat === k).length}</h4><div class="eco-logos">${A.group.filter((g) => g.cat === k).map((g) => `<img src="${esc(g.logo)}" alt="${esc(g.name)}" title="${esc(g.name)}" loading="lazy">`).join("")}</div></div>`).join("")}
-      </div></section>` + R.work(S);
+      </div></section>` : ""}` + R.work(S);
   };
 
   R.thanksPage = (S) => pageHero("Thank you", "We’ll be <span class='serif'>in touch</span>", "Thanks for reaching out — the Mutual team will reply by email soon.") + `<section class="sec"><div class="wrap"><a class="btn" href="index.html">Back to home</a></div></section>`;
