@@ -36,6 +36,7 @@ SHELL = '''<!doctype html>
 <meta name="twitter:description" content="{desc}">
 <meta name="twitter:image" content="{img}">
 <meta name="theme-color" content="#123a2a">
+<script>try{{if(localStorage.getItem("theme")==="dark")document.documentElement.dataset.theme="dark"}}catch(e){{}}</script>
 <link rel="icon" type="image/png" href="assets/logos/favicon.png">
 <link rel="apple-touch-icon" href="assets/logos/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">

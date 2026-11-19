@@ -22,6 +22,7 @@
       <a class="brand-logo" href="/" aria-label="Mutual — home">${logoAnim()}</a>
       <nav class="nav" aria-label="Main">${links}</nav>
       <a class="btn" ${waAttr()}>Let’s collaborate</a>
+      <button class="theme-tg" type="button" aria-label="Switch between light and dark mode"><svg class="moon" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 0 1 9.5 4a7 7 0 1 0 10.5 10.5z"/></svg><svg class="sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.5 1.5M17.2 17.2l1.5 1.5M5.3 18.7l1.5-1.5M17.2 6.8l1.5-1.5"/></svg></button>
       <button class="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
     </div></header>
     <div class="mobile-menu" aria-hidden="true">${links}<a class="btn light" ${waAttr()}>Let’s collaborate</a></div>`;
@@ -102,7 +103,7 @@
   const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
   const vDate = (d) => { const [y, mo, da] = d.split("-"); return `${MONTHS[+mo - 1]} ${+da}, ${y}`; };
   const vViews = (n) => n >= 1e6 ? (n / 1e6).toFixed(1).replace(/\.0$/, "") + "M views" : n >= 1e3 ? (n / 1e3).toFixed(1).replace(/\.0$/, "") + "K views" : n + " views";
-  const vCard = (v, cls) => `<a class="vid yt ${cls || ""}" href="https://www.youtube.com/watch?v=${esc(v.id)}" data-yt="${esc(v.id)}" target="_blank" rel="noopener"><div class="thumb"><img src="https://i.ytimg.com/vi/${esc(v.id)}/maxresdefault.jpg" data-fb="https://i.ytimg.com/vi/${esc(v.id)}/mqdefault.jpg" alt="" loading="lazy"><span class="play" aria-hidden="true"></span></div><div class="nm-body"><small>${vDate(v.date)} · ${vViews(v.views)}</small><h4>${esc(v.title)}</h4></div></a>`;
+  const vCard = (v, cls) => `<a class="vid yt ${cls || ""}" href="https://www.youtube.com/watch?v=${esc(v.id)}" data-yt="${esc(v.id)}" target="_blank" rel="noopener"><div class="thumb"><img src="https://i.ytimg.com/vi/${esc(v.id)}/maxresdefault.jpg" data-fb="https://i.ytimg.com/vi/${esc(v.id)}/mqdefault.jpg" alt="" loading="lazy"><span class="play" aria-hidden="true"></span></div><div class="nm-body"><small>${vDate(v.date)}<span class="vv"> · ${vViews(v.views)}</span></small><h4>${esc(v.title)}</h4></div></a>`;
 
   R.videos = (S) => V && V.latest && V.latest.length ? `<section class="sec"><div class="wrap">
       <div class="sec-head rv"><div><div class="eyebrow">Latest videos</div><h2 class="h-l">Fresh from <span class="serif">the channel</span></h2></div><a class="link-arrow" href="/programs#youtube">All programs</a></div>
@@ -241,6 +242,19 @@
     document.addEventListener("keydown", (ev) => { if (ev.key === "Escape") close(); });
   }
 
+  /* Theme: light by default; the toggle saves the visitor's choice in their browser (the page shell applies it before paint). */
+  function themeInit() {
+    const root = document.documentElement, meta = document.querySelector('meta[name="theme-color"]');
+    const paint = () => { if (meta) meta.content = root.dataset.theme === "dark" ? "#0b130f" : "#123a2a"; };
+    paint();
+    document.querySelectorAll(".theme-tg").forEach((b) => b.addEventListener("click", () => {
+      const dark = root.dataset.theme !== "dark";
+      if (dark) root.dataset.theme = "dark"; else delete root.dataset.theme;
+      try { localStorage.setItem("theme", dark ? "dark" : "light"); } catch (e) {}
+      paint();
+    }));
+  }
+
   function menu() {
     const b = document.querySelector(".burger"), m = document.querySelector(".mobile-menu");
     if (!b) return;
@@ -258,7 +272,7 @@
     const main = document.getElementById("main");
     main.innerHTML = (PAGES[here] || PAGES.index).map((k) => R[k](S)).join("");
     document.getElementById("footer").outerHTML = footer(S);
-    menu(); reveal(); cycleCards(); videosInit();
+    menu(); themeInit(); reveal(); cycleCards(); videosInit();
     if (location.hash) { const t = document.querySelector(location.hash); if (t) setTimeout(() => t.scrollIntoView(), 50); }
   }).catch((e) => { console.error(e); document.getElementById("main").innerHTML = '<p style="padding:80px 24px">Could not load content.</p>'; });
 })();

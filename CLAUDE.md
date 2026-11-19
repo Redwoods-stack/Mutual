@@ -142,3 +142,11 @@ colours and type are Mutual's own.
 - Site: homepage "Latest videos" (8 newest) and "Latest episodes" (3) under each YouTube show on Programs. Cards are real YouTube
   links (`a[data-yt]`); main.js opens them in an on-site player window (youtube-nocookie embed). Thumbnails: maxresdefault with
   fallback to mqdefault when YouTube returns its 120px placeholder.
+
+## Dark mode (Nov 2026)
+- Light is the default for everyone; dark only when the visitor taps the sun/moon button in the header (`.theme-tg`). The choice is
+  saved in their browser (`localStorage.theme`) and applied before paint by a one-line script in every page shell (scripts/seo.py).
+  It does NOT follow the device setting (owner asked for light by default).
+- All dark rules are in one block at the end of style.css under `html[data-theme="dark"]`: token overrides (bg, ink, line, cream),
+  lime buttons with dark text, logos turned white with a filter (header logo, ribbon logo, ink program logos), white logo panels kept.
+- New sections must be checked in dark: anything using `var(--green)` as a TEXT colour or `var(--ink)` as a BACKGROUND needs a dark rule.
