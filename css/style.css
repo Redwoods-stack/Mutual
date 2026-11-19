@@ -491,3 +491,28 @@ html[data-theme="dark"] .theme-tg:hover{color:var(--orange-t)}
 html[data-theme="dark"] .mk:hover .circle{background:var(--orange);border-color:var(--orange);color:#fff}
 html[data-theme="dark"] .foot-grid a:hover{color:var(--orange-t)}
 html[data-theme="dark"] .nm-dark .nm-note{color:#fff}
+
+/* ───── Mutual orange accent in BOTH themes (owner: "implement that also in light"). Orange = #ee3b2c from the logo.
+   --orange for fills and large italic words, --orange-s for small text (darker on light for legibility). ───── */
+:root{--orange:#ee3b2c;--orange-s:#d9321f}
+html[data-theme="dark"]{--orange-s:#ff5a45}
+.serif,.bigmq i{color:var(--orange)}
+.exp .serif,.feat-sub,.collab .serif,.site-footer .serif{color:#ff6a55}
+.btn{background:var(--orange);color:#fff}
+.btn:hover{background:#d9321f}
+.btn.light{background:#fff;color:#121412}
+.btn.light:hover{background:var(--orange);color:#fff}
+.nav a::after{background:var(--orange)}
+.tabs a:hover{border-color:var(--orange)}
+.link-arrow::after{color:var(--orange-s)}
+.prog .short,.ab-n,.nm-note,.mk-lg i{color:var(--orange-s)}
+.nm-dark .nm-note{color:#fff}
+.vid.yt:hover .play{background:var(--orange)}
+.mk:hover .circle{background:var(--orange);border-color:var(--orange);color:#fff}
+.foot-grid a:hover{color:#ff6a55}
+/* event tags: plain small text, no pill (owner: no rounded orange rectangles) */
+.ev .tag,html[data-theme="dark"] .ev .tag{background:none;padding:0;border-radius:0;color:var(--orange-s);font-size:11.5px;letter-spacing:.16em}
+html[data-theme="dark"] .serif,html[data-theme="dark"] .bigmq i{color:#ff5a45}
+html[data-theme="dark"] .btn{background:var(--orange);color:#fff}
+html[data-theme="dark"] .btn.light{background:#fff;color:#121412}
+html[data-theme="dark"] .btn.light:hover{background:var(--orange);color:#fff}

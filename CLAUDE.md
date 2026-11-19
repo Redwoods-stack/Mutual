@@ -153,3 +153,6 @@ colours and type are Mutual's own.
 - Dark-mode accent is **Mutual orange** `--orange #ee3b2c` (sampled from the orange logo; `--orange-t #ff5a45` for text): buttons,
   italic accent words (`.serif`, marquee italics), event tags, nav underline, link arrows, small notes. Owner asked for it so dark
   is "not too dull". Lime stays only for numbers on the green Collaborations band. Light mode is unchanged (no orange).
+- Orange accent now applies in LIGHT mode too (block "Mutual orange accent in BOTH themes" at the end of style.css):
+  orange buttons with white text, orange italic accent words, nav underline, link arrows, small notes. Event tags are plain small
+  orange text — no pills (owner dislikes rounded coloured rectangles/badges; never add them).
