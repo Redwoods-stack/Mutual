@@ -526,3 +526,12 @@ html[data-theme="dark"] .btn.light:hover{background:var(--orange);color:#fff}
 html[data-theme="dark"] .lgmq img{filter:brightness(0) invert(.95)}
 @media (max-width:760px){.sec-make{padding-top:30px}.lgmq{margin-bottom:44px}.lgmq-track{gap:44px;padding-right:44px;animation-duration:45s}.lgmq img{transform:scale(.72);margin:0 -10px}}
 @media (prefers-reduced-motion:reduce){.lgmq-track{animation:none}}
+
+/* Phone menu: smaller links with hairlines, normal-size button (was 34px type that overflowed and inflated the button) */
+.mobile-menu{padding:18px 24px 28px;gap:0;overflow-y:auto}
+.mobile-menu a{font-size:21px;line-height:1.2;padding:15px 0;border-bottom:1px solid rgba(255,255,255,.16);display:flex;justify-content:space-between;align-items:center}
+.mobile-menu a:not(.btn)::after{content:"→";font-family:var(--f-body);font-weight:400;font-size:16px;opacity:.55}
+.mobile-menu a[aria-current=page]{color:#ff6a55}
+.mobile-menu .btn,.mobile-menu .btn.light{display:inline-flex;font-size:12.5px;font-weight:700;font-stretch:100%;line-height:1;padding:14px 22px;border-bottom:0;margin-top:26px;align-self:flex-start;background:var(--orange);color:#fff}
+@media (max-width:760px){.mobile-menu{padding:12px 16px 24px}}
+html[data-theme="dark"] .mobile-menu .btn.light{background:var(--orange);color:#fff}

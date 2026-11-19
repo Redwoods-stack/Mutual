@@ -160,3 +160,7 @@ colours and type are Mutual's own.
 ## Program logo strip (Nov 2026)
 - Homepage: `logoStrip()` in main.js renders `.lgmq`, a slow running strip of every unique program logo (ink versions, white in dark)
   above the "What we make" heading; pauses on hover; soft fade at both edges. Built from programs.youtube/vertical/editorial, so new programs join automatically.
+
+## Phone menu (Nov 2026)
+- Owner found the phone menu "too huge" (34px links overflowed; the button inherited that size). Now 21px links with hairlines and
+  arrows, current page in orange, normal-size orange button (block "Phone menu" at the end of style.css). Keep it compact.
