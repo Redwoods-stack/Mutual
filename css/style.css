@@ -516,3 +516,13 @@ html[data-theme="dark"] .serif,html[data-theme="dark"] .bigmq i{color:#ff5a45}
 html[data-theme="dark"] .btn{background:var(--orange);color:#fff}
 html[data-theme="dark"] .btn.light{background:#fff;color:#121412}
 html[data-theme="dark"] .btn.light:hover{background:var(--orange);color:#fff}
+
+/* Homepage: running program-logo strip above "What we make" */
+.sec-make{padding-top:44px}
+.lgmq{overflow:hidden;margin-bottom:64px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.lgmq-track{display:flex;width:max-content;align-items:center;gap:72px;padding-right:72px;animation:tick 60s linear infinite}
+.lgmq img{height:auto;max-height:52px;object-fit:contain;flex:none;opacity:.9}
+.lgmq:hover .lgmq-track{animation-play-state:paused}
+html[data-theme="dark"] .lgmq img{filter:brightness(0) invert(.95)}
+@media (max-width:760px){.sec-make{padding-top:30px}.lgmq{margin-bottom:44px}.lgmq-track{gap:44px;padding-right:44px;animation-duration:45s}.lgmq img{transform:scale(.72);margin:0 -10px}}
+@media (prefers-reduced-motion:reduce){.lgmq-track{animation:none}}

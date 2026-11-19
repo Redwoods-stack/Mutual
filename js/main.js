@@ -70,7 +70,14 @@
      tapping a logo picks it. Landscape cards cross-fade one picture; layout "strip" cards (vertical, editorial)
      show three tall pictures side by side, the current one bright, sliding along as it cycles.
      Data: pillars[].items {name, logo, logo_r, logo_note, img}, pillars[].layout. */
-  R.make = (S) => `<section class="sec"><div class="wrap">
+  /* Running strip of every program's logo (unique logos from programs.youtube / vertical / editorial), above "What we make". */
+  const logoStrip = (S) => {
+    const seen = new Set(), list = [...S.programs.youtube, ...S.programs.vertical, ...S.programs.editorial].filter((p) => p.logo && !seen.has(p.logo) && seen.add(p.logo));
+    const one = list.map((p) => `<img src="${esc(p.logo.replace(".png", "-ink.png"))}" alt="${esc(p.name)}" style="width:${Math.round(52 * Math.sqrt(p.logo_r || 2))}px" loading="lazy">`).join("");
+    return `<div class="lgmq" aria-label="Mutual programs"><div class="lgmq-track">${one}${one}</div></div>`;
+  };
+
+  R.make = (S) => `<section class="sec sec-make">${logoStrip(S)}<div class="wrap">
       <div class="sec-head rv"><div><div class="eyebrow">What we make</div><h2 class="h-l">On every screen, <span class="serif">and off it</span></h2></div><a class="link-arrow" href="/programs">All programs</a></div>
       <div class="cards-2">${S.pillars.map((p) => `<div class="mk rv" data-cycle>
         <a class="mk-img${p.layout === "strip" ? " strip" : ""}" href="${esc(p.href)}" aria-label="${esc(p.title)}">${p.layout === "strip"

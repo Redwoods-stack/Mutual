@@ -156,3 +156,7 @@ colours and type are Mutual's own.
 - Orange accent now applies in LIGHT mode too (block "Mutual orange accent in BOTH themes" at the end of style.css):
   orange buttons with white text, orange italic accent words, nav underline, link arrows, small notes. Event tags are plain small
   orange text — no pills (owner dislikes rounded coloured rectangles/badges; never add them).
+
+## Program logo strip (Nov 2026)
+- Homepage: `logoStrip()` in main.js renders `.lgmq`, a slow running strip of every unique program logo (ink versions, white in dark)
+  above the "What we make" heading; pauses on hover; soft fade at both edges. Built from programs.youtube/vertical/editorial, so new programs join automatically.
