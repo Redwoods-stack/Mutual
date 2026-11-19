@@ -68,7 +68,7 @@
         <div class="mk-names">${p.names.map((n) => `<span>${esc(n)}</span>`).join("")}</div></div></a>`).join("")}</div>
     </div></section>`;
 
-  R.experience = (S) => `<section class="exp"><img class="exp-bg" src="assets/img/ev-major-reality.jpg" alt="" loading="lazy"><div class="wrap">
+  R.experience = (S) => `<section class="exp"><img class="exp-bg" src="assets/img/exp-bg.jpg" alt="" loading="lazy"><div class="wrap">
       <div class="eyebrow rv">Experience</div>
       <h2 class="h-l rv">Off the screen, <span class="serif">onto the course</span></h2>
       <p class="lead rv">Tournaments, a reality show, markets, clinics and community nights — Mutual brings its programs to real courses with real people.</p>
@@ -97,7 +97,7 @@
       <div class="collab-nums rv">${stats([{ n: S.collab.brands_count, l: "brands in our community" }, { n: S.collab.courses_count, l: "partner courses" }, { n: S.collab.talent_count, l: "talent & influencers" }])}</div>
       <div class="wall rv"><img src="assets/img/brands-wall.jpg" alt="Logos of brands that have worked with the Mutual community" loading="lazy"></div>
       <div class="logo-panels rv"><div class="lp"><img src="assets/img/logos-courses-wide.jpg" alt="Course collaborators" loading="lazy"></div>
-        <div class="lp stack"><img src="assets/img/logos-brand.jpg" alt="Brand collaborators" loading="lazy" style="max-height:120px"></div></div>
+        <div class="lp stack"><img src="assets/img/logos-brand.jpg" alt="Brand collaborators" loading="lazy"></div></div>
       <div class="cases">${S.cases.map((c) => `<div class="case rv"><div class="c-img"><img src="${esc(c.img)}" alt="" loading="lazy"></div><b>${esc(c.name)}</b><span>${esc(c.sub)}</span>${opts && opts.full ? `<p style="font-size:14px;color:rgba(255,255,255,.8);margin-top:8px">${esc(c.text)}</p>` : ""}</div>`).join("")}</div>
       <div class="chips rv">${S.collab.partners.map((p) => `<span>${esc(p)}</span>`).join("")}</div>
     </div></section>`;

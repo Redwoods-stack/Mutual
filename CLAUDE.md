@@ -12,7 +12,7 @@ colours and type are Mutual's own.
   truth). The page name picks the section list (`PAGES` in main.js).
 - `css/style.css` — one stylesheet; tokens in `:root`. Append new blocks at the end. Check braces balance after
   scripted edits.
-- Assets: `assets/img/` (photos, from the Mutual × The Card deck — ~520px wide, low-res), `assets/logos/`
+- Assets: `assets/img/` (photos; most were replaced in Nov 2026 with higher-resolution images from *THE MUTUAL GOLF - Media Kit 2026.pdf*; a few with no clean kit equivalent are still ~520px: yt-convert, yt-playoff, ido-documentary, fd-groundwave, club-activations, talent, brands-wall, ev-charity), `assets/logos/`
   (Mutual black/white, mark, group portfolio logos in `group/`), `assets/video/showreel.mp4` (hero, muted loop).
 - Contact form on Collaborations uses Netlify Forms (`data-netlify`, enabled on the mutualweb project). A hidden static copy sits in `collaborations.html` so Netlify detects it at deploy; keep its field names in sync with the form in main.js.
 - Netlify project: **mutualweb** (https://mutualweb.netlify.app), auto-deploys from `main`, public (team protection off). The empty `mutual-golf` project is unused.
@@ -32,3 +32,10 @@ colours and type are Mutual's own.
 2. CMS dashboard (`admin.html`) on Netlify Functions committing `data/site.json` + uploaded images to GitHub
    (Maple pattern). Then pre-render sections into HTML between `CMS:` markers for SEO.
 3. Live YouTube / Instagram feeds via cached `/api/*` functions.
+
+## Media Kit 2026 asset refresh (Nov 2026)
+- Photos, the three Mutual Card designs, the course (15) and brand (40) logo sheets and the white footer logo come from the Media Kit 2026 PDF.
+- `exp-bg.jpg` is the homepage "Off the screen" background (was reusing `ev-major-reality.jpg`). `case-appi.jpg` is the APPI case image.
+- `logos-courses-wide.jpg` is rebuilt from the kit's 3x5 course grid into 5x3; `logos-brand.jpg` is a crop of the kit's brand sheet. The two panels are equal columns (CSS block at the end of style.css).
+- Kit YouTube embeds (with the YouTube play button burned in) were deliberately not used as thumbnails.
+- Not yet synced from the kit (content, not images): Charity Classic and Mutual Major Vol. 1 figures differ; kit adds Orangegrounds × Mutual and Akross × Mutual merch, 5 vertical series, contact people.

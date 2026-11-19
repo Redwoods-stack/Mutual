@@ -285,3 +285,9 @@ button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
   .ev{gap:22px;padding:34px 0}
   .page-hero{padding:56px 0 36px}
 }
+
+/* Media Kit 2026 logo panels: two full-width logo sheets */
+.logo-panels{grid-template-columns:1fr 1fr}
+.logo-panels .lp{padding:14px}
+.logo-panels img{max-height:none;width:100%;height:auto}
+@media (max-width:760px){.logo-panels{grid-template-columns:1fr}}
