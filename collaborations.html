@@ -19,6 +19,8 @@
 <div id="header"></div>
 <main id="main"></main>
 <div id="footer"></div>
+<!-- Static copy of the contact form so Netlify Forms detects it at deploy time (the visible form is rendered by main.js) -->
+<form name="contact" data-netlify="true" netlify-honeypot="bot-field" hidden><input name="bot-field"><input name="name"><input name="company"><input type="email" name="email"><select name="interest"><option>x</option></select><textarea name="message"></textarea></form>
 <script src="js/main.js"></script>
 </body>
 </html>

@@ -14,7 +14,8 @@ colours and type are Mutual's own.
   scripted edits.
 - Assets: `assets/img/` (photos, from the Mutual × The Card deck — ~520px wide, low-res), `assets/logos/`
   (Mutual black/white, mark, group portfolio logos in `group/`), `assets/video/showreel.mp4` (hero, muted loop).
-- Contact form on Collaborations uses Netlify Forms (`data-netlify`); form detection must be on in Netlify.
+- Contact form on Collaborations uses Netlify Forms (`data-netlify`, enabled on the mutualweb project). A hidden static copy sits in `collaborations.html` so Netlify detects it at deploy; keep its field names in sync with the form in main.js.
+- Netlify project: **mutualweb** (https://mutualweb.netlify.app), auto-deploys from `main`, public (team protection off). The empty `mutual-golf` project is unused.
 
 ## Design language
 - Deep green `--green #123a2a` (Maple's purple role), cream ribbon `--cream`, lime `--lime` for numbers on green.
