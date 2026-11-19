@@ -552,8 +552,17 @@
   },
   {
    "name": "Akross × Mutual",
-   "text": "Golf meets outdoor utility: Mutual’s modern golf lifestyle with Akross’ functional approach to outdoor apparel, made for movement from the course to the city.",
-   "img": "assets/img/merch-akross.jpg"
+   "text": "Golf meets outdoor utility: Mutual’s modern golf lifestyle with Akross’ functional approach to outdoor apparel, made for movement — from the course to the city, and everywhere in between.",
+   "img": "assets/img/merch-akross.jpg",
+   "featured": true,
+   "kicker": "New collection",
+   "sub": "From the course to the city",
+   "banner": "assets/img/akross-editorial.jpg",
+   "gallery": [
+    "assets/img/akross-locker.jpg",
+    "assets/img/akross-studio.jpg",
+    "assets/img/akross-course.jpg"
+   ]
   },
   {
    "name": "Mutual Club activations",

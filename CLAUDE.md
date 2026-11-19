@@ -90,3 +90,11 @@ colours and type are Mutual's own.
 - Netlify team "Redwoods" (free plan) hit "usage exceeded" on 19 Nov 2026 → every page of mutualweb returned 503.
   Each production deploy and each deploy preview uses plan credits, and the homepage showreel is several MB per visit.
   Batch changes into fewer pushes; avoid opening preview PRs for small changes.
+
+## Products page — featured drop (Nov 2026)
+- Owner chose option "B · Campaign banner" (without the lime pill tag: "too AI slop" — avoid rounded lime badges).
+- A product with `"featured": true` (now Akross × Mutual) gets: full-width `banner` photo with `kicker` / name / `sub`,
+  a cream ribbon with its `text`, a 3-photo `gallery` strip, then the other products as "Past drops & activations".
+  To feature the next drop, move `featured` + banner/gallery to that product. Homepage products section is unchanged.
+- Akross photos: akross-editorial (4K Drive "Akross Teaser Editorial", 1400w), akross-locker ("Teaser Daru Andrey", 1000w),
+  akross-studio / akross-course (the two halves of merch-akross.jpg).

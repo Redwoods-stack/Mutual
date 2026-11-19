@@ -346,3 +346,27 @@ button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
 
 /* product tile with a white-background picture (the Mutual Card) */
 .prod .p-img.contain{background:#fff}
+
+/* Products page — featured drop (campaign banner, ribbon, photo strip) */
+.feat-ban{position:relative;height:min(78vh,760px);overflow:hidden;background:#000}
+.feat-ban>img{width:100%;height:100%;object-fit:cover;object-position:50% 30%}
+.feat-cap{position:absolute;left:0;right:0;bottom:0;padding:140px 0 46px;background:linear-gradient(180deg,transparent,rgba(0,0,0,.75));color:#fff}
+.feat-kicker{font-family:var(--f-head);font-weight:600;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.85)}
+.feat-ban h1{font-family:var(--f-head);font-weight:800;font-stretch:112%;text-transform:uppercase;font-size:clamp(40px,6vw,88px);line-height:.95;margin-top:12px}
+.feat-sub{font-family:var(--f-serif);font-style:italic;font-size:30px;opacity:.9;margin-top:4px}
+.feat-rib{background:var(--cream)}
+.feat-rib .wrap{display:flex;gap:30px;align-items:center;padding-top:26px;padding-bottom:26px}
+.feat-rib .eyebrow{white-space:nowrap}
+.feat-rib p{color:var(--ink-2);max-width:680px}
+.feat-look{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;padding-top:6px}
+.feat-look div{aspect-ratio:3/4;overflow:hidden;background:#000}
+.feat-look img{width:100%;height:100%;object-fit:cover}
+@media (max-width:760px){
+  .feat-ban{height:72vh}
+  .feat-ban>img{object-position:74% 30%}
+  .feat-cap{padding:110px 0 30px}
+  .feat-sub{font-size:22px}
+  .feat-rib .wrap{flex-direction:column;align-items:flex-start;gap:10px}
+  .feat-look{grid-template-columns:1fr 1fr}
+  .feat-look div:first-child{grid-column:1/3;aspect-ratio:4/5}
+}

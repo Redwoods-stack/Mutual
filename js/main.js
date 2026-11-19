@@ -132,8 +132,19 @@
   R.eventsPage = (S) => pageHero("Events", "Off the screen, <span class='serif'>onto the course</span>", "Tournaments, a reality show, markets, clinics and community nights — organised, produced and filmed by Mutual.") +
     `<section class="sec"><div class="wrap">${S.events.map((e) => `<article class="ev rv"><div class="ev-img"><img src="${esc(e.img)}" alt="${esc(e.name)}" loading="lazy"></div><div class="nm-body"><span class="tag">${esc(e.tag)}</span><h3>${nmIn(e, 150)}</h3><div class="meta">${esc(e.date)} · ${esc(e.place)}</div><p>${esc(e.text)}</p>${e.stats.length ? `<div class="ev-stats">${e.stats.map((s) => `<div><b>${esc(s[0])}</b><span>${esc(s[1])}</span></div>`).join("")}</div>` : ""}</div></article>`).join("")}</div></section>` + R.work(S);
 
-  R.productsPage = (S) => pageHero("Products", "We celebrate golf <span class='serif'>beyond the sport</span>", "Merchandise and activations that take the Mutual lifestyle from the course to the city.") +
-    `<section class="sec"><div class="wrap">${prodGrid(S)}</div></section>`;
+  /* Products page: the product marked "featured" (latest drop) gets a campaign banner, a text ribbon and a
+     photo strip; the rest follow as "Past drops & activations". Without a featured product it is a plain grid. */
+  R.productsPage = (S) => {
+    const f = S.products.find((p) => p.featured && !p.hidden);
+    if (!f) return pageHero("Products", "We celebrate golf <span class='serif'>beyond the sport</span>", "Merchandise and activations that take the Mutual lifestyle from the course to the city.") +
+      `<section class="sec"><div class="wrap">${prodGrid(S)}</div></section>`;
+    const rest = { products: S.products.filter((p) => p !== f) };
+    return `<section class="feat-ban"><img src="${esc(f.banner || f.img)}" alt="${esc(f.name)}"><div class="feat-cap"><div class="wrap">
+        <div class="feat-kicker">${esc(f.kicker || "Latest drop")}</div><h1>${esc(f.name)}</h1>${f.sub ? `<div class="feat-sub">${esc(f.sub)}</div>` : ""}</div></div></section>
+      <section class="feat-rib"><div class="wrap"><div class="eyebrow">Products</div><p>${esc(f.text)}</p></div></section>
+      ${(f.gallery || []).length ? `<section class="feat-look">${f.gallery.map((g) => `<div><img src="${esc(g)}" alt="" loading="lazy"></div>`).join("")}</section>` : ""}
+      <section class="sec"><div class="wrap"><div class="sec-head rv"><div><div class="eyebrow">More from Mutual</div><h2 class="h-l">Past drops <span class="serif">& activations</span></h2></div></div>${prodGrid(rest)}</div></section>`;
+  };
 
   R.collabPage = (S) => pageHero("Collaborations", "Brands already <span class='serif'>trust our community</span>", "130+ brands have worked with our community — banks, telco, FMCG, retail, F&B, fashion, media and tech. Here is what we make together.") +
     R.collab(S, { full: true }) + R.work(S) +
