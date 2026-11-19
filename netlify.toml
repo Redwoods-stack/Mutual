@@ -11,3 +11,45 @@
   for = "/data/*"
   [headers.values]
     Cache-Control = "public, max-age=0, must-revalidate"
+
+# Clean addresses: /programs instead of /programs.html (Netlify serves programs.html at /programs by itself)
+[[redirects]]
+  from = "/index.html"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/programs.html"
+  to = "/programs"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/events.html"
+  to = "/events"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/products.html"
+  to = "/products"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/collaborations.html"
+  to = "/collaborations"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/about.html"
+  to = "/about"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/thanks.html"
+  to = "/collaborations"
+  status = 301

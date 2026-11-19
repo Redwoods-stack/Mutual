@@ -3,23 +3,23 @@
 (function () {
   "use strict";
   const esc = (s) => String(s == null ? "" : s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
-  const NAV = [["Programs", "programs.html"], ["Events", "events.html"], ["Products", "products.html"], ["Collaborations", "collaborations.html"], ["About", "about.html"]];
-  const here = (location.pathname.split("/").pop() || "index.html").replace(/\.html$/, "") || "index";
+  const NAV = [["Programs", "/programs"], ["Events", "/events"], ["Products", "/products"], ["Collaborations", "/collaborations"], ["About", "/about"]];
+  const here = document.body.dataset.page || (location.pathname.replace(/\/+$/, "").split("/").pop() || "index").replace(/\.html$/, "") || "index";
   const ICON = {
     youtube: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 0 0 1 7.2 31 31 0 0 0 .6 12 31 31 0 0 0 1 16.8a3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .4-4.8 31 31 0 0 0-.4-4.8zM9.7 15.1V8.9l5.8 3.1-5.8 3.1z"/></svg>',
     instagram: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>',
     tiktok: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 3c.4 2.2 1.8 3.7 4 3.9v3.2c-1.5 0-2.9-.4-4-1.2v6.3a6 6 0 1 1-6-6h.6v3.3a2.8 2.8 0 1 0 2.2 2.7V3h3.2z"/></svg>'
   };
 
-  let WA = "collaborations.html#contact";
+  let WA = "/collaborations#contact";
   const waAttr = () => `href="${WA}"${/^https:/.test(WA) ? ' target="_blank" rel="noopener"' : ""}`;
   /* header logo: base (ring, poles, wordmark) + three flag layers that wave from their poles */
   const logoAnim = () => `<span class="logo-anim"><img class="lb" src="assets/logos/mutual-green-base.png" alt="Mutual" width="55" height="44"><img class="fl f1" src="assets/logos/flag-1.png" alt=""><img class="fl f2" src="assets/logos/flag-2.png" alt=""><img class="fl f3" src="assets/logos/flag-3.png" alt=""></span>`;
 
   function header() {
-    const links = NAV.map(([t, h]) => `<a href="${h}"${h.replace(".html", "") === here ? ' aria-current="page"' : ""}>${t}</a>`).join("");
+    const links = NAV.map(([t, h]) => `<a href="${h}"${h.slice(1) === here ? ' aria-current="page"' : ""}>${t}</a>`).join("");
     return `<header class="site-header"><div class="wrap">
-      <a class="brand-logo" href="index.html" aria-label="Mutual — home">${logoAnim()}</a>
+      <a class="brand-logo" href="/" aria-label="Mutual — home">${logoAnim()}</a>
       <nav class="nav" aria-label="Main">${links}</nav>
       <a class="btn" ${waAttr()}>Let’s collaborate</a>
       <button class="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
@@ -33,8 +33,8 @@
       <div class="foot-grid">
         <div><img src="assets/logos/mutual-white.png" alt="Mutual"><p>${esc(b.intro)}</p>
           <div class="socials">${b.socials.map((s) => `<a href="${esc(s.url)}" target="_blank" rel="noopener" aria-label="${s.k}">${ICON[s.k] || ""}</a>`).join("")}</div></div>
-        <div><h5>Explore</h5><a href="programs.html">Programs</a><a href="events.html">Events</a><a href="products.html">Products</a></div>
-        <div><h5>Company</h5><a href="about.html">About</a><a href="collaborations.html">Collaborations</a><a ${waAttr()}>Contact</a></div>
+        <div><h5>Explore</h5><a href="/programs">Programs</a><a href="/events">Events</a><a href="/products">Products</a></div>
+        <div><h5>Company</h5><a href="/about">About</a><a href="/collaborations">Collaborations</a><a ${waAttr()}>Contact</a></div>
         <div><h5>Contact us</h5><a ${waAttr()}>WhatsApp ${esc(b.whatsapp_display || "")}</a><a>${esc(b.address)}</a></div>
       </div>
       <div class="foot-bottom"><span>© ${new Date().getFullYear()} The Mutual Golf. All rights reserved.</span><span>${esc(b.group)}</span></div>
@@ -58,8 +58,8 @@
   };
 
   R.intro = (S) => `<section class="sec intro"><div class="wrap">
-      <div class="grid rv"><h2 class="h-l">${esc(S.brand.intro_title)}</h2>
-        <div><p>${esc(S.brand.intro)}</p><a class="link-arrow" href="programs.html">Explore our programs</a></div></div>
+      <div class="grid rv"><h1 class="h-l">${esc(S.brand.intro_title)}</h1>
+        <div><p>${esc(S.brand.intro)}</p><a class="link-arrow" href="/programs">Explore our programs</a></div></div>
       <div class="eyebrow stats-label rv">The numbers behind the community</div>
       <div class="stats rv">${stats(S.stats)}</div>
     </div></section><div class="wrap"><hr class="hair"></div>`;
@@ -69,7 +69,7 @@
      show three tall pictures side by side, the current one bright, sliding along as it cycles.
      Data: pillars[].items {name, logo, logo_r, logo_note, img}, pillars[].layout. */
   R.make = (S) => `<section class="sec"><div class="wrap">
-      <div class="sec-head rv"><div><div class="eyebrow">What we make</div><h2 class="h-l">On every screen, <span class="serif">and off it</span></h2></div><a class="link-arrow" href="programs.html">All programs</a></div>
+      <div class="sec-head rv"><div><div class="eyebrow">What we make</div><h2 class="h-l">On every screen, <span class="serif">and off it</span></h2></div><a class="link-arrow" href="/programs">All programs</a></div>
       <div class="cards-2">${S.pillars.map((p) => `<div class="mk rv" data-cycle>
         <a class="mk-img${p.layout === "strip" ? " strip" : ""}" href="${esc(p.href)}" aria-label="${esc(p.title)}">${p.layout === "strip"
           ? `<div class="mk-track">${p.items.map((it, i) => `<div class="mk-slide${i === 0 ? " on" : ""}"><img class="mk-pic" src="${esc(it.img)}" alt="${esc(it.name)}" loading="lazy"></div>`).join("")}</div>`
@@ -89,29 +89,29 @@
       <div class="eyebrow rv">Experience</div>
       <h2 class="h-l rv">Off the screen, <span class="serif">onto the course</span></h2>
       <p class="lead rv">Tournaments, a reality show, markets, clinics and community nights — Mutual brings its programs to real courses with real people.</p>
-      <div class="exp-grid">${evs.map((e) => `<a class="exp-card rv" href="events.html"><div class="exp-ph"><img src="${esc(e.img)}" alt="${esc(e.name)}" loading="lazy"></div><div class="exp-meta"><span class="nm-dark">${e.logo ? lgImg(e, 64) : esc(e.name)}</span><span class="exp-date">${esc(e.date)} · ${esc(e.tag)}</span></div></a>`).join("")}</div>
-      <a class="link-arrow exp-all rv" href="events.html">All events</a>
+      <div class="exp-grid">${evs.map((e) => `<a class="exp-card rv" href="/events"><div class="exp-ph"><img src="${esc(e.img)}" alt="${esc(e.name)}" loading="lazy"></div><div class="exp-meta"><span class="nm-dark">${e.logo ? lgImg(e, 64) : esc(e.name)}</span><span class="exp-date">${esc(e.date)} · ${esc(e.tag)}</span></div></a>`).join("")}</div>
+      <a class="link-arrow exp-all rv" href="/events">All events</a>
     </div></section>`;
   };
 
 
   R.videos = (S) => `<section class="sec"><div class="wrap">
-      <div class="sec-head rv"><div class="eyebrow">Our YouTube shows</div><a class="link-arrow" href="programs.html#youtube">See all</a></div>
-      <div class="shelf">${S.programs.youtube.slice(0, 8).map((p) => `<a class="vid rv" href="programs.html#youtube"><div class="thumb"><img src="${esc(p.img)}" alt="" loading="lazy"></div><div class="nm-body"><small>${esc(p.short)}</small><h4>${nmIn(p, 62)}</h4></div></a>`).join("")}</div>
+      <div class="sec-head rv"><div class="eyebrow">Our YouTube shows</div><a class="link-arrow" href="/programs#youtube">See all</a></div>
+      <div class="shelf">${S.programs.youtube.slice(0, 8).map((p) => `<a class="vid rv" href="/programs#youtube"><div class="thumb"><img src="${esc(p.img)}" alt="" loading="lazy"></div><div class="nm-body"><small>${esc(p.short)}</small><h4>${nmIn(p, 62)}</h4></div></a>`).join("")}</div>
     </div></section><div class="wrap"><hr class="hair"></div>`;
 
   R.reels = (S) => `<section class="sec reels"><div class="wrap">
-      <div class="rv"><div class="eyebrow">Vertical series</div><h2 class="h-l">Golf in under <span class="serif">a minute.</span></h2><p>Snackable series for Instagram and TikTok — quick, sharp and made to be shared.</p><a class="link-arrow" href="programs.html#vertical">All vertical series</a></div>
+      <div class="rv"><div class="eyebrow">Vertical series</div><h2 class="h-l">Golf in under <span class="serif">a minute.</span></h2><p>Snackable series for Instagram and TikTok — quick, sharp and made to be shared.</p><a class="link-arrow" href="/programs#vertical">All vertical series</a></div>
       <div class="reel-row">${S.programs.vertical.map((p) => `<div class="reel rv"><div class="r-img"><img src="${esc(p.img)}" alt="" loading="lazy"></div><div class="nm-body"><b>${nmIn(p, 50)}</b><span>${esc(p.short)}</span></div></div>`).join("")}</div>
     </div></section>`;
 
   R.products = (S) => `<section class="sec" style="background:var(--cream)"><div class="wrap">
-      <div class="sec-head rv"><div><div class="eyebrow">Mutual products</div><h2 class="h-l">We celebrate golf <span class="serif">beyond the sport</span></h2></div><a class="link-arrow" href="products.html">See products</a></div>
+      <div class="sec-head rv"><div><div class="eyebrow">Mutual products</div><h2 class="h-l">We celebrate golf <span class="serif">beyond the sport</span></h2></div><a class="link-arrow" href="/products">See products</a></div>
       ${prodGrid(S, 3)}</div></section>`;
   const prodGrid = (S, n) => `<div class="prod-grid">${S.products.filter((p) => !p.hidden).slice(0, n || 99).map((p) => `<div class="prod rv"><div class="p-img${/card/i.test(p.img) ? " contain" : ""}"><img src="${esc(p.img)}" alt="" loading="lazy"></div><div class="p-body"><h3>${esc(p.name)}</h3><p>${esc(p.text)}</p></div></div>`).join("")}</div>`;
 
   R.collab = (S, opts) => `<section class="sec collab"><div class="wrap">
-      <div class="sec-head rv"><div><div class="eyebrow">Collaborations</div><h2 class="h-l">Brands we’ve worked with</h2></div>${opts && opts.full ? "" : '<a class="link-arrow" href="collaborations.html">See case studies</a>'}</div>
+      <div class="sec-head rv"><div><div class="eyebrow">Collaborations</div><h2 class="h-l">Brands we’ve worked with</h2></div>${opts && opts.full ? "" : '<a class="link-arrow" href="/collaborations">See case studies</a>'}</div>
       <div class="collab-nums rv">${stats([{ n: S.collab.brands_count, l: "brands in our community" }, { n: S.collab.courses_count, l: "partner courses" }])}</div>
       <div class="logo-panels rv"><div class="lp"><img src="assets/img/logos-courses-wide.jpg" alt="Course collaborators" loading="lazy"></div>
         <div class="lp stack"><img src="assets/img/logos-brand.jpg" alt="Brand collaborators" loading="lazy"></div></div>
@@ -128,7 +128,7 @@
   const pageHero = (eyebrow, title, text, tabs) => `<section class="page-hero"><div class="wrap"><div class="eyebrow">${eyebrow}</div><h1 class="h-xl">${title}</h1><p>${text}</p>${tabs ? `<div class="tabs">${tabs.map(([t, h]) => `<a href="${h}">${t}</a>`).join("")}</div>` : ""}</div></section>`;
   const progCards = (list, cls, tall) => `<div class="prog-list ${cls || ""}">${list.map((p) => `<div class="prog rv${tall ? " tall" : ""}"><div class="pg-img"><img src="${esc(p.img)}" alt="" loading="lazy"></div><div class="nm-body"><h3>${nmIn(p, tall ? 78 : 104)}</h3><div class="short">${esc(p.short)}</div><p>${esc(p.text)}</p></div></div>`).join("")}</div>`;
 
-  R.programsPage = (S) => pageHero("Programs", "Stories from <span class='serif'>every side</span> of golf", "Video-based programs that show the many sides of golf — diverse, true to the spirit of the game, and open to people outside the golf circle.", [["YouTube shows", "#youtube"], ["Vertical series", "#vertical"], ["Feed & editorial", "#editorial"]]) +
+  R.programsPage = (S) => pageHero("Programs", "Stories from <span class='serif'>every side</span> of golf", "Video-based programs that show the many sides of golf — diverse, true to the spirit of the game, and open to people outside the golf circle.", [["YouTube shows", "/programs#youtube"], ["Vertical series", "/programs#vertical"], ["Feed & editorial", "/programs#editorial"]]) +
     `<section class="sec" id="youtube"><div class="wrap"><div class="sec-head rv"><div><div class="eyebrow">Long-form</div><h2 class="h-l">YouTube shows</h2></div></div>${progCards(S.programs.youtube)}</div></section>
      <section class="sec" id="vertical" style="background:var(--cream)"><div class="wrap"><div class="sec-head rv"><div><div class="eyebrow">Short-form</div><h2 class="h-l">Vertical series</h2></div></div>${progCards(S.programs.vertical, "five", true)}</div></section>
      <section class="sec" id="editorial"><div class="wrap"><div class="sec-head rv"><div><div class="eyebrow">Feed</div><h2 class="h-l">Feed & editorial</h2></div></div>${progCards(S.programs.editorial, "four", true)}</div></section>`;
@@ -153,16 +153,9 @@
   R.collabPage = (S) => pageHero("Collaborations", "Brands already <span class='serif'>trust our community</span>", "130+ brands have worked with our community — banks, telco, FMCG, retail, F&B, fashion, media and tech. Here is what we make together.") +
     R.collab(S, { full: true }) + R.work(S) +
     `<section class="sec" id="contact" style="background:var(--cream)"><div class="wrap"><div class="eyebrow">Contact</div><h2 class="h-l" style="margin-top:10px">Let’s collaborate</h2>
-      <p style="color:var(--ink-2);max-width:560px;margin-top:14px">The fastest way to reach us is WhatsApp. You can also leave a message below.</p><p style="margin-top:18px"><a class="btn" ${waAttr()}>Chat on WhatsApp · ${esc(S.brand.whatsapp_display || "")}</a></p>
-      <form class="contact-form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/thanks.html">
-        <input type="hidden" name="form-name" value="contact"><p hidden><label>Leave empty <input name="bot-field"></label></p>
-        <label>Name<input name="name" required autocomplete="name"></label>
-        <label>Company<input name="company" autocomplete="organization"></label>
-        <label>Email<input type="email" name="email" required autocomplete="email"></label>
-        <label>Interested in<select name="interest"><option>Brand partnership</option><option>Events & activations</option><option>Programs & content</option><option>Something else</option></select></label>
-        <label class="full">Tell us about it<textarea name="message" required></textarea></label>
-        <div class="full"><button class="btn" type="submit">Send</button></div>
-      </form></div></section>`;
+      <p style="color:var(--ink-2);max-width:560px;margin-top:14px;font-size:17px">Tell us about your brand, event or idea on WhatsApp — the Mutual team will reply there.</p>
+      <p style="margin-top:22px"><a class="btn" ${waAttr()}>Chat on WhatsApp · ${esc(S.brand.whatsapp_display || "")}</a></p>
+      </div></section>`;
 
   R.aboutPage = (S) => {
     const A = S.about, cats = { media: "Media", prog: "Programmes & events", place: "Place-making", ip: "IP characters" };
@@ -181,11 +174,13 @@
       </div></section>` : ""}` + R.work(S);
   };
 
-  R.thanksPage = (S) => pageHero("Thank you", "We’ll be <span class='serif'>in touch</span>", "Thanks for reaching out — the Mutual team will reply by email soon.") + `<section class="sec"><div class="wrap"><a class="btn" href="index.html">Back to home</a></div></section>`;
+
+  R.notFound = () => pageHero("404", "This page is <span class='serif'>out of bounds</span>", "The page you were looking for isn’t here.") + `<section class="sec"><div class="wrap"><a class="btn" href="/">Back to home</a></div></section>`;
 
   const PAGES = {
+    notfound: ["notFound"],
     index: ["hero", "intro", "make", "experience", "videos", "reels", "products", "collab", "work"],
-    programs: ["programsPage"], thanks: ["thanksPage"], events: ["eventsPage"], products: ["productsPage"], collaborations: ["collabPage"], about: ["aboutPage"]
+    programs: ["programsPage"], events: ["eventsPage"], products: ["productsPage"], collaborations: ["collabPage"], about: ["aboutPage"]
   };
 
   function reveal() {

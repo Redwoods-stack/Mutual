@@ -107,3 +107,18 @@ colours and type are Mutual's own.
   and waving from the pole side (`@keyframes flagWave`, different speeds). Respects reduced motion.
 - Removed the drifting logo pattern band above the homepage ticker. Phone hero video is 16:9 (whole frame, no crop).
 - About: `about.pillars` (3 pillars: text, points, link, 4 images = tall, wide, 2 small) replaces the three-card row.
+
+## SEO structure (Nov 2026)
+- Clean addresses: `/programs`, `/events`, `/products`, `/collaborations`, `/about` (files are still `*.html`; Netlify serves them
+  without the extension and `netlify.toml` 301-redirects the `.html` addresses). All links are root-absolute; every page has `<base href="/">`
+  and `<body data-page>` (main.js picks the page from it).
+- Page shells are GENERATED — do not hand-edit `*.html`, `sitemap.xml`, `robots.txt`. Edit `scripts/pages.json` (title, description,
+  share-image words and photo), then run:
+    `python3 scripts/seo.py` → `node scripts/serve.js 8080 &` → `node scripts/share-images.js http://localhost:8080` (only if share words/photos changed)
+    → `node scripts/prerender.js http://localhost:8080`
+- **Re-run seo.py + prerender.js after ANY change to data/site.json or js/main.js**: prerender writes the rendered content into `<main>`
+  so search engines and link previews read real text; main.js re-renders over it. (The future CMS save must do the same.)
+- Each page: title, description, canonical (https://www.mutual.golf), Open Graph + Twitter tags, 1200×630 share image in `assets/share/`,
+  JSON-LD (Organization + WebSite on home, BreadcrumbList elsewhere), one h1. `404.html` = not-found page.
+- Contact is WhatsApp only: the Netlify form, its hidden static copy and `thanks.html` were removed on owner request.
+- Local testing: `node scripts/serve.js <port>` (python's http.server cannot serve the clean addresses).

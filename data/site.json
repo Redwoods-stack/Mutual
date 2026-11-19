@@ -54,7 +54,7 @@
   {
    "title": "YouTube shows",
    "text": "Long-form series that show the many sides of golf — for golfers and everyone outside the circle.",
-   "href": "programs.html#youtube",
+   "href": "/programs#youtube",
    "items": [
     {
      "name": "ASMR",
@@ -103,7 +103,7 @@
   {
    "title": "Vertical series",
    "text": "Quick, sharp golf in under a minute, for Instagram and TikTok.",
-   "href": "programs.html#vertical",
+   "href": "/programs#vertical",
    "items": [
     {
      "name": "Golf 60",
@@ -146,7 +146,7 @@
   {
    "title": "Feed & editorial",
    "text": "Stories on traditions, places, gear and the people of the game.",
-   "href": "programs.html#editorial",
+   "href": "/programs#editorial",
    "items": [
     {
      "name": "Social Round",
@@ -182,7 +182,7 @@
   {
    "title": "Real-life experiences",
    "text": "Tournaments, a reality show, markets, clinics and community nights.",
-   "href": "events.html",
+   "href": "/events",
    "items": [
     {
      "name": "Mutual Major · Reality Show",
@@ -918,7 +918,7 @@
      "Feed & editorial: Social Round, Unwritten, Groundwave, re:store",
      "2.4M people reached · 300M+ media views"
     ],
-    "href": "programs.html",
+    "href": "/programs",
     "link": "See all programs",
     "images": [
      "assets/img/v-hottakes.jpg",
@@ -938,7 +938,7 @@
      "Orangegrounds × The Mutual Golf",
      "Mutual Club pop-ups and club days"
     ],
-    "href": "products.html",
+    "href": "/products",
     "link": "See products",
     "images": [
      "assets/img/akross-locker.jpg",
@@ -958,7 +958,7 @@
      "Coach Says Live clinics",
      "Charity Classic for Marriott Business Councils"
     ],
-    "href": "events.html",
+    "href": "/events",
     "link": "See all events",
     "images": [
      "assets/img/ev-market.jpg",

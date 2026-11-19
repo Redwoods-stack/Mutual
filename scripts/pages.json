@@ -1,0 +1,17 @@
+{
+ "site": "https://www.mutual.golf",
+ "pages": [
+  {"file": "index", "path": "/", "title": "Mutual — The New Culture of Golf", "h": "The new culture", "s": "of golf", "img": "assets/video/showreel-poster.jpg",
+   "desc": "Mutual is Indonesia’s modern golf media platform: YouTube shows, vertical series, tournaments, community nights and golf lifestyle products."},
+  {"file": "programs", "path": "/programs", "title": "Programs — YouTube Shows & Golf Series | Mutual", "h": "Stories from", "s": "every side of golf", "img": "assets/share/src-programs.jpg",
+   "desc": "Watch Mutual’s golf shows: ASMR, Fairway Talk, State of Par, Play Off, Coach Says, Golf Tour and Off Course — plus vertical series and editorial."},
+  {"file": "events", "path": "/events", "title": "Events — Mutual Major, Grounds Market & Coach Says Live | Mutual", "h": "Off the screen,", "s": "onto the course", "img": "assets/img/ev-market.jpg",
+   "desc": "Golf events by Mutual in Indonesia: Mutual Major tournaments and reality show, Mutual Grounds Market, Coach Says Live clinics and the Charity Classic."},
+  {"file": "products", "path": "/products", "title": "Products — Akross × Mutual & Golf Lifestyle Apparel | Mutual", "h": "Akross × Mutual", "s": "from the course to the city", "img": "assets/img/akross-editorial.jpg",
+   "desc": "Akross × Mutual, the latest collection, plus Mutual Club × Club of Five and Orangegrounds × The Mutual Golf — golf lifestyle apparel beyond the sport."},
+  {"file": "collaborations", "path": "/collaborations", "title": "Collaborations — Work With Mutual | Brand Partnerships in Golf", "h": "Work with", "s": "Mutual", "img": "assets/img/case-jic.jpg",
+   "desc": "130+ brands and 14 partner courses have worked with the Mutual golf community. Brand partnerships, events and activations — chat with us on WhatsApp."},
+  {"file": "about", "path": "/about", "title": "About Mutual — Media, Products & Real-Life Golf Experiences", "h": "Three pillars,", "s": "one culture", "img": "assets/img/ev-major-reality.jpg",
+   "desc": "Mutual is a modern golf media platform founded in 2025, built on three pillars: media & community, brand products and real-life experiences."}
+ ]
+}
