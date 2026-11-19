@@ -46,3 +46,14 @@ colours and type are Mutual's own.
 - Every logo also has a `-ink.png` twin in one dark green ink; `nmIn()` in main.js uses the ink one on light pages, `lgImg()` uses the colour one on dark sections (homepage "Off the screen"). The text name stays in the markup, visually hidden.
 - Owner chose "ink on cream" over green caption cards and logo-on-photo. Ticker and the small name lists in the homepage cards stay as text.
 - "Can We Even Swing?" uses the kit's "Convert Tryout" logo. Vol. 2, Reality Show and the Club & Card launch share the Mutual Major script logo with a note.
+
+## Google Drive asset refresh (Nov 2026)
+- Source: shared Drive folder "mutual-golf-dashboard" (assets/, LOGO/, Thumbnail October/).
+- Header + ribbon logo is now `assets/logos/mutual-green.png` (official dark-green stacked logo, from a 4167px master).
+  `mutual-lime.png` (lime version) is saved for dark sections but not used yet. `mutual-black.png` is no longer referenced.
+- Favicon `assets/logos/favicon.png` + `apple-touch-icon.png` = "MM LOGOGRAM VAR 1-3" (lime mark on dark green). `mark.png` (pattern) = the emblem cut from the green logo.
+- Real 4K YouTube thumbnails (resized to 1600w): yt-asmr (ASMR ep.14 Sentul), yt-fairway (Fairway Talk ep.7 pt.1),
+  yt-playoff (Almay vs Aldwin pt.1), yt-coach (Coach Says × Almay, Tee Off Strategy), ido-documentary (Dokumentasi ep.3).
+  Verticals (900w): v-hottakes (Arswandaru), v-restore (Almay "What's in My Golf Bag").
+- Program logos rebuilt from large masters: playoff.png (logo_r 2.17), golf-tour.png, each with a regenerated -ink twin.
+- Still low-res, no better file in Drive: yt-convert, yt-state, fd-groundwave, club-activations, talent, brands-wall.

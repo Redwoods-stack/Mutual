@@ -14,7 +14,7 @@
   function header() {
     const links = NAV.map(([t, h]) => `<a href="${h}"${h.replace(".html", "") === here ? ' aria-current="page"' : ""}>${t}</a>`).join("");
     return `<header class="site-header"><div class="wrap">
-      <a class="brand-logo" href="index.html" aria-label="Mutual — home"><img src="assets/logos/mutual-black.png" alt="Mutual" width="49" height="44"></a>
+      <a class="brand-logo" href="index.html" aria-label="Mutual — home"><img src="assets/logos/mutual-green.png" alt="Mutual" width="55" height="44"></a>
       <nav class="nav" aria-label="Main">${links}</nav>
       <a class="btn" href="collaborations.html#contact">Let’s collaborate</a>
       <button class="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
@@ -50,7 +50,7 @@
       <div class="hero-media">
         <video autoplay muted loop playsinline preload="metadata" poster="${esc(S.hero.poster)}">${S.hero.video_mobile ? `<source src="${esc(S.hero.video_mobile)}" type="video/mp4" media="(max-width:760px)">` : ""}<source src="${esc(S.hero.video)}" type="video/mp4"></video>
       </div>
-      <div class="ribbon"><div class="wrap"><img src="assets/logos/mutual-black.png" alt="Mutual"><span class="div"></span><p>${esc(S.hero.line)}</p></div></div>`;
+      <div class="ribbon"><div class="wrap"><img src="assets/logos/mutual-green.png" alt="Mutual"><span class="div"></span><p>${esc(S.hero.line)}</p></div></div>`;
   };
 
   R.intro = (S) => `<section class="sec intro"><div class="wrap">
