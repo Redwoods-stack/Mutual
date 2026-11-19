@@ -11,15 +11,20 @@
     tiktok: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 3c.4 2.2 1.8 3.7 4 3.9v3.2c-1.5 0-2.9-.4-4-1.2v6.3a6 6 0 1 1-6-6h.6v3.3a2.8 2.8 0 1 0 2.2 2.7V3h3.2z"/></svg>'
   };
 
+  let WA = "collaborations.html#contact";
+  const waAttr = () => `href="${WA}"${/^https:/.test(WA) ? ' target="_blank" rel="noopener"' : ""}`;
+  /* header logo: base (ring, poles, wordmark) + three flag layers that wave from their poles */
+  const logoAnim = () => `<span class="logo-anim"><img class="lb" src="assets/logos/mutual-green-base.png" alt="Mutual" width="55" height="44"><img class="fl f1" src="assets/logos/flag-1.png" alt=""><img class="fl f2" src="assets/logos/flag-2.png" alt=""><img class="fl f3" src="assets/logos/flag-3.png" alt=""></span>`;
+
   function header() {
     const links = NAV.map(([t, h]) => `<a href="${h}"${h.replace(".html", "") === here ? ' aria-current="page"' : ""}>${t}</a>`).join("");
     return `<header class="site-header"><div class="wrap">
-      <a class="brand-logo" href="index.html" aria-label="Mutual — home"><img src="assets/logos/mutual-green.png" alt="Mutual" width="55" height="44"></a>
+      <a class="brand-logo" href="index.html" aria-label="Mutual — home">${logoAnim()}</a>
       <nav class="nav" aria-label="Main">${links}</nav>
-      <a class="btn" href="collaborations.html#contact">Let’s collaborate</a>
+      <a class="btn" ${waAttr()}>Let’s collaborate</a>
       <button class="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
     </div></header>
-    <div class="mobile-menu" aria-hidden="true">${links}<a class="btn light" href="collaborations.html#contact">Let’s collaborate</a></div>`;
+    <div class="mobile-menu" aria-hidden="true">${links}<a class="btn light" ${waAttr()}>Let’s collaborate</a></div>`;
   }
 
   function footer(S) {
@@ -29,8 +34,8 @@
         <div><img src="assets/logos/mutual-white.png" alt="Mutual"><p>${esc(b.intro)}</p>
           <div class="socials">${b.socials.map((s) => `<a href="${esc(s.url)}" target="_blank" rel="noopener" aria-label="${s.k}">${ICON[s.k] || ""}</a>`).join("")}</div></div>
         <div><h5>Explore</h5><a href="programs.html">Programs</a><a href="events.html">Events</a><a href="products.html">Products</a></div>
-        <div><h5>Company</h5><a href="about.html">About</a><a href="collaborations.html">Collaborations</a><a href="collaborations.html#contact">Contact</a></div>
-        <div><h5>Say hello</h5><a href="mailto:${esc(b.email)}">${esc(b.email)}</a><a>${esc(b.address)}</a></div>
+        <div><h5>Company</h5><a href="about.html">About</a><a href="collaborations.html">Collaborations</a><a ${waAttr()}>Contact</a></div>
+        <div><h5>Contact us</h5><a ${waAttr()}>WhatsApp ${esc(b.whatsapp_display || "")}</a><a>${esc(b.address)}</a></div>
       </div>
       <div class="foot-bottom"><span>© ${new Date().getFullYear()} The Mutual Golf. All rights reserved.</span><span>${esc(b.group)}</span></div>
     </div></footer>`;
@@ -45,8 +50,7 @@
   R.hero = (S) => {
     const names = allPrograms(S).concat(["Mutual Major", "Coach Says Live", "Mutual Grounds Market"]);
     const items = names.map((n) => `<span>${esc(n)}</span><i></i>`).join("");
-    return `<div class="pattern" aria-hidden="true"></div>
-      <div class="ticker" aria-hidden="true"><div class="ticker-track">${items}${items}</div></div>
+    return `<div class="ticker" aria-hidden="true"><div class="ticker-track">${items}${items}</div></div>
       <div class="hero-media">
         <video autoplay muted loop playsinline preload="metadata" poster="${esc(S.hero.poster)}">${S.hero.video_mobile ? `<source src="${esc(S.hero.video_mobile)}" type="video/mp4" media="(max-width:760px)">` : ""}<source src="${esc(S.hero.video)}" type="video/mp4"></video>
       </div>
@@ -117,7 +121,7 @@
 
   R.work = (S) => `<section class="sec" id="work"><div class="wrap">
       <div class="eyebrow rv">Collaboration</div><h2 class="h-l rv" style="margin-top:10px">Work with Mutual</h2>
-      <div class="work-grid">${S.work.map((w) => `<div class="work rv"><h3>${esc(w.title)}</h3><p>${esc(w.text)}</p><a class="btn light" href="collaborations.html#contact">Send a brief</a></div>`).join("")}</div>
+      <div class="work-grid">${S.work.map((w) => `<div class="work rv"><h3>${esc(w.title)}</h3><p>${esc(w.text)}</p><a class="btn light" ${waAttr()}>Send a brief</a></div>`).join("")}</div>
     </div></section>`;
 
   /* inner pages */
@@ -149,6 +153,7 @@
   R.collabPage = (S) => pageHero("Collaborations", "Brands already <span class='serif'>trust our community</span>", "130+ brands have worked with our community — banks, telco, FMCG, retail, F&B, fashion, media and tech. Here is what we make together.") +
     R.collab(S, { full: true }) + R.work(S) +
     `<section class="sec" id="contact" style="background:var(--cream)"><div class="wrap"><div class="eyebrow">Contact</div><h2 class="h-l" style="margin-top:10px">Let’s collaborate</h2>
+      <p style="color:var(--ink-2);max-width:560px;margin-top:14px">The fastest way to reach us is WhatsApp. You can also leave a message below.</p><p style="margin-top:18px"><a class="btn" ${waAttr()}>Chat on WhatsApp · ${esc(S.brand.whatsapp_display || "")}</a></p>
       <form class="contact-form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/thanks.html">
         <input type="hidden" name="form-name" value="contact"><p hidden><label>Leave empty <input name="bot-field"></label></p>
         <label>Name<input name="name" required autocomplete="name"></label>
@@ -164,8 +169,12 @@
     return pageHero("About", "The new <span class='serif'>culture of golf</span>", esc(S.brand.intro)) +
       `<section class="sec"><div class="wrap"><div class="eyebrow rv">Channel insights</div><div class="stats rv" style="margin:14px 0 40px">${stats(S.stats)}</div>
         ${A.show_audience ? `<div class="facts rv">${A.audience.map((f) => `<div><small>${esc(f.k)}</small><b>${esc(f.v)}</b></div>`).join("")}</div>` : ""}</div></section>
-      <section class="sec" style="background:var(--cream)"><div class="wrap"><div class="sec-head rv"><div><div class="eyebrow">What we do</div><h2 class="h-l">Three ways <span class="serif">into golf</span></h2></div></div>
-        <div class="prog-list three">${[["Media & community", "YouTube, verticals and feed — 2.4M reached and a community of 10K+ around golf culture.", "pl-media.jpg"], ["Brand products", "Golf lifestyle merchandise with Club of Five, Orangegrounds and Akross — from the course to the city.", "pl-brand.jpg"], ["Real-life experience", "Tournaments, a reality show, markets, clinics and community nights — golf off the screen.", "pl-irl.jpg"]].map(([t, x, i]) => `<div class="prog tall rv"><div class="pg-img"><img src="assets/img/${i}" alt="" loading="lazy"></div><div><h3>${t}</h3><p style="margin-top:6px">${x}</p></div></div>`).join("")}</div></div></section>
+      <section class="sec ab-intro"><div class="wrap"><div class="eyebrow rv">What we do</div><h2 class="h-l rv" style="margin-top:10px">Three pillars, <span class="serif">one culture</span></h2></div></section>
+      ${(A.pillars || []).map((P, k) => `<section class="ab-pil${k % 2 ? " flip" : ""}"><div class="wrap">
+        <div class="ab-txt rv"><div class="ab-n">${esc(P.n)}</div><h3>${esc(P.title)} <span class="serif">${esc(P.serif)}</span></h3><p>${esc(P.text)}</p>
+          <ul>${P.points.map((x) => `<li>${esc(x)}</li>`).join("")}</ul><a class="link-arrow" href="${esc(P.href)}">${esc(P.link)}</a></div>
+        <div class="ab-mos rv">${P.images.map((im) => `<div><img src="${esc(im)}" alt="" loading="lazy"></div>`).join("")}</div>
+      </div></section>`).join("")}
       ${A.show_ecosystem ? `<section class="sec eco"><div class="wrap"><div class="eyebrow rv">Our ecosystem</div><h2 class="h-l rv" style="margin-top:10px">${esc(A.group_title)}</h2><p class="lead rv">${esc(A.group_text)}</p>
         <div class="eco-stats rv">${stats(A.group_stats)}</div>
         ${Object.keys(cats).map((k) => `<div class="eco-cat rv"><h4>${cats[k]} · ${A.group.filter((g) => g.cat === k).length}</h4><div class="eco-logos">${A.group.filter((g) => g.cat === k).map((g) => `<img src="${esc(g.logo)}" alt="${esc(g.name)}" title="${esc(g.name)}" loading="lazy">`).join("")}</div></div>`).join("")}
@@ -213,6 +222,7 @@
   }
 
   fetch("data/site.json", { cache: "no-cache" }).then((r) => r.json()).then((S) => {
+    if (S.brand.whatsapp) WA = "https://wa.me/" + S.brand.whatsapp;
     document.getElementById("header").outerHTML = header();
     const main = document.getElementById("main");
     main.innerHTML = (PAGES[here] || PAGES.index).map((k) => R[k](S)).join("");

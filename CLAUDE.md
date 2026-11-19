@@ -98,3 +98,12 @@ colours and type are Mutual's own.
   To feature the next drop, move `featured` + banner/gallery to that product. Homepage products section is unchanged.
 - Akross photos: akross-editorial (4K Drive "Akross Teaser Editorial", 1400w), akross-locker ("Teaser Daru Andrey", 1000w),
   akross-studio / akross-course (the two halves of merch-akross.jpg).
+
+## Round 7 (Nov 2026)
+- Contact = WhatsApp: `brand.whatsapp` (6281318627650) / `whatsapp_display`. Every "Let's collaborate", "Send a brief" and footer
+  Contact link opens wa.me (`waAttr()` in main.js). The Netlify form stays on Collaborations as a second option under a WhatsApp button.
+  The placeholder email is no longer shown.
+- Header logo is animated: `logoAnim()` = mutual-green-base.png (ring, poles, wordmark) + flag-1/2/3.png layers positioned in %
+  and waving from the pole side (`@keyframes flagWave`, different speeds). Respects reduced motion.
+- Removed the drifting logo pattern band above the homepage ticker. Phone hero video is 16:9 (whole frame, no crop).
+- About: `about.pillars` (3 pillars: text, points, link, 4 images = tall, wide, 2 small) replaces the three-card row.

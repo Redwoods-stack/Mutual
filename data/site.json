@@ -21,7 +21,9 @@
     "url": "https://www.tiktok.com/"
    }
   ],
-  "group": "Part of Redwoods Digital Growth Group"
+  "group": "Part of Redwoods Digital Growth Group",
+  "whatsapp": "6281318627650",
+  "whatsapp_display": "+62 813-1862-7650"
  },
  "hero": {
   "video": "assets/video/showreel-1080.mp4",
@@ -903,7 +905,69 @@
    }
   ],
   "show_audience": false,
-  "show_ecosystem": false
+  "show_ecosystem": false,
+  "pillars": [
+   {
+    "n": "01",
+    "title": "Media & community",
+    "serif": "on every screen",
+    "text": "Shows, vertical series and stories that open golf up to people inside and outside the game — and a community that grows around them.",
+    "points": [
+     "8 YouTube shows, from ASMR to Play Off",
+     "5 vertical series for Instagram and TikTok",
+     "Feed & editorial: Social Round, Unwritten, Groundwave, re:store",
+     "2.4M people reached · 300M+ media views"
+    ],
+    "href": "programs.html",
+    "link": "See all programs",
+    "images": [
+     "assets/img/v-hottakes.jpg",
+     "assets/img/yt-fairway.jpg",
+     "assets/img/fd-social.jpg",
+     "assets/img/fd-unwritten.jpg"
+    ]
+   },
+   {
+    "n": "02",
+    "title": "Brand products",
+    "serif": "beyond the sport",
+    "text": "Apparel and collaborations that carry the Mutual lifestyle from the course to the city, made with brands that share the culture.",
+    "points": [
+     "Akross × Mutual — the latest collection",
+     "Mutual Club × Club of Five",
+     "Orangegrounds × The Mutual Golf",
+     "Mutual Club pop-ups and club days"
+    ],
+    "href": "products.html",
+    "link": "See products",
+    "images": [
+     "assets/img/akross-locker.jpg",
+     "assets/img/merch-clubof5.jpg",
+     "assets/img/akross-studio.jpg",
+     "assets/img/akross-course.jpg"
+    ]
+   },
+   {
+    "n": "03",
+    "title": "Real-life experience",
+    "serif": "onto the course",
+    "text": "Tournaments, a reality show, markets, clinics and community nights — organised, produced and filmed by Mutual.",
+    "points": [
+     "Mutual Major — tournament and reality show",
+     "Mutual Grounds Market",
+     "Coach Says Live clinics",
+     "Charity Classic for Marriott Business Councils"
+    ],
+    "href": "events.html",
+    "link": "See all events",
+    "images": [
+     "assets/img/ev-market.jpg",
+     "assets/img/ev-major-reality.jpg",
+     "assets/img/ev-pre.jpg",
+     "assets/img/ev-major2.jpg"
+    ]
+   }
+  ]
  },
  "experience_events": [
   "Mutual Major Vol. 2",
