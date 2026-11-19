@@ -96,10 +96,22 @@
   };
 
 
-  R.videos = (S) => `<section class="sec"><div class="wrap">
+  /* Latest videos from YouTube's public feeds (/api/videos, fallback data/videos.json). V = { latest, programs }.
+     Each card is a real link to YouTube; with JavaScript a tap plays it in a player window on the site. */
+  let V = null;
+  const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  const vDate = (d) => { const [y, mo, da] = d.split("-"); return `${MONTHS[+mo - 1]} ${+da}, ${y}`; };
+  const vViews = (n) => n >= 1e6 ? (n / 1e6).toFixed(1).replace(/\.0$/, "") + "M views" : n >= 1e3 ? (n / 1e3).toFixed(1).replace(/\.0$/, "") + "K views" : n + " views";
+  const vCard = (v, cls) => `<a class="vid yt ${cls || ""}" href="https://www.youtube.com/watch?v=${esc(v.id)}" data-yt="${esc(v.id)}" target="_blank" rel="noopener"><div class="thumb"><img src="https://i.ytimg.com/vi/${esc(v.id)}/maxresdefault.jpg" data-fb="https://i.ytimg.com/vi/${esc(v.id)}/mqdefault.jpg" alt="" loading="lazy"><span class="play" aria-hidden="true"></span></div><div class="nm-body"><small>${vDate(v.date)} · ${vViews(v.views)}</small><h4>${esc(v.title)}</h4></div></a>`;
+
+  R.videos = (S) => V && V.latest && V.latest.length ? `<section class="sec"><div class="wrap">
+      <div class="sec-head rv"><div><div class="eyebrow">Latest videos</div><h2 class="h-l">Fresh from <span class="serif">the channel</span></h2></div><a class="link-arrow" href="/programs#youtube">All programs</a></div>
+      <div class="shelf">${V.latest.slice(0, 8).map((v) => vCard(v, "rv")).join("")}</div>
+    </div></section><div class="wrap"><hr class="hair"></div>` : `<section class="sec"><div class="wrap">
       <div class="sec-head rv"><div class="eyebrow">Our YouTube shows</div><a class="link-arrow" href="/programs#youtube">See all</a></div>
       <div class="shelf">${S.programs.youtube.slice(0, 8).map((p) => `<a class="vid rv" href="/programs#youtube"><div class="thumb"><img src="${esc(p.img)}" alt="" loading="lazy"></div><div class="nm-body"><small>${esc(p.short)}</small><h4>${nmIn(p, 62)}</h4></div></a>`).join("")}</div>
     </div></section><div class="wrap"><hr class="hair"></div>`;
+  const epRow = (p) => { const e = V && V.programs && V.programs[p.name]; return e && e.length ? `<div class="eps"><div class="eps-h">Latest episodes</div><div class="eps-row">${e.slice(0, 3).map((v) => vCard(v)).join("")}</div></div>` : ""; };
 
   R.reels = (S) => `<section class="sec reels"><div class="wrap">
       <div class="rv"><div class="eyebrow">Vertical series</div><h2 class="h-l">Golf in under <span class="serif">a minute.</span></h2><p>Snackable series for Instagram and TikTok — quick, sharp and made to be shared.</p><a class="link-arrow" href="/programs#vertical">All vertical series</a></div>
@@ -127,7 +139,7 @@
 
   /* inner pages */
   const pageHero = (eyebrow, title, text, tabs) => `<section class="page-hero"><div class="wrap"><div class="eyebrow">${eyebrow}</div><h1 class="h-xl">${title}</h1><p>${text}</p>${tabs ? `<div class="tabs">${tabs.map(([t, h]) => `<a href="${h}">${t}</a>`).join("")}</div>` : ""}</div></section>`;
-  const progCards = (list, cls, tall) => `<div class="prog-list ${cls || ""}">${list.map((p) => `<div class="prog rv${tall ? " tall" : ""}"><div class="pg-img"><img src="${esc(p.img)}" alt="" loading="lazy"></div><div class="nm-body"><h3>${nmIn(p, tall ? 78 : 104)}</h3><div class="short">${esc(p.short)}</div><p>${esc(p.text)}</p></div></div>`).join("")}</div>`;
+  const progCards = (list, cls, tall) => `<div class="prog-list ${cls || ""}">${list.map((p) => `<div class="prog rv${tall ? " tall" : ""}"><div class="pg-img"><img src="${esc(p.img)}" alt="" loading="lazy"></div><div class="nm-body"><h3>${nmIn(p, tall ? 78 : 104)}</h3><div class="short">${esc(p.short)}</div><p>${esc(p.text)}</p>${epRow(p)}</div></div>`).join("")}</div>`;
 
   R.programsPage = (S) => pageHero("Programs", "Stories from <span class='serif'>every side</span> of golf", "Video-based programs that show the many sides of golf — diverse, true to the spirit of the game, and open to people outside the golf circle.", [["YouTube shows", "/programs#youtube"], ["Vertical series", "/programs#vertical"], ["Feed & editorial", "/programs#editorial"]]) +
     `<section class="sec" id="youtube"><div class="wrap"><div class="sec-head rv"><div><div class="eyebrow">Long-form</div><h2 class="h-l">YouTube shows</h2></div></div>${progCards(S.programs.youtube)}</div></section>
@@ -210,6 +222,25 @@
     });
   }
 
+  function videosInit() {
+    document.querySelectorAll(".yt img[data-fb]").forEach((im) => {
+      const fix = () => { if (im.naturalWidth && im.naturalWidth <= 120 && im.src !== im.dataset.fb) im.src = im.dataset.fb; };
+      im.addEventListener("load", fix); im.addEventListener("error", () => { if (im.src !== im.dataset.fb) im.src = im.dataset.fb; }); if (im.complete) fix();
+    });
+    let box = null;
+    const close = () => { if (box) { box.remove(); box = null; document.body.classList.remove("yt-open"); } };
+    document.addEventListener("click", (ev) => {
+      const a = ev.target.closest && ev.target.closest("a[data-yt]");
+      if (!a || ev.metaKey || ev.ctrlKey || ev.shiftKey) return;
+      ev.preventDefault(); close();
+      box = document.createElement("div"); box.className = "yt-modal";
+      box.innerHTML = `<button class="yt-x" aria-label="Close video">×</button><div class="yt-frame"><iframe src="https://www.youtube-nocookie.com/embed/${encodeURIComponent(a.dataset.yt)}?autoplay=1&rel=0&playsinline=1" title="Video player" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe></div>`;
+      box.addEventListener("click", (e2) => { if (!e2.target.closest(".yt-frame")) close(); });
+      document.body.appendChild(box); document.body.classList.add("yt-open");
+    });
+    document.addEventListener("keydown", (ev) => { if (ev.key === "Escape") close(); });
+  }
+
   function menu() {
     const b = document.querySelector(".burger"), m = document.querySelector(".mobile-menu");
     if (!b) return;
@@ -217,13 +248,17 @@
     m.querySelectorAll("a").forEach((a) => a.addEventListener("click", () => document.body.classList.remove("menu-open")));
   }
 
-  fetch("data/site.json", { cache: "no-cache" }).then((r) => r.json()).then((S) => {
+  const getJSON = (u, ms) => { const c = new AbortController(); const t = setTimeout(() => c.abort(), ms); return fetch(u, { signal: c.signal }).then((r) => { if (!r.ok) throw new Error(u + " " + r.status); return r.json(); }).finally(() => clearTimeout(t)); };
+  const needVideos = here === "index" || here === "programs";
+  const videos = needVideos ? getJSON("/api/videos", 3500).then((v) => { if (!v.latest) throw new Error("no videos"); return v; }).catch(() => getJSON("data/videos.json", 4000)).catch(() => null) : Promise.resolve(null);
+  Promise.all([fetch("data/site.json", { cache: "no-cache" }).then((r) => r.json()), videos]).then(([S, vids]) => {
+    V = vids;
     if (S.brand.whatsapp) WA = "https://wa.me/" + S.brand.whatsapp;
     document.getElementById("header").outerHTML = header();
     const main = document.getElementById("main");
     main.innerHTML = (PAGES[here] || PAGES.index).map((k) => R[k](S)).join("");
     document.getElementById("footer").outerHTML = footer(S);
-    menu(); reveal(); cycleCards();
+    menu(); reveal(); cycleCards(); videosInit();
     if (location.hash) { const t = document.querySelector(location.hash); if (t) setTimeout(() => t.scrollIntoView(), 50); }
   }).catch((e) => { console.error(e); document.getElementById("main").innerHTML = '<p style="padding:80px 24px">Could not load content.</p>'; });
 })();

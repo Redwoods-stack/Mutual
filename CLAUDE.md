@@ -130,3 +130,15 @@ colours and type are Mutual's own.
   directions (`hero.marquee` in site.json: rows of [text, style]; b = solid caps, o = outlined caps, i = serif italic).
   Other options shown and not chosen: logo strip, "Now showing" bar, thumbnail filmstrip.
 - When piping `scripts/prerender.js` output, never cut it with `head` — that kills it mid-run and leaves pages without content.
+
+## YouTube videos without an API key (Nov 2026)
+- `netlify/functions/videos.mjs` serves **/api/videos** from YouTube's public feeds for @TheMutualGolf (channel UCI6C1BqCtVmBl2a0zQ8zjkg):
+  long videos (playlist `UULF…`), Shorts (`UUSH…`, only used to exclude them) and one playlist per program. Max 15 per feed, no durations.
+  `PROGRAMS` in that file maps program names (as in site.json) → playlist id + title pattern. Coach Says and Off Course have no
+  playlist id yet (matched by title from the latest 15 only; Off Course currently shows none). Teaser clips ("out now", "is out",
+  "have you watched") are filtered out by title.
+- Edge-cached 30 min + stale-while-revalidate, so the function runs rarely. Fallback: `data/videos.json`
+  (`node scripts/videos-snapshot.mjs`), also what prerender bakes into the HTML — refresh it before each prerender.
+- Site: homepage "Latest videos" (8 newest) and "Latest episodes" (3) under each YouTube show on Programs. Cards are real YouTube
+  links (`a[data-yt]`); main.js opens them in an on-site player window (youtube-nocookie embed). Thumbnails: maxresdefault with
+  fallback to mqdefault when YouTube returns its 120px placeholder.
