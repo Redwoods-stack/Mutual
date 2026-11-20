@@ -63,5 +63,5 @@ for p in cfg['pages']:
     open(p['file'] + '.html', 'w').write(SHELL.format(title=e(p['title']), desc=e(p['desc']), url=url, img=f"{SITE}/assets/share/{p['file']}.jpg", robots='index,follow,max-image-preview:large', ld=ld(*objs), page=p['file']))
 open('404.html', 'w').write(SHELL.format(title='Page not found — Mutual', desc='This page could not be found.', url=SITE + '/', img=SITE + '/assets/share/index.jpg', robots='noindex', ld='', page='notfound'))
 open('sitemap.xml', 'w').write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + ''.join(f'  <url><loc>{SITE}{p["path"]}</loc><lastmod>{today}</lastmod></url>\n' for p in cfg['pages']) + '</urlset>\n')
-open('robots.txt', 'w').write(f'User-agent: *\nAllow: /\nDisallow: /admin\n\nSitemap: {SITE}/sitemap.xml\n')
+open('robots.txt', 'w').write(f'User-agent: *\nAllow: /\nDisallow: /admin\nDisallow: /cms/\nDisallow: /api/\n\nSitemap: {SITE}/sitemap.xml\n')
 print('wrote', len(cfg['pages']), 'pages + 404, sitemap.xml, robots.txt')

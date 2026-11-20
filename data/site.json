@@ -136,7 +136,8 @@
      "img": "assets/img/yt-offcourse.jpg",
      "tall": false
     }
-   ]
+   ],
+   "source": "youtube"
   },
   {
    "title": "Vertical series",
@@ -179,7 +180,8 @@
      "tall": true
     }
    ],
-   "layout": "strip"
+   "layout": "strip",
+   "source": "vertical"
   },
   {
    "title": "Feed & editorial",
@@ -215,7 +217,8 @@
      "tall": true
     }
    ],
-   "layout": "strip"
+   "layout": "strip",
+   "source": "editorial"
   },
   {
    "title": "Real-life experiences",
@@ -245,7 +248,8 @@
      "img": "assets/img/ev-pre.jpg",
      "tall": false
     }
-   ]
+   ],
+   "source": "events"
   }
  ],
  "programs": {
@@ -415,7 +419,8 @@
    ],
    "tag": "Flagship",
    "logo": "assets/logos/programs/charity-classic.png",
-   "logo_r": 1.7
+   "logo_r": 1.7,
+   "home": true
   },
   {
    "name": "Mutual Major Vol. 2",
@@ -444,7 +449,8 @@
    "tag": "Tournament",
    "logo": "assets/logos/programs/mutual-major.png",
    "logo_r": 2.58,
-   "logo_note": "Vol. 2"
+   "logo_note": "Vol. 2",
+   "home": true
   },
   {
    "name": "Mutual Major · Reality Show",
@@ -461,7 +467,8 @@
    "tag": "Reality show",
    "logo": "assets/logos/programs/mutual-major.png",
    "logo_r": 2.58,
-   "logo_note": "Reality show"
+   "logo_note": "Reality show",
+   "home": true
   },
   {
    "name": "Mutual Major Vol. 1",
@@ -490,7 +497,8 @@
    "tag": "Tournament",
    "logo": "assets/logos/programs/mutual-major-vol1.png",
    "logo_r": 2.25,
-   "logo_note": "Vol. 1"
+   "logo_note": "Vol. 1",
+   "home": true
   },
   {
    "name": "Mutual Grounds Market",
@@ -518,7 +526,8 @@
    ],
    "tag": "Market",
    "logo": "assets/logos/programs/mutual-grounds-market.png",
-   "logo_r": 2.38
+   "logo_r": 2.38,
+   "home": true
   },
   {
    "name": "Coach Says Live",
@@ -550,7 +559,8 @@
    "tag": "Community night",
    "logo": "assets/logos/programs/mutual-major.png",
    "logo_r": 2.58,
-   "logo_note": "Pre-event"
+   "logo_note": "Pre-event",
+   "home": true
   }
  ],
  "cases": [
@@ -1006,13 +1016,5 @@
     ]
    }
   ]
- },
- "experience_events": [
-  "Mutual Major Vol. 2",
-  "Mutual Major · Reality Show",
-  "Mutual Grounds Market",
-  "Charity Classic Golf Tournament",
-  "Mutual Major Vol. 1",
-  "Mutual Club & Card launch"
- ]
+ }
 }

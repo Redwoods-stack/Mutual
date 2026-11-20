@@ -164,3 +164,25 @@ colours and type are Mutual's own.
 ## Phone menu (Nov 2026)
 - Owner found the phone menu "too huge" (34px links overflowed; the button inherited that size). Now 21px links with hairlines and
   arrows, current page in orange, normal-size orange button (block "Phone menu" at the end of style.css). Keep it compact.
+
+## Dashboard / CMS (Nov 2026)
+- **https://dashboard.mutual.golf** → `/admin` (`admin.html` + `cms/admin.js` + `cms/admin.css`). Sign-in with one shared password,
+  then sections: Homepage, Programs, Events, Products, Collaborations, About, Contact & socials. "Save changes" = one commit to `main`
+  by `netlify/functions/cms.mjs` (**POST /api/cms**: login, load, save) = Netlify redeploys (~1 min).
+- **`cms/schema.mjs` is the single list of editable fields.** The dashboard builds its forms from it and the server (`cms/apply.mjs`)
+  accepts only those fields, each checked (length, https links, pictures only from `assets/`). To make something editable, add it there.
+  Programs: text + cover only (no add/remove — names are tied to logos and YouTube playlists). Events, products, case studies: add / remove / reorder.
+- Pictures: resized in the browser (max 1800 px, JPEG), checked on the server (real JPG/PNG/WebP, ≤1.5 MB), committed to `assets/uploads/`.
+- Netlify environment variables (never in the repo): `CMS_PASSWORD_HASH` (scrypt hash; the password itself is stored nowhere),
+  `CMS_SECRET` (signs login tokens: 12 h, or 30 days with "keep me signed in"), `CMS_GITHUB_TOKEN` (owner-created fine-grained token,
+  this repo only, Contents read+write). Without the GitHub token the dashboard opens read-only. To change the password: new hash → update
+  `CMS_PASSWORD_HASH`; to sign everyone out: change `CMS_SECRET`.
+- Security: same-origin POST only, wrong passwords delayed 1.2 s, signed expiring tokens, strict CSP + no-frame + noindex headers on `/admin`,
+  no innerHTML with content in admin.js, save refused if the file changed since it was loaded (409).
+- Data changes for the CMS: `pillars[].source` (youtube | vertical | editorial | events) — homepage cards take picture/logo from the
+  program/event by name (`pillarLive()`); `events[].home: true` = shown in the homepage "Off the screen" grid (replaced `experience_events`).
+- **A dashboard save does not re-run prerender**, so the text baked into the HTML for search engines lags until the next
+  `seo.py` + `prerender.js` run; visitors always see the fresh content (main.js renders from site.json). Re-run prerender when working on the site.
+  Always `git fetch` + merge `origin/main` before pushing — the dashboard commits to `main` by itself.
+- Testing: `node scripts/cms-dev.mjs 8090` (real function + in-memory stand-in for GitHub; password `test-password-123`),
+  then `node scripts/cms-test.mjs http://localhost:8090` (35 security/behaviour checks).

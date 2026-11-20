@@ -12,6 +12,62 @@
   [headers.values]
     Cache-Control = "public, max-age=0, must-revalidate"
 
+# Dashboard: dashboard.mutual.golf opens the sign-in page; the public pages are not duplicated on that address.
+[[redirects]]
+  from = "https://dashboard.mutual.golf/"
+  to = "https://dashboard.mutual.golf/admin"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "https://dashboard.mutual.golf/programs"
+  to = "https://www.mutual.golf/programs"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://dashboard.mutual.golf/events"
+  to = "https://www.mutual.golf/events"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://dashboard.mutual.golf/products"
+  to = "https://www.mutual.golf/products"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://dashboard.mutual.golf/collaborations"
+  to = "https://www.mutual.golf/collaborations"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://dashboard.mutual.golf/about"
+  to = "https://www.mutual.golf/about"
+  status = 301
+  force = true
+
+[[headers]]
+  for = "/admin*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "no-referrer"
+    Cache-Control = "no-store"
+    Strict-Transport-Security = "max-age=31536000"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+    Content-Security-Policy = "default-src 'none'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' blob: data:; connect-src 'self'; base-uri 'none'; form-action 'self'; frame-ancestors 'none'"
+
+[[headers]]
+  for = "/cms/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+    X-Content-Type-Options = "nosniff"
+    Cache-Control = "no-cache"
+
 # Clean addresses: /programs instead of /programs.html (Netlify serves programs.html at /programs by itself)
 [[redirects]]
   from = "/index.html"

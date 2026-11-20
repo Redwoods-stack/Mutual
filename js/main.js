@@ -70,6 +70,15 @@
      tapping a logo picks it. Landscape cards cross-fade one picture; layout "strip" cards (vertical, editorial)
      show three tall pictures side by side, the current one bright, sliding along as it cycles.
      Data: pillars[].items {name, logo, logo_r, logo_note, img}, pillars[].layout. */
+  /* A homepage card lists its items by name; picture and logo always come from the program / event itself
+     (pillar.source = youtube | vertical | editorial | events), so one edit in the dashboard updates both places.
+     An item whose program or event no longer exists, or has no picture, is left out. */
+  const pillarLive = (S, p) => {
+    const src = p.source === "events" ? S.events : (S.programs || {})[p.source];
+    if (!src) return p;
+    return Object.assign({}, p, { items: p.items.map((it) => { const f = src.find((x) => x.name === it.name); return f && f.img ? Object.assign({}, it, { img: f.img, logo: f.logo, logo_r: f.logo_r, logo_note: f.logo_note }) : null; }).filter(Boolean) });
+  };
+
   /* Running strip of every program's logo (unique logos from programs.youtube / vertical / editorial), above "What we make". */
   const logoStrip = (S) => {
     const seen = new Set(), list = [...S.programs.youtube, ...S.programs.vertical, ...S.programs.editorial].filter((p) => p.logo && !seen.has(p.logo) && seen.add(p.logo));
@@ -79,12 +88,12 @@
 
   R.make = (S) => `<section class="sec sec-make">${logoStrip(S)}<div class="wrap">
       <div class="sec-head rv"><div><div class="eyebrow">What we make</div><h2 class="h-l">On every screen, <span class="serif">and off it</span></h2></div><a class="link-arrow" href="/programs">All programs</a></div>
-      <div class="cards-2">${S.pillars.map((p) => `<div class="mk rv" data-cycle>
+      <div class="cards-2">${S.pillars.map((p) => pillarLive(S, p)).map((p) => `<div class="mk rv" data-cycle>
         <a class="mk-img${p.layout === "strip" ? " strip" : ""}" href="${esc(p.href)}" aria-label="${esc(p.title)}">${p.layout === "strip"
           ? `<div class="mk-track">${p.items.map((it, i) => `<div class="mk-slide${i === 0 ? " on" : ""}"><img class="mk-pic" src="${esc(it.img)}" alt="${esc(it.name)}" loading="lazy"></div>`).join("")}</div>`
           : p.items.map((it, i) => `<div class="mk-slide${i === 0 ? " on" : ""}"><img class="mk-pic" src="${esc(it.img)}" alt="${esc(it.name)}" loading="lazy"></div>`).join("")}</a>
         <div class="mk-body"><a class="mk-top" href="${esc(p.href)}"><h3>${esc(p.title)}</h3><span class="circle">→</span></a><p>${esc(p.text)}</p>
-        <div class="mk-logos">${p.items.map((it, i) => `<button type="button" class="mk-lg${i === 0 ? " on" : ""}" aria-label="${esc(it.name)}"><img src="${esc(it.logo.replace(".png", "-ink.png"))}" alt="" style="width:${Math.round(34 * Math.sqrt(it.logo_r || 2))}px">${it.logo_note ? `<i>${esc(it.logo_note)}</i>` : ""}</button>`).join("")}</div></div></div>`).join("")}</div>
+        <div class="mk-logos">${p.items.map((it, i) => `<button type="button" class="mk-lg${i === 0 ? " on" : ""}" aria-label="${esc(it.name)}">${it.logo ? `<img src="${esc(it.logo.replace(".png", "-ink.png"))}" alt="" style="width:${Math.round(34 * Math.sqrt(it.logo_r || 2))}px">` : `<b>${esc(it.name)}</b>`}${it.logo_note ? `<i>${esc(it.logo_note)}</i>` : ""}</button>`).join("")}</div></div></div>`).join("")}</div>
     </div></section>`;
 
   /* program / event logos in place of names (data: logo, logo_r, logo_note). Ink version (-ink.png) on light
@@ -93,12 +102,12 @@
   const nmIn = (p, base) => p.logo ? `<span class="nm-txt">${esc(p.name)}</span><span class="nm-in">${lgImg(p, base, true)}</span>` : esc(p.name);
 
   R.experience = (S) => {
-    const evs = (S.experience_events || []).map((n) => S.events.find((e) => e.name === n)).filter(Boolean);
+    const evs = S.events.filter((e) => e.home && e.img).slice(0, 6);
     return `<section class="exp"><img class="exp-bg" src="assets/img/exp-bg.jpg" alt="" loading="lazy"><div class="wrap">
       <div class="eyebrow rv">Experience</div>
       <h2 class="h-l rv">Off the screen, <span class="serif">onto the course</span></h2>
       <p class="lead rv">Tournaments, a reality show, markets, clinics and community nights — Mutual brings its programs to real courses with real people.</p>
-      <div class="exp-grid">${evs.map((e) => `<a class="exp-card rv" href="/events"><div class="exp-ph"><img src="${esc(e.img)}" alt="${esc(e.name)}" loading="lazy"></div><div class="exp-meta"><span class="nm-dark">${e.logo ? lgImg(e, 64) : esc(e.name)}</span><span class="exp-date">${esc(e.date)} · ${esc(e.tag)}</span></div></a>`).join("")}</div>
+      <div class="exp-grid">${evs.map((e) => `<a class="exp-card rv" href="/events"><div class="exp-ph"><img src="${esc(e.img)}" alt="${esc(e.name)}" loading="lazy"></div><div class="exp-meta"><span class="nm-dark">${e.logo ? lgImg(e, 64) : esc(e.name)}</span><span class="exp-date">${[e.date, e.tag].filter(Boolean).map(esc).join(" · ")}</span></div></a>`).join("")}</div>
       <a class="link-arrow exp-all rv" href="/events">All events</a>
     </div></section>`;
   };
@@ -155,7 +164,7 @@
      <section class="sec" id="editorial"><div class="wrap"><div class="sec-head rv"><div><div class="eyebrow">Feed</div><h2 class="h-l">Feed & editorial</h2></div></div>${progCards(S.programs.editorial, "four", true)}</div></section>`;
 
   R.eventsPage = (S) => pageHero("Events", "Off the screen, <span class='serif'>onto the course</span>", "Tournaments, a reality show, markets, clinics and community nights — organised, produced and filmed by Mutual.") +
-    `<section class="sec"><div class="wrap">${S.events.map((e) => `<article class="ev rv"><div class="ev-img"><img src="${esc(e.img)}" alt="${esc(e.name)}" loading="lazy"></div><div class="nm-body"><span class="tag">${esc(e.tag)}</span><h3>${nmIn(e, 150)}</h3><div class="meta">${esc(e.date)} · ${esc(e.place)}</div><p>${esc(e.text)}</p>${e.stats.length ? `<div class="ev-stats">${e.stats.map((s) => `<div><b>${esc(s[0])}</b><span>${esc(s[1])}</span></div>`).join("")}</div>` : ""}</div></article>`).join("")}</div></section>` + R.work(S);
+    `<section class="sec"><div class="wrap">${S.events.map((e) => `<article class="ev rv"><div class="ev-img">${e.img ? `<img src="${esc(e.img)}" alt="${esc(e.name)}" loading="lazy">` : ""}</div><div class="nm-body">${e.tag ? `<span class="tag">${esc(e.tag)}</span>` : ""}<h3>${nmIn(e, 150)}</h3><div class="meta">${[e.date, e.place].filter(Boolean).map(esc).join(" · ")}</div><p>${esc(e.text)}</p>${(e.stats || []).length ? `<div class="ev-stats">${e.stats.map((s) => `<div><b>${esc(s[0])}</b><span>${esc(s[1])}</span></div>`).join("")}</div>` : ""}</div></article>`).join("")}</div></section>` + R.work(S);
 
   /* Products page: the product marked "featured" (latest drop) gets a campaign banner, a text ribbon and a
      photo strip; the rest follow as "Past drops & activations". Without a featured product it is a plain grid. */
