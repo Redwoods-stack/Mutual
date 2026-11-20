@@ -186,3 +186,9 @@ colours and type are Mutual's own.
   Always `git fetch` + merge `origin/main` before pushing — the dashboard commits to `main` by itself.
 - Testing: `node scripts/cms-dev.mjs 8090` (real function + in-memory stand-in for GitHub; password `test-password-123`),
   then `node scripts/cms-test.mjs http://localhost:8090` (35 security/behaviour checks).
+- **Dashboard redesign (Nov 2026):** dark workspace by default (Light/Dark switch in the sidebar, saved per browser), icon sidebar,
+  Overview page (counts, a picture tile per section, latest YouTube videos from /api/videos), picture cards for every list that has a
+  photo (click → slide-in edit panel with drag-and-drop picture, Done / Remove; arrows on a card reorder), inline tiles for short lists
+  (numbers, links), a Discard button, character counters. Owner asked for "more visual like Maple or better". Same schema and server;
+  `cms/admin.js` + `cms/admin.css` only. The dashboard's CSP allows `https://i.ytimg.com` images (admin.html meta + netlify.toml).
+  No inline style attributes in admin.js (CSP blocks them) — use classes.
